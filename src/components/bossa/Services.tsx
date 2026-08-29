@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpRight, Check } from "lucide-react";
+import Image from "next/image";
 import { SERVICES } from "./data";
 import { useParallax } from "./useParallax";
 
@@ -52,10 +53,12 @@ export function Services() {
               {/* Image com zoom no hover */}
               <div className="relative h-64 overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={service.image}
                   alt={service.title}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-jacaranda via-jacaranda/30 to-transparent" />
                 {/* Tag com fundo verde-oliva alternando com couro */}

@@ -17,7 +17,9 @@ import type { NextConfig } from "next";
  *   (ex: https://usuario.github.io/studio-bossa/ -> basePath: "/studio-bossa").
  *   ⚠️ IMPORTANTE: substitua "studio-bossa" pelo nome exato do seu repositório.
  * - `images.unoptimized`: o GitHub Pages não tem otimização server-side,
- *   então servimos as imagens originais.
+ *   então servimos as imagens originais. AINDA ASSIM usamos next/image
+ *   em todos os <img> porque ele adiciona o basePath automaticamente.
+ * - `images.remotePatterns`: permite carregar imagens do Pexels.
  * - `trailingSlash`: garante que /contato/ funcione no Pages.
  */
 const repoName = "studio-bossa"; // ← TROQUE PELO NOME DO SEU REPOSITÓRIO
@@ -30,6 +32,9 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true,
+    remotePatterns: [
+      { protocol: "https", hostname: "images.pexels.com" },
+    ],
   },
   typescript: {
     ignoreBuildErrors: true,

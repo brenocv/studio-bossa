@@ -3,8 +3,10 @@
  * Textos e imagens alinhados ao manual de identidade visual.
  */
 
-// Caminho base para imagens do manual extraídas do PDF
-const MI = "/manual-images";
+import { img } from "./imagePath";
+
+// Caminho base para imagens do manual extraídas do PDF (prefixado com basePath)
+const MI = img("/manual-images");
 
 export const IMAGES = {
   // Ambientes / hero — combinação de imagens do manual + Pexels de estilo similar (tons terrosos, madeira, couro)

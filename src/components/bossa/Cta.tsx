@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { IMAGES } from "./data";
 import { useParallax } from "./useParallax";
 
@@ -16,10 +17,12 @@ export function Cta() {
         style={{ transform: `translateY(${bgParallax.offset}px)` }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={IMAGES.sala2}
           alt="Sala de estar sofisticada em tons terrosos"
-          className="h-full w-full object-cover"
+          fill
+          sizes="100vw"
+          className="object-cover"
         />
         {/* Overlay jacaranda + tom verde-oliva */}
         <div className="absolute inset-0 bg-jacaranda/75" />

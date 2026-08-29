@@ -1,6 +1,7 @@
 "use client";
 
 import { Shield, Award, Leaf, Users } from "lucide-react";
+import Image from "next/image";
 import { IMAGES } from "./data";
 import { useParallax } from "./useParallax";
 
@@ -56,9 +57,11 @@ export function About() {
               style={{ transform: `translateY(${imgParallax.offset}px)` }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={IMAGES.flatlay}
                 alt="Materiais nobres do Studio Bossa: couro, madeira, linho e pedra"
+                width={800}
+                height={520}
                 className="h-[520px] w-full object-cover"
               />
               {/* Overlay verde-oliva sutil */}
@@ -70,9 +73,11 @@ export function About() {
               style={{ transform: `translateY(${badgeParallax.offset}px)` }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={IMAGES.couroDetalhe}
                 alt="Detalhe de couro cognac"
+                width={400}
+                height={224}
                 className="h-44 w-full object-cover lg:h-56"
               />
             </div>

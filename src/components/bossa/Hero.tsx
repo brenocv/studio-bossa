@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { IMAGES } from "./data";
 import { useParallax } from "./useParallax";
 
@@ -18,11 +19,13 @@ export function Hero() {
       {/* Background com parallax */}
       <div ref={bgParallax.ref as RefObject<HTMLDivElement>} className="absolute inset-0 will-change-transform">
         <div className="absolute inset-0 -top-[10%] h-[120%]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={IMAGES.hero}
             alt="Sala de estar em verde oliva com marcenaria em jacarandá — projeto Studio Bossa"
-            className="h-full w-full object-cover animate-slow-zoom"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover animate-slow-zoom"
             style={{ transform: `translateY(${bgParallax.offset}px)` }}
           />
           {/* Overlays suaves sobre a imagem */}

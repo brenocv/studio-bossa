@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PALETTE } from "./data";
 
 export function Palette() {
@@ -32,10 +33,12 @@ export function Palette() {
                 style={{ backgroundColor: color.hex }}
               >
                 { }
-                <img
+                <Image
                   src={color.texture}
                   alt={`Textura ${color.name}`}
-                  className="h-full w-full object-cover opacity-60 mix-blend-overlay transition-transform duration-700 group-hover:scale-110"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-cover opacity-60 mix-blend-overlay transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 <span className="absolute bottom-3 left-3 font-italiana text-2xl font-normal text-linho-cru">

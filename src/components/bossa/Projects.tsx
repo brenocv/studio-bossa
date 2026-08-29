@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { RefObject } from "react";
 import { Maximize, Clock, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { PROJECTS } from "./data";
 import { useParallax } from "./useParallax";
 
@@ -44,10 +45,12 @@ export function Projects() {
           <div className="reveal relative col-span-2 overflow-hidden rounded-3xl">
             <div className="group relative h-[400px] overflow-hidden rounded-3xl lg:h-full">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={PROJECTS[active].image}
                 alt={PROJECTS[active].title}
-                className="h-full w-full object-cover transition-all duration-700"
+                fill
+                sizes="(max-width: 1024px) 100vw, 66vw"
+                className="object-cover transition-all duration-700"
                 key={active}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-jacaranda via-jacaranda/30 to-transparent" />
@@ -89,10 +92,12 @@ export function Projects() {
               >
                 <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    fill
+                    sizes="64px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="flex-1 min-w-0 pr-2">
