@@ -8,7 +8,7 @@ Website do **Studio Bossa**, estúdio de design de interiores e arquitetura de a
 - **TypeScript 5**
 - **Tailwind CSS 4** + **shadcn/ui**
 - Fontes: **Italiana** (títulos serifados) + **Inter** (corpo de texto)
-- Deploy: **GitHub Pages** (com GitHub Actions automático)
+- Deploy: **GitHub Pages** via **Deploy from a branch** (sem GitHub Actions)
 
 ## Identidade Visual
 
@@ -21,14 +21,20 @@ Aplicada fielmente ao manual de marca:
 | **Verde Oliva** | `#4C5F45` | Equilíbrio, badges, seções de respiro |
 | **Linho Cru** | `#F5F2E8` | Fundo principal, negativo |
 
-## Deploy no GitHub Pages (passo a passo)
+---
 
-### 1. Crie um repositório no GitHub
+## 🚀 Deploy no GitHub Pages (Deploy from a branch)
+
+Esta é a abordagem clássica: você builda localmente, commita a pasta `docs/`, e o Pages serve direto. Sem Actions, sem build no servidor.
+
+### Passo a passo
+
+#### 1. Crie o repositório no GitHub
 
 - Nome sugerido: **`studio-bossa`** (ou outro nome da sua escolha)
-- Marque como **Público** (GitHub Pages gratuito só funciona em repositórios públicos em contas gratuitas)
+- Marque como **Público** (GitHub Pages gratuito em contas free só funciona em repositórios públicos)
 
-### 2. ⚠️ Se o nome do repositório for diferente de `studio-bossa`
+#### 2. ⚠️ Se o nome do repositório for diferente de `studio-bossa`
 
 Edite `next.config.ts` e troque o valor da variável `repoName`:
 
@@ -36,9 +42,18 @@ Edite `next.config.ts` e troque o valor da variável `repoName`:
 const repoName = "studio-bossa"; // ← coloque o nome do seu repo aqui
 ```
 
-> Exemplo: se o repo se chamar `meu-site-bossa`, mude para `const repoName = "meu-site-bossa";`
+> Exemplo: se o repo se chamar `meu-site`, mude para `const repoName = "meu-site";`
 
-### 3. Faça push do código para o GitHub
+#### 3. Instale dependências e builde localmente
+
+```bash
+npm install              # ou: bun install / pnpm install
+npm run build:pages      # gera a pasta /docs com o site estático
+```
+
+O script `build:pages` roda `next build` que, com `output: "export"` e `distDir: "docs"`, gera o site 100% estático em `/docs`.
+
+#### 4. Faça commit de tudo (inclusive a pasta `/docs`)
 
 ```bash
 git init
@@ -49,54 +64,68 @@ git remote add origin https://github.com/SEU_USUARIO/studio-bossa.git
 git push -u origin main
 ```
 
-### 4. Ative o GitHub Pages
+⚠️ **Importante**: a pasta `/docs` **deve** ser commitada. Ela está liberada no `.gitignore` (não é ignorada).
+
+#### 5. Ative o GitHub Pages
 
 1. Vá em **Settings** → **Pages** (no menu lateral do repo)
-2. Em **Build and deployment** → **Source**, selecione: **GitHub Actions**
-3. Pronto! O workflow em `.github/workflows/deploy.yml` vai rodar automaticamente a cada push.
+2. Em **Build and deployment** → **Source**, selecione: **Deploy from a branch**
+3. Em **Branch**, selecione:
+   - Branch: **`main`**
+   - Folder: **`/docs`**
+4. Clique em **Save**
 
-### 5. Acompanhe o deploy
+Pronto! Em ~1-2 minutos o site estará disponível em:
 
-- Vá na aba **Actions** do repo
-- Veja o workflow **"Deploy to GitHub Pages"** rodando
-- Quando terminar (≈ 1-2 min), o site estará disponível em:
-  ```
-  https://SEU_USUARIO.github.io/studio-bossa/
-  ```
+```
+https://SEU_USUARIO.github.io/studio-bossa/
+```
 
-### 6. Configuração final
+#### 6. Para futuras atualizações
 
-Volte em **Settings** → **Pages** e copie a URL pública. Pronto para divulgar! 🎉
+Sempre que alterar algo no site, repita:
+
+```bash
+npm run build:pages      # regera o /docs
+git add docs
+git commit -m "deploy: atualiza site"
+git push
+```
+
+Em ~1-2 minutos o site novo estará no ar automaticamente.
 
 ---
 
-## Desenvolvimento local
+## 💻 Desenvolvimento local
 
 ```bash
 # Instalar dependências
-npm install        # ou: bun install / pnpm install
+npm install
 
 # Ambiente de desenvolvimento (rodando em http://localhost:3000)
+# IMPORTANTE: em dev mode o basePath NÃO se aplica (URL limpa)
 npm run dev
 
-# Build estático (gera a pasta /out — mesma coisa que o GitHub Actions faz)
-GITHUB_ACTIONS=true npm run build:pages
+# Build estático para produção (gera /docs)
+npm run build:pages
 
 # Lint
 npm run lint
 ```
 
-> ⚠️ **Importante sobre desenvolvimento local**: ao rodar `npm run dev`, o site abre em `http://localhost:3000` **sem basePath** (porque `GITHUB_ACTIONS` não está definido). Ao rodar `npm run build:pages`, é gerada a pasta `/out` com o basePath `/studio-bossa/` — para testá-la localmente, sirva a pasta com o path completo:
->
-> ```bash
-> cd out
-> # Cria a estrutura de pastas simulando o GitHub Pages
-> mkdir -p ../gh-pages-test/studio-bossa
-> cp -r ./* ../gh-pages-test/studio-bossa/
-> cd ../gh-pages-test
-> python3 -m http.server 8888
-> # Acesse: http://localhost:8888/studio-bossa/
-> ```
+### Como testar o build localmente
+
+Como o `/docs` está com `basePath: /studio-bossa/`, você precisa servir simulando esse path:
+
+```bash
+# Método rápido: copia /docs para uma estrutura simulada
+mkdir -p /tmp/pages-test/studio-bossa
+cp -r docs/* /tmp/pages-test/studio-bossa/
+cd /tmp/pages-test
+python3 -m http.server 8889
+
+# Abra: http://localhost:8889/studio-bossa/
+```
 
 ---
 
@@ -104,12 +133,19 @@ npm run lint
 
 ```
 studio-bossa/
-├── .github/workflows/
-│   └── deploy.yml            # Workflow que builda e publica no Pages
-├── public/
-│   ├── .nojekyll             # Impede Jekyll de processar o /out
-│   ├── logo-bossa/           # Logo recortada (white + dark, transparente)
-│   └── manual-images/       # 18 imagens extraídas do manual visual
+├── docs/                     # ⬅ BUILD ESTÁTICO (commitado no git)
+│   ├── _next/                # JS/CSS/fontes
+│   ├── logo-bossa/           # Logo recortada
+│   ├── manual-images/        # Imagens do manual visual
+│   ├── index.html            # Home
+│   ├── 404.html              # Página 404
+│   └── .nojekyll             # Impede Jekyll de processar
+│
+├── public/                   # Arquivos estáticos source (copiados para /docs no build)
+│   ├── .nojekyll
+│   ├── logo-bossa/
+│   └── manual-images/
+│
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx        # Layout raiz (fontes, cursor customizado, metadata)
@@ -118,26 +154,29 @@ studio-bossa/
 │   │   └── globals.css      # Variáveis CSS, animações, microanimações
 │   └── components/
 │       ├── ui/              # Componentes shadcn/ui
-│       └── bossa/
-│           ├── Logo.tsx            # Logo recortada do manual
-│           ├── Header.tsx          # Header fixo com nav + underline animado
-│           ├── Hero.tsx             # Hero com parallax duplo
-│           ├── Marquee.tsx         # Marquee + stats com parallax
-│           ├── Services.tsx        # Cards de serviços com hover lift
-│           ├── Process.tsx        # Timeline (fundo Verde Oliva)
-│           ├── Projects.tsx       # Portfólio interativo com thumbnails
-│           ├── About.tsx          # Sobre (parallax triplo)
-│           ├── Testimonials.tsx   # Depoimentos
-│           ├── Cta.tsx            # Call-to-action com parallax forte
-│           ├── Faq.tsx            # FAQ acordeão (fundo Verde Oliva)
-│           ├── Contact.tsx        # Formulário + info de contato
-│           ├── Footer.tsx          # Rodapé
-│           ├── CustomCursor.tsx    # Cursor customizado (ponto + anel)
-│           ├── useParallax.ts     # Hook de parallax baseado em scroll
-│           ├── useReveal.ts       # Hook de reveal on scroll
-│           └── data.ts            # Dados centralizados
-├── next.config.ts            # Configurado para GitHub Pages (output: export)
+│       └── bossa/           # Componentes do site Studio Bossa
+│           ├── Logo.tsx
+│           ├── Header.tsx
+│           ├── Hero.tsx
+│           ├── Marquee.tsx
+│           ├── Services.tsx
+│           ├── Process.tsx
+│           ├── Projects.tsx
+│           ├── About.tsx
+│           ├── Testimonials.tsx
+│           ├── Cta.tsx
+│           ├── Faq.tsx
+│           ├── Contact.tsx
+│           ├── Footer.tsx
+│           ├── CustomCursor.tsx
+│           ├── useParallax.ts
+│           ├── useReveal.ts
+│           └── data.ts
+│
+├── next.config.ts            # Configurado para GitHub Pages
+│                            # (output: export, distDir: docs, basePath: /studio-bossa)
 ├── package.json             # Scripts: dev, build:pages, lint
+├── .gitignore               # /docs NÃO está ignorado (é commitado)
 └── README.md
 ```
 
@@ -155,7 +194,7 @@ studio-bossa/
 - ✅ Página 404 customizada
 - ✅ Responsivo (mobile-first)
 - ✅ SEO metadata em pt-PT
-- ✅ **Deploy automático no GitHub Pages via Actions**
+- ✅ Deploy simples via "Deploy from a branch"
 
 ## Limitações do GitHub Pages
 
@@ -180,7 +219,9 @@ Recomendo o **Formspree** (gratuito até 50 envios/mês):
    });
    if (!res.ok) throw new Error("Falha ao enviar");
    setSubmitted(true);
+   setForm(initial);
    ```
+4. Rode `npm run build:pages` e faça commit + push da pasta `/docs`
 
 ## Localização
 

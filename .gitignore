@@ -17,6 +17,9 @@ node_modules
 /.next/
 /out/
 
+# IMPORTANTE: a pasta /docs NÃO está ignorada — ela é commitada no GitHub
+# porque contém o build estático para o GitHub Pages (Deploy from a branch).
+
 # production
 /build
 
