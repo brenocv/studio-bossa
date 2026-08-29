@@ -1,4 +1,6 @@
 import Image from "next/image";
+import logoWhite from "../../../public/logo-bossa/logo-studio-bossa-white.png";
+import logoDark from "../../../public/logo-bossa/logo-studio-bossa-dark.png";
 
 /**
  * Logo Studio Bossa
@@ -11,6 +13,9 @@ import Image from "next/image";
  * Variants:
  *   - "white"  -> texto branco (para fundos escuros: jacaranda, oliva)
  *   - "dark"   -> texto jacaranda (para fundos claros: linho)
+ *
+ * Importando as imagens como módulos garante que o Next.js inclua o
+ * basePath automaticamente (importante para GitHub Pages).
  */
 
 type LogoProps = {
@@ -25,11 +30,7 @@ export function Logo({
   className = "",
   height = 36,
 }: LogoProps) {
-  const src =
-    variant === "white"
-      ? "/logo-bossa/logo-studio-bossa-white.png"
-      : "/logo-bossa/logo-studio-bossa-dark.png";
-
+  const src = variant === "white" ? logoWhite : logoDark;
   // Dimensoes naturais: 1283x480 -> ratio ~2.673
   const width = Math.round(height * 2.673);
 

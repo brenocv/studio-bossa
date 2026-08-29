@@ -52,3 +52,13 @@ prompt
 server.log
 # Skills directory
 /skills/
+
+# Studio Bossa específicos
+/workspace/
+/upload/
+/bossa-site/
+/download/
+/.zscripts/
+/scripts/crop-logo.py
+/scripts/refine-logo.py
+/.cache/
