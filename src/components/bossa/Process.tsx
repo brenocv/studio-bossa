@@ -1,11 +1,8 @@
 "use client";
 
 import { PROCESS } from "./data";
-import { useParallax } from "./useParallax";
 
 export function Process() {
-  // Parallax mais intenso no cabeçalho
-  const headerParallax = useParallax(0.15);
 
   return (
     <section
@@ -17,16 +14,14 @@ export function Process() {
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div
-          ref={headerParallax.ref as RefObject<HTMLDivElement>}
-          className="reveal mb-16 max-w-3xl will-change-transform"
-          style={{ transform: `translateY(${headerParallax.offset}px)` }}
+          className="reveal mb-16 max-w-3xl"
         >
-          <span className="text-sm font-semibold uppercase tracking-widest text-couro-cognac-light">
+          <span className="eyebrow text-linho-cru/70">
             Como trabalhamos
           </span>
-          <h2 className="mt-4 font-italiana text-4xl font-normal leading-tight text-linho-cru sm:text-5xl text-balance">
+          <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-linho-cru sm:text-5xl lg:text-6xl text-balance">
             Um processo{" "}
-            <span className="italic text-couro-cognac-light">
+            <span className="text-couro-cognac-light">
               transparente
             </span>
             <br />
@@ -49,7 +44,7 @@ export function Process() {
               className="reveal group relative transition-transform duration-500 hover:-translate-y-2"
               data-reveal-delay={`${idx * 100}`}
             >
-              <div className="relative mb-6 flex h-24 w-24 items-center justify-center rounded-2xl border border-linho-cru/20 bg-jacaranda/40 backdrop-blur-sm transition-colors duration-500 group-hover:bg-couro-cognac">
+              <div className="relative mb-6 flex h-24 w-24 items-center justify-center rounded-lg border border-linho-cru/20 bg-jacaranda/40 backdrop-blur-sm transition-colors duration-500 group-hover:bg-couro-cognac">
                 <span className="font-italiana text-3xl font-normal text-couro-cognac-light transition-colors duration-500 group-hover:text-linho-cru">
                   {p.step}
                 </span>

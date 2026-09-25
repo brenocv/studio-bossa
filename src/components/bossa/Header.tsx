@@ -62,7 +62,7 @@ export function Header() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="nav-underline text-sm font-medium transition-colors hover:text-couro-cognac"
+                className="nav-underline text-[13px] font-medium tracking-[0.06em] transition-colors hover:text-couro-cognac"
               >
                 {l.label}
               </a>
@@ -73,7 +73,7 @@ export function Header() {
         <div className="hidden lg:block">
           <a
             href="#contato"
-            className={`btn-shine btn-lift inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold hover:shadow-lg hover:shadow-couro-cognac/30 ${
+            className={`btn-lift inline-flex items-center rounded-full px-5 py-2.5 text-sm font-medium tracking-wide ${
               scrolled
                 ? "bg-jacaranda text-linho-cru hover:bg-couro-cognac"
                 : "bg-linho-cru/15 text-linho-cru backdrop-blur-sm border border-linho-cru/30 hover:bg-couro-cognac hover:text-linho-cru"
@@ -100,7 +100,7 @@ export function Header() {
           open ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="mx-4 mt-3 rounded-2xl border border-linho-cru-deep bg-linho-cru-warm/95 p-4 backdrop-blur-xl">
+        <div className="mx-4 mt-3 rounded-lg border border-linho-cru-deep bg-linho-cru-warm/95 p-4 backdrop-blur-xl">
           <ul className="flex flex-col gap-1">
             {links.map((l) => (
               <li key={l.href}>

@@ -6,14 +6,14 @@ import { IMAGES } from "./data";
 import { useParallax } from "./useParallax";
 
 export function Cta() {
-  // Parallax muito forte na imagem de fundo
-  const bgParallax = useParallax(0.45);
+  // Parallax suave no fundo (máx. 50px)
+  const bgParallax = useParallax(0.12, 50);
 
   return (
-    <section className="relative h-[480px] overflow-hidden">
+    <section className="relative h-[520px] overflow-hidden bg-jacaranda">
       <div
         ref={bgParallax.ref as RefObject<HTMLDivElement>}
-        className="absolute inset-0 -top-[15%] h-[130%] will-change-transform"
+        className="absolute inset-x-0 -top-[10%] h-[120%]"
         style={{ transform: `translateY(${bgParallax.offset}px)` }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -30,10 +30,10 @@ export function Cta() {
       </div>
       <div className="relative z-10 flex h-full items-center justify-center px-6">
         <div className="reveal max-w-2xl text-center">
-          <h2 className="font-italiana text-4xl font-normal leading-tight text-linho-cru sm:text-5xl text-balance">
+          <h2 className="font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-linho-cru sm:text-5xl lg:text-6xl text-balance">
             Pronto para transformar
             <br />
-            <span className="italic text-couro-cognac-light">
+            <span className="text-couro-cognac-light">
               o seu espaço?
             </span>
           </h2>
@@ -43,7 +43,7 @@ export function Cta() {
           </p>
           <a
             href="#contato"
-            className="btn-shine btn-lift btn-arrow group mt-8 inline-flex items-center gap-2 rounded-full bg-couro-cognac px-8 py-4 text-base font-semibold text-linho-cru hover:bg-couro-cognac-light hover:shadow-xl hover:shadow-couro-cognac/40"
+            className="btn-lift btn-arrow group mt-8 inline-flex items-center gap-2 rounded-full bg-couro-cognac px-8 py-4 text-base font-medium tracking-wide text-linho-cru hover:bg-couro-cognac-light"
           >
             Fale com um especialista
             <ArrowRight className="h-5 w-5" />

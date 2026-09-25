@@ -13,7 +13,6 @@ import {
   Facebook,
   Linkedin,
 } from "lucide-react";
-import { useParallax } from "./useParallax";
 
 type FormState = {
   name: string;
@@ -45,8 +44,6 @@ export function Contact() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const headerParallax = useParallax(0.12);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -71,24 +68,20 @@ export function Contact() {
       id="contato"
       className="relative overflow-hidden bg-linho-cru py-24 lg:py-32"
     >
-      {/* Forma decorativa verde-oliva */}
-      <div className="absolute -right-20 top-1/4 h-72 w-72 rounded-full bg-verde-oliva/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid gap-12 lg:grid-cols-5">
           {/* Left — info */}
           <div
-            ref={headerParallax.ref as RefObject<HTMLDivElement>}
-            className="reveal lg:col-span-2 will-change-transform"
-            style={{ transform: `translateY(${headerParallax.offset}px)` }}
+            className="reveal lg:col-span-2"
           >
-            <span className="text-sm font-semibold uppercase tracking-widest text-couro-cognac">
+            <span className="eyebrow text-couro-cognac">
               Vamos conversar
             </span>
-            <h2 className="mt-4 font-italiana text-4xl font-normal leading-tight text-jacaranda sm:text-5xl text-balance">
+            <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
               Solicite seu
               <br />
-              <span className="italic text-verde-oliva">orçamento</span>
+              <span className="text-verde-oliva">orçamento</span>
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-jacaranda-soft">
               Conte-nos sobre o seu projeto. Respondemos em até 24 horas com
@@ -175,7 +168,7 @@ export function Contact() {
 
           {/* Right — form */}
           <div className="reveal lg:col-span-3">
-            <div className="rounded-3xl border border-linho-cru-deep bg-linho-cru-warm p-8 lg:p-10">
+            <div className="rounded-xl border border-linho-cru-deep bg-linho-cru-warm p-8 lg:p-10">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center">
                   <CheckCircle
@@ -265,7 +258,7 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="btn-shine btn-lift group inline-flex w-full items-center justify-center gap-2 rounded-full bg-couro-cognac px-7 py-4 text-base font-semibold text-linho-cru hover:bg-couro-cognac-light hover:shadow-xl hover:shadow-couro-cognac/30 disabled:opacity-60"
+                    className="btn-lift group inline-flex w-full items-center justify-center gap-2 rounded-full bg-couro-cognac px-7 py-4 text-base font-semibold text-linho-cru hover:bg-couro-cognac-light hover:shadow-xl hover:shadow-couro-cognac/30 disabled:opacity-60"
                   >
                     {loading ? (
                       <span className="flex items-center gap-1">

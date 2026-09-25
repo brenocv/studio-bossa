@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Inter, Italiana } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-import { CustomCursor } from "@/components/bossa/CustomCursor";
 
-const inter = Inter({
+// Fontes auto-hospedadas (não dependem do Google Fonts no build)
+const inter = localFont({
   variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  src: [{ path: "./fonts/Inter-Variable.woff2", weight: "300 700", style: "normal" }],
+  display: "swap",
 });
 
-const italiana = Italiana({
+const italiana = localFont({
   variable: "--font-italiana",
-  subsets: ["latin"],
-  weight: ["400"],
+  src: [{ path: "./fonts/Italiana-Regular.woff2", weight: "400", style: "normal" }],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -51,7 +51,6 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${italiana.variable} antialiased bg-linho-cru text-jacaranda`}
       >
-        <CustomCursor />
         {children}
         <Toaster />
       </body>

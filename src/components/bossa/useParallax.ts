@@ -3,24 +3,26 @@
 import { useEffect, useRef, useState, type RefObject } from "react";
 
 /**
- * Hook de parallax simples baseado em scroll.
+ * Hook de parallax suave baseado em scroll.
  * Retorna um ref tipado para <HTMLElement> e o offset Y atual (em px).
  *
- * Uso:
- *   const { ref, offset } = useParallax(0.15);
+ * Uso (apenas em FUNDOS / imagens decorativas — nunca em blocos de texto,
+ * para não sobrepor conteúdo):
+ *   const { ref, offset } = useParallax(0.1);
  *   <div ref={ref as RefObject<HTMLDivElement>} style={{ transform: `translateY(${offset}px)` }}>...</div>
  *
- * @param speed - velocidade do parallax. 0 = sem efeito, 0.5 = metade da velocidade do scroll,
- *               negativo move para cima. Ex: -0.3 = elemento sobe 0.3px por 1px de scroll.
- * @param disabled - desativa o parallax
+ * @param speed    fração do scroll aplicada ao elemento (0.1 = 10%). Negativo inverte.
+ * @param maxShift deslocamento máximo em px (limite de segurança contra sobreposição).
+ *
+ * Respeita `prefers-reduced-motion`: nesse caso o offset fica sempre 0.
  */
-export function useParallax(speed = 0.3, disabled = false) {
+export function useParallax(speed = 0.1, maxShift = 60) {
   const ref = useRef<HTMLElement | null>(null);
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
-    if (disabled) return;
     if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let raf = 0;
     const update = () => {
@@ -29,7 +31,8 @@ export function useParallax(speed = 0.3, disabled = false) {
       const rect = el.getBoundingClientRect();
       const viewportH = window.innerHeight;
       const delta = rect.top + rect.height / 2 - viewportH / 2;
-      setOffset(-delta * speed);
+      const next = -delta * speed;
+      setOffset(Math.max(-maxShift, Math.min(maxShift, next)));
     };
 
     const onScroll = () => {
@@ -48,7 +51,7 @@ export function useParallax(speed = 0.3, disabled = false) {
       window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, [speed, disabled]);
+  }, [speed, maxShift]);
 
   return { ref: ref as RefObject<HTMLElement>, offset };
 }

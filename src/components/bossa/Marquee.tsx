@@ -1,7 +1,6 @@
 "use client";
 
 import { STATS } from "./data";
-import { useParallax } from "./useParallax";
 
 export function Marquee() {
   const items = [
@@ -16,9 +15,6 @@ export function Marquee() {
   ];
   const doubled = [...items, ...items];
 
-  // Parallax mais marcante para os stats moverem ao scroll
-  const statsParallax = useParallax(0.12);
-
   return (
     <section className="relative overflow-hidden bg-jacaranda py-5">
       {/* Track do marquee */}
@@ -26,26 +22,24 @@ export function Marquee() {
         {doubled.map((item, i) => (
           <span
             key={i}
-            className="flex items-center gap-12 text-lg font-light tracking-wide text-linho-cru/85"
+            className="flex items-center gap-12 font-italiana text-2xl text-linho-cru/85"
           >
             {item}
-            <span className="text-couro-cognac-light">✦</span>
+            <span className="h-1 w-1 rounded-full bg-couro-cognac-light" aria-hidden />
           </span>
         ))}
       </div>
 
-      {/* Stats com fundo oliva e parallax sutil */}
+      {/* Stats */}
       <div
-        ref={statsParallax.ref as RefObject<HTMLDivElement>}
-        className="mx-auto mt-12 grid max-w-7xl grid-cols-2 gap-8 px-6 will-change-transform md:grid-cols-4"
-        style={{ transform: `translateY(${statsParallax.offset}px)` }}
+        className="mx-auto mt-12 grid max-w-7xl grid-cols-2 gap-8 px-6 md:grid-cols-4"
       >
         {STATS.map((s) => (
           <div key={s.label} className="text-center">
-            <div className="font-italiana text-4xl font-normal text-couro-cognac-light sm:text-5xl">
+            <div className="font-italiana text-5xl font-normal text-couro-cognac-light sm:text-6xl">
               {s.value}
             </div>
-            <div className="mt-2 text-sm uppercase tracking-widest text-linho-cru/60">
+            <div className="mt-3 text-[11px] uppercase tracking-[0.28em] text-linho-cru/55">
               {s.label}
             </div>
           </div>

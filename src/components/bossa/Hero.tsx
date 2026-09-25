@@ -1,105 +1,157 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
-import { IMAGES } from "./data";
+import { useEffect, useRef, useState, type RefObject } from "react";
+import { ArrowRight, Pause, Play } from "lucide-react";
+import { img } from "./imagePath";
 import { useParallax } from "./useParallax";
 
+const HERO_VIDEO_MP4 = img("/videos/hero-1.mp4");
+const HERO_VIDEO_WEBM = img("/videos/hero-1.webm");
+const HERO_POSTER = img("/videos/hero-1-poster.jpg");
+
 export function Hero() {
-  // Parallax intenso no background (mais lento que o scroll)
-  const bgParallax = useParallax(0.35);
-  // Parallax forte no conteúdo (efeito de profundidade contrário)
-  const contentParallax = useParallax(-0.18);
+  // Parallax discreto no vídeo de fundo (máx. 70px). O texto NÃO tem parallax.
+  const bgParallax = useParallax(0.12, 70);
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(true);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      v.pause();
+      setPlaying(false);
+      return;
+    }
+    v.play().catch(() => setPlaying(false));
+  }, []);
+
+  const toggleVideo = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play().then(() => setPlaying(true)).catch(() => {});
+    } else {
+      v.pause();
+      setPlaying(false);
+    }
+  };
 
   return (
     <section
       id="topo"
-      className="relative flex min-h-screen items-center overflow-hidden"
+      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-jacaranda-deep"
     >
-      {/* Background com parallax */}
-      <div ref={bgParallax.ref as RefObject<HTMLDivElement>} className="absolute inset-0 will-change-transform">
-        <div className="absolute inset-0 -top-[10%] h-[120%]">
-          <Image
-            src={IMAGES.hero}
-            alt="Sala de estar em verde oliva com marcenaria em jacarandá — projeto Studio Bossa"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover animate-slow-zoom"
-            style={{ transform: `translateY(${bgParallax.offset}px)` }}
+      {/* Vídeo de fundo */}
+      <div
+        ref={bgParallax.ref as RefObject<HTMLDivElement>}
+        className="absolute inset-0"
+        aria-hidden
+      >
+        <div
+          className="absolute inset-x-0 -top-[8%] h-[116%]"
+          style={{ transform: `translate3d(0, ${bgParallax.offset}px, 0)` }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={HERO_POSTER}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
           />
-          {/* Overlays suaves sobre a imagem */}
-          <div className="absolute inset-0 bg-gradient-to-r from-jacaranda/75 via-jacaranda/40 to-jacaranda/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-jacaranda/60 via-transparent to-jacaranda/30" />
-          {/* Tom verde-oliva sutil para coesão cromática */}
-          <div className="absolute inset-0 bg-verde-oliva/10 mix-blend-multiply" />
+          <video
+            ref={videoRef}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1600ms] ease-out ${
+              ready ? "opacity-100" : "opacity-0"
+            }`}
+            poster={HERO_POSTER}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            onCanPlay={() => setReady(true)}
+          >
+            <source src={HERO_VIDEO_MP4} type="video/mp4" />
+            <source src={HERO_VIDEO_WEBM} type="video/webm" />
+          </video>
+          {/* Véus para legibilidade — mais densos à esquerda e em baixo */}
+          <div className="absolute inset-0 bg-gradient-to-r from-jacaranda-deep/80 via-jacaranda/30 to-transparent" />
+          <div className="absolute inset-0 bg-jacaranda-deep/35 md:hidden" />
+          <div className="absolute inset-0 bg-gradient-to-t from-jacaranda-deep/85 via-transparent to-jacaranda-deep/35" />
+          <div className="absolute inset-0 bg-verde-oliva/5 mix-blend-multiply" />
         </div>
       </div>
 
-      {/* Conteúdo com parallax contrário */}
-      <div
-        ref={contentParallax.ref as RefObject<HTMLDivElement>}
-        className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-32 pb-20 will-change-transform"
-        style={{ transform: `translateY(${contentParallax.offset}px)` }}
-      >
-        <div className="max-w-3xl">
-          <div
-            className="animate-fade-up mb-6 inline-flex items-center gap-2 rounded-full border border-linho-cru/40 bg-verde-oliva/30 px-4 py-1.5 text-sm font-medium text-linho-cru backdrop-blur-sm"
-            style={{ animationDelay: "0s", animationFillMode: "both" }}
+      {/* Conteúdo */}
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end px-6 pt-36 pb-10 lg:pb-12">
+        <div className="max-w-4xl">
+          <p
+            className="animate-fade-up eyebrow text-linho-cru/75"
+            style={{ animationDelay: "0.1s", animationFillMode: "both" }}
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-couro-cognac-light" />
-            Design de Interiores & Arquitetura de Alto Padrão
-          </div>
+            Design de interiores &amp; arquitetura · Porto
+          </p>
 
           <h1
-            className="animate-fade-up font-italiana text-5xl font-normal leading-[1.05] tracking-tight text-linho-cru text-balance sm:text-6xl lg:text-7xl"
-            style={{ animationDelay: "0.1s", animationFillMode: "both" }}
+            className="animate-fade-up mt-7 font-italiana text-[clamp(3.1rem,8.2vw,7.75rem)] font-normal leading-[0.94] tracking-[-0.01em] text-linho-cru"
+            style={{ animationDelay: "0.25s", animationFillMode: "both" }}
           >
             O luxo de se
             <br />
-            <span className="italic text-couro-cognac-light">
-              sentir em casa
-            </span>
+            <span className="text-couro-cognac-light">sentir em casa</span>
           </h1>
 
-          <p
-            className="animate-fade-up mt-8 max-w-xl text-lg leading-relaxed text-linho-cru/85"
-            style={{ animationDelay: "0.2s", animationFillMode: "both" }}
-          >
-            O Studio Bossa une arquitetura precisa e sensibilidade estética
-            para criar ambientes que despertam sensações. Projetos autorais com
-            marcenaria nobre, couro, pedra natural e linho — onde cada
-            material conta uma história.
-          </p>
-
           <div
-            className="animate-fade-up mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
-            style={{ animationDelay: "0.3s", animationFillMode: "both" }}
+            className="animate-fade-up mt-10 grid gap-8 md:grid-cols-[minmax(0,28rem)_auto] md:items-end md:gap-16"
+            style={{ animationDelay: "0.4s", animationFillMode: "both" }}
           >
-            <a
-              href="#contato"
-              className="btn-shine btn-lift btn-arrow group inline-flex items-center justify-center gap-2 rounded-full bg-couro-cognac px-7 py-3.5 text-base font-semibold text-linho-cru hover:bg-couro-cognac-light hover:shadow-xl hover:shadow-couro-cognac/40"
-            >
-              Solicite seu orçamento
-              <ArrowRight className="h-5 w-5" />
-            </a>
-            <a
-              href="#projetos"
-              className="btn-lift inline-flex items-center justify-center rounded-full border border-linho-cru/40 px-7 py-3.5 text-base font-semibold text-linho-cru transition-all hover:border-linho-cru hover:bg-verde-oliva/30"
-            >
-              Ver projetos
-            </a>
+            <p className="text-base leading-relaxed text-linho-cru/80 sm:text-lg">
+              Arquitetura precisa e sensibilidade estética para criar ambientes
+              que despertam sensações — com marcenaria nobre, couro, pedra
+              natural e linho.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+              <a
+                href="#contato"
+                className="btn-lift btn-arrow group inline-flex items-center justify-center gap-3 rounded-full bg-couro-cognac px-7 py-3.5 text-[15px] font-medium tracking-wide text-linho-cru hover:bg-couro-cognac-light"
+              >
+                Solicitar orçamento
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="#projetos"
+                className="link-line text-[15px] font-medium tracking-wide text-linho-cru"
+              >
+                Ver projetos
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Scroll indicator */}
-      <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in"
-        style={{ animationDelay: "0.6s", animationFillMode: "both" }}
-      >
-        <div className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-linho-cru/50 p-1.5">
-          <div className="scroll-bounce h-2 w-1 rounded-full bg-couro-cognac" />
+        {/* Rodapé do hero */}
+        <div
+          className="animate-fade-in mt-14 flex items-center justify-between border-t border-linho-cru/20 pt-5 text-[11px] uppercase tracking-[0.28em] text-linho-cru/60"
+          style={{ animationDelay: "0.8s", animationFillMode: "both" }}
+        >
+          <span className="hidden sm:inline">41°09′N · 8°37′W</span>
+          <a href="#servicos" className="flex items-center gap-3 transition-colors hover:text-linho-cru">
+            <span className="scroll-line" aria-hidden />
+            Deslize
+          </a>
+          <button
+            type="button"
+            onClick={toggleVideo}
+            className="flex items-center gap-2 uppercase transition-colors hover:text-linho-cru"
+            aria-label={playing ? "Pausar vídeo de fundo" : "Reproduzir vídeo de fundo"}
+          >
+            {playing ? <Pause className="h-3 w-3" /> : <Play className="h-3 w-3" />}
+            {playing ? "Pausar" : "Reproduzir"}
+          </button>
         </div>
       </div>
     </section>

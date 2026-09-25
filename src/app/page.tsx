@@ -13,6 +13,7 @@ import { Cta } from "@/components/bossa/Cta";
 import { Faq } from "@/components/bossa/Faq";
 import { Contact } from "@/components/bossa/Contact";
 import { Footer } from "@/components/bossa/Footer";
+import { WhatsAppButton } from "@/components/bossa/WhatsAppButton";
 
 export default function Home() {
   useReveal();
@@ -33,6 +34,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }

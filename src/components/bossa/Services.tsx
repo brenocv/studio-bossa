@@ -3,32 +3,24 @@
 import { ArrowUpRight, Check } from "lucide-react";
 import Image from "next/image";
 import { SERVICES } from "./data";
-import { useParallax } from "./useParallax";
 
 export function Services() {
-  // Parallax mais intenso no título
-  const headerParallax = useParallax(0.18);
 
   return (
     <section id="servicos" className="relative bg-linho-cru py-24 lg:py-32">
-      {/* Borda lateral verde-oliva decorativa */}
-      <div className="absolute left-0 top-1/4 h-32 w-1 bg-verde-oliva/40" />
-      <div className="absolute right-0 top-2/3 h-40 w-1 bg-couro-cognac/30" />
 
       <div className="mx-auto max-w-7xl px-6">
         {/* Section header */}
         <div
-          ref={headerParallax.ref as RefObject<HTMLDivElement>}
-          className="reveal mb-16 max-w-3xl will-change-transform"
-          style={{ transform: `translateY(${headerParallax.offset}px)` }}
+          className="reveal mb-16 max-w-3xl"
         >
-          <span className="text-sm font-semibold uppercase tracking-widest text-couro-cognac">
+          <span className="eyebrow text-couro-cognac">
             Nossos serviços
           </span>
-          <h2 className="mt-4 font-italiana text-4xl font-normal leading-tight text-jacaranda sm:text-5xl text-balance">
+          <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
             Tudo para transformar
             <br />
-            <span className="italic text-verde-oliva">o seu espaço</span>
+            <span className="text-verde-oliva">o seu espaço</span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-jacaranda-soft">
             Do primeiro esboço ao último acabamento, cobrimos cada etapa do
@@ -45,7 +37,7 @@ export function Services() {
             <article
               key={service.id}
               id={service.id}
-              className={`reveal group relative overflow-hidden rounded-3xl border border-linho-cru-deep bg-linho-cru-warm transition-all duration-500 hover:border-couro-cognac/40 ${
+              className={`reveal group relative overflow-hidden rounded-xl border border-linho-cru-deep bg-linho-cru-warm transition-all duration-500 hover:border-couro-cognac/40 ${
                 idx % 2 === 0 ? "md:mt-0" : "md:mt-12"
               }`}
               data-reveal-delay={`${idx * 80}`}

@@ -2,33 +2,26 @@
 
 import { Star, Quote } from "lucide-react";
 import { TESTIMONIALS } from "./data";
-import { useParallax } from "./useParallax";
 
 export function Testimonials() {
-  const headerParallax = useParallax(0.12);
 
   return (
     <section
       id="depoimentos"
       className="relative overflow-hidden bg-linho-cru py-24 lg:py-32"
     >
-      {/* Padrão decorativo verde-oliva */}
-      <div className="absolute -right-32 top-20 h-64 w-64 rounded-full bg-verde-oliva/10 blur-3xl" />
-      <div className="absolute -left-32 bottom-20 h-64 w-64 rounded-full bg-couro-cognac/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div
-          ref={headerParallax.ref as RefObject<HTMLDivElement>}
-          className="reveal mb-16 text-center will-change-transform"
-          style={{ transform: `translateY(${headerParallax.offset}px)` }}
+          className="reveal mb-16 text-center"
         >
-          <span className="text-sm font-semibold uppercase tracking-widest text-couro-cognac">
+          <span className="eyebrow text-couro-cognac">
             Depoimentos
           </span>
-          <h2 className="mt-4 font-italiana text-4xl font-normal leading-tight text-jacaranda sm:text-5xl text-balance">
+          <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
             O que dizem
             <br />
-            <span className="italic text-verde-oliva">nossos clientes</span>
+            <span className="text-verde-oliva">nossos clientes</span>
           </h2>
         </div>
 
@@ -36,7 +29,7 @@ export function Testimonials() {
           {TESTIMONIALS.map((t, idx) => (
             <figure
               key={t.name}
-              className="reveal group relative flex flex-col rounded-3xl border border-linho-cru-deep bg-linho-cru-warm p-8 transition-all duration-500 hover:-translate-y-2 hover:border-verde-oliva/40 hover:shadow-xl hover:shadow-verde-oliva/10"
+              className="reveal group relative flex flex-col rounded-xl border border-linho-cru-deep bg-linho-cru-warm p-8 transition-all duration-500 hover:-translate-y-2 hover:border-verde-oliva/40 hover:shadow-xl hover:shadow-verde-oliva/10"
               data-reveal-delay={`${idx * 100}`}
             >
               {/* Quote verde-oliva */}

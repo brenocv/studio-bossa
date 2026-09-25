@@ -5,31 +5,24 @@ import type { RefObject } from "react";
 import { Maximize, Clock, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { PROJECTS } from "./data";
-import { useParallax } from "./useParallax";
 
 export function Projects() {
   const [active, setActive] = useState(0);
-  const headerParallax = useParallax(0.15);
 
   return (
     <section id="projetos" className="relative bg-linho-cru py-24 lg:py-32">
-      {/* Acentos decorativos verde-oliva */}
-      <div className="absolute left-0 top-0 h-24 w-24 bg-verde-oliva/10 rounded-br-[3rem]" />
-      <div className="absolute bottom-0 right-0 h-32 w-32 bg-couro-cognac/10 rounded-tl-[3rem]" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div
-          ref={headerParallax.ref as RefObject<HTMLDivElement>}
-          className="reveal mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end will-change-transform"
-          style={{ transform: `translateY(${headerParallax.offset}px)` }}
+          className="reveal mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end"
         >
           <div className="max-w-2xl">
-            <span className="text-sm font-semibold uppercase tracking-widest text-couro-cognac">
+            <span className="eyebrow text-couro-cognac">
               Portfólio
             </span>
-            <h2 className="mt-4 font-italiana text-4xl font-normal leading-tight text-jacaranda sm:text-5xl text-balance">
+            <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
               Projetos que{" "}
-              <span className="italic text-verde-oliva">inspiram</span>
+              <span className="text-verde-oliva">inspiram</span>
             </h2>
           </div>
           <p className="max-w-md text-base leading-relaxed text-jacaranda-soft">
@@ -42,8 +35,8 @@ export function Projects() {
         {/* Featured layout */}
         <div className="grid gap-6 lg:grid-cols-3">
           {/* Large featured image */}
-          <div className="reveal relative col-span-2 overflow-hidden rounded-3xl">
-            <div className="group relative h-[400px] overflow-hidden rounded-3xl lg:h-full">
+          <div className="reveal relative col-span-2 overflow-hidden rounded-xl">
+            <div className="group relative h-[400px] overflow-hidden rounded-xl lg:h-full">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <Image
                 src={PROJECTS[active].image}
@@ -84,7 +77,7 @@ export function Projects() {
               <button
                 key={project.title}
                 onClick={() => setActive(idx)}
-                className={`group relative flex items-center gap-4 overflow-hidden rounded-2xl border p-2 text-left transition-all duration-300 ${
+                className={`group relative flex items-center gap-4 overflow-hidden rounded-lg border p-2 text-left transition-all duration-300 ${
                   active === idx
                     ? "border-verde-oliva bg-verde-oliva/10"
                     : "border-linho-cru-deep bg-linho-cru-warm/40 hover:border-couro-cognac/30 hover:bg-linho-cru-warm"

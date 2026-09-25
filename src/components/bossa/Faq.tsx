@@ -17,12 +17,12 @@ export function Faq() {
 
       <div className="relative mx-auto max-w-3xl px-6">
         <div className="reveal mb-14 text-center">
-          <span className="text-sm font-semibold uppercase tracking-widest text-couro-cognac-light">
+          <span className="eyebrow text-linho-cru/70">
             Perguntas frequentes
           </span>
-          <h2 className="mt-4 font-italiana text-4xl font-normal leading-tight text-linho-cru sm:text-5xl text-balance">
+          <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-linho-cru sm:text-5xl lg:text-6xl text-balance">
             Tire suas{" "}
-            <span className="italic text-couro-cognac-light">dúvidas</span>
+            <span className="text-couro-cognac-light">dúvidas</span>
           </h2>
         </div>
 
@@ -32,7 +32,7 @@ export function Faq() {
             return (
               <div
                 key={idx}
-                className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
+                className={`overflow-hidden rounded-lg border transition-all duration-300 ${
                   isOpen
                     ? "border-couro-cognac/40 bg-linho-cru"
                     : "border-linho-cru/15 bg-jacaranda/30 hover:border-couro-cognac-light/30"
