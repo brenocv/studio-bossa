@@ -23,7 +23,7 @@ export function Projects() {
             <span className="eyebrow text-couro-cognac">
               {c.eyebrow}
             </span>
-            <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
+            <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
               {c.titleA}{" "}
               <span className="text-verde-oliva">{c.titleB}</span>
             </h2>

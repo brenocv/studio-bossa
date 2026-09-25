@@ -20,7 +20,7 @@ export function Testimonials() {
           <span className="eyebrow text-couro-cognac">
             {c.eyebrow}
           </span>
-          <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
+          <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
             {c.titleA}
             <br />
             <span className="text-verde-oliva">{c.titleB}</span>
@@ -49,7 +49,7 @@ export function Testimonials() {
               </blockquote>
               <figcaption className="mt-6 border-t border-linho-cru-deep pt-5">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-verde-oliva/15 font-italiana text-lg font-normal text-verde-oliva">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-verde-oliva/15 font-italiana italiana-sm text-xl font-normal text-verde-oliva">
                     {t.name.charAt(0)}
                   </div>
                   <div>

@@ -7,7 +7,6 @@ import { useParallax } from "./useParallax";
 import { useLocale } from "./i18n";
 
 const HERO_VIDEO_MP4 = img("/videos/hero-1.mp4");
-const HERO_VIDEO_WEBM = img("/videos/hero-1.webm");
 const HERO_POSTER = img("/videos/hero-1-poster.jpg");
 
 export function Hero() {
@@ -79,7 +78,6 @@ export function Hero() {
             onCanPlay={() => setReady(true)}
           >
             <source src={HERO_VIDEO_MP4} type="video/mp4" />
-            <source src={HERO_VIDEO_WEBM} type="video/webm" />
           </video>
           {/* Véus para legibilidade — mais densos à esquerda e em baixo */}
           <div className="absolute inset-0 bg-gradient-to-r from-jacaranda-deep/80 via-jacaranda/30 to-transparent" />
@@ -93,14 +91,14 @@ export function Hero() {
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end px-6 pt-36 pb-10 lg:pb-12">
         <div className="max-w-4xl">
           <h1
-            className="animate-fade-up eyebrow max-w-xl !items-start leading-[1.9] text-linho-cru/80 before:mt-[0.95em] before:shrink-0"
+            className="animate-fade-up eyebrow text-over-media-soft max-w-xl !items-start leading-[1.9] text-linho-cru/80 before:mt-[0.95em] before:shrink-0"
             style={{ animationDelay: "0.1s", animationFillMode: "both" }}
           >
             {h.h1}
           </h1>
 
           <p
-            className="animate-fade-up mt-6 font-italiana text-[clamp(3.1rem,8.2vw,7.75rem)] font-normal leading-[0.94] tracking-[-0.01em] text-linho-cru"
+            className="animate-fade-up text-over-media mt-6 font-italiana text-[clamp(3.1rem,8.2vw,7.75rem)] font-normal leading-[0.94] text-linho-cru"
             style={{ animationDelay: "0.25s", animationFillMode: "both" }}
           >
             {h.taglineA}
@@ -112,7 +110,7 @@ export function Hero() {
             className="animate-fade-up mt-10 grid gap-8 md:grid-cols-[minmax(0,30rem)_auto] md:items-end md:gap-16"
             style={{ animationDelay: "0.4s", animationFillMode: "both" }}
           >
-            <p className="text-base leading-relaxed text-linho-cru/80 sm:text-lg">
+            <p className="text-over-media-soft text-base leading-relaxed text-linho-cru/85 sm:text-lg">
               {h.intro}
             </p>
 

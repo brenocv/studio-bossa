@@ -83,7 +83,7 @@ export function buildMetadata(locale: Locale): Metadata {
       url: PATHS[locale],
       locale: locale === "en" ? "en_GB" : "pt_PT",
       alternateLocale: locale === "en" ? ["pt_PT"] : ["en_GB"],
-      images: [{ url: "/videos/hero-1-poster.jpg", width: 1280, height: 712 }],
+      images: [{ url: "/videos/hero-1-poster.jpg", width: 1920, height: 1066 }],
     },
     twitter: {
       card: "summary_large_image",

@@ -128,6 +128,28 @@
 @layer utilities {
   .font-italiana {
     font-family: var(--font-italiana), Georgia, serif;
+    font-synthesis: none;
+    /* A Italiana tem traços muito finos: um contorno na própria cor, proporcional
+       ao tamanho, "engorda" as hastes e melhora a leitura sem mudar o desenho. */
+    -webkit-text-stroke: clamp(0.5px, 0.017em, 1.9px) currentColor;
+    paint-order: stroke fill;
+    letter-spacing: 0.012em;
+    text-rendering: optimizeLegibility;
+  }
+  .text-over-media-soft {
+    text-shadow: 0 1px 2px rgb(42 26 22 / 0.5), 0 2px 12px rgb(42 26 22 / 0.45);
+  }
+  /* Usos em tamanho pequeno: mais contorno relativo e mais espaço entre letras */
+  .italiana-sm {
+    -webkit-text-stroke: clamp(0.55px, 0.03em, 1px) currentColor;
+    letter-spacing: 0.035em;
+  }
+  /* Sombra para títulos sobre imagem / vídeo */
+  .text-over-media {
+    text-shadow:
+      0 1px 2px rgb(42 26 22 / 0.45),
+      0 4px 18px rgb(42 26 22 / 0.55),
+      0 0 60px rgb(42 26 22 / 0.35);
   }
   .font-serif-italic {
     font-family: var(--font-italiana), Georgia, serif;

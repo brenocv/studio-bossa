@@ -21,7 +21,7 @@ export function Process() {
           <span className="eyebrow text-linho-cru/70">
             {c.eyebrow}
           </span>
-          <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-linho-cru sm:text-5xl lg:text-6xl text-balance">
+          <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-linho-cru sm:text-5xl lg:text-6xl text-balance">
             {c.titleA}{" "}
             <span className="text-couro-cognac-light">{c.titleAccent}</span>
             <br />
@@ -48,7 +48,7 @@ export function Process() {
                 </span>
                 <div className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-linho-cru ring-4 ring-verde-oliva" />
               </div>
-              <h3 className="font-italiana text-xl font-normal text-linho-cru">
+              <h3 className="font-italiana italiana-sm text-2xl font-normal text-linho-cru">
                 {p.title}
               </h3>
               <p className="mt-3 text-base leading-relaxed text-linho-cru/75">

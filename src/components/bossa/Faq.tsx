@@ -22,7 +22,7 @@ export function Faq() {
           <span className="eyebrow text-linho-cru/70">
             {c.eyebrow}
           </span>
-          <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-linho-cru sm:text-5xl lg:text-6xl text-balance">
+          <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-linho-cru sm:text-5xl lg:text-6xl text-balance">
             {c.titleA}{" "}
             <span className="text-couro-cognac-light">{c.titleB}</span>
           </h2>
@@ -46,7 +46,7 @@ export function Faq() {
                   className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
                 >
                   <span
-                    className={`font-italiana text-lg font-normal transition-colors ${
+                    className={`font-italiana italiana-sm text-xl sm:text-[1.4rem] leading-snug font-normal transition-colors ${
                       isOpen
                         ? "text-couro-cognac"
                         : "text-linho-cru group-hover:text-linho-cru"

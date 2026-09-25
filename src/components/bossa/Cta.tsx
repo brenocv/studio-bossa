@@ -33,7 +33,7 @@ export function Cta() {
       </div>
       <div className="relative z-10 flex h-full items-center justify-center px-6">
         <div className="reveal max-w-2xl text-center">
-          <h2 className="font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-linho-cru sm:text-5xl lg:text-6xl text-balance">
+          <h2 className="font-italiana text-4xl font-normal leading-[1.04] text-linho-cru sm:text-5xl lg:text-6xl text-balance">
             {c.titleA}
             <br />
             <span className="text-couro-cognac-light">{c.titleB}</span>
