@@ -131,7 +131,7 @@
     font-synthesis: none;
     /* A Italiana tem traços muito finos: um contorno na própria cor, proporcional
        ao tamanho, "engorda" as hastes e melhora a leitura sem mudar o desenho. */
-    -webkit-text-stroke: clamp(0.5px, 0.017em, 1.9px) currentColor;
+    -webkit-text-stroke: clamp(0.35px, 0.01em, 1.15px) currentColor;
     paint-order: stroke fill;
     letter-spacing: 0.012em;
     text-rendering: optimizeLegibility;
@@ -141,7 +141,7 @@
   }
   /* Usos em tamanho pequeno: mais contorno relativo e mais espaço entre letras */
   .italiana-sm {
-    -webkit-text-stroke: clamp(0.55px, 0.03em, 1px) currentColor;
+    -webkit-text-stroke: clamp(0.4px, 0.02em, 0.7px) currentColor;
     letter-spacing: 0.035em;
   }
   /* Sombra para títulos sobre imagem / vídeo */
