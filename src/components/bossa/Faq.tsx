@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
-import { FAQ } from "./data";
+import { useLocale } from "./i18n";
 
 export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
+  const { t } = useLocale();
+  const c = t.faq;
 
   return (
     <section
@@ -18,16 +20,16 @@ export function Faq() {
       <div className="relative mx-auto max-w-3xl px-6">
         <div className="reveal mb-14 text-center">
           <span className="eyebrow text-linho-cru/70">
-            Perguntas frequentes
+            {c.eyebrow}
           </span>
           <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-linho-cru sm:text-5xl lg:text-6xl text-balance">
-            Tire suas{" "}
-            <span className="text-couro-cognac-light">dúvidas</span>
+            {c.titleA}{" "}
+            <span className="text-couro-cognac-light">{c.titleB}</span>
           </h2>
         </div>
 
         <div className="reveal flex flex-col gap-3">
-          {FAQ.map((item, idx) => {
+          {c.items.map((item, idx) => {
             const isOpen = open === idx;
             return (
               <div
@@ -40,6 +42,7 @@ export function Faq() {
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : idx)}
+                  aria-expanded={isOpen}
                   className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
                 >
                   <span

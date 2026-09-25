@@ -4,39 +4,20 @@ import { Shield, Award, Leaf, Users } from "lucide-react";
 import Image from "next/image";
 import { IMAGES } from "./data";
 import { useParallax } from "./useParallax";
+import { useLocale } from "./i18n";
 
-const values = [
-  {
-    icon: Shield,
-    title: "Garantia de 2 anos",
-    description:
-      "Todas as obras cobertas por garantia de execução e acompanhamento pós-entrega atencioso.",
-    color: "text-verde-oliva",
-  },
-  {
-    icon: Award,
-    title: "Acabamento premium",
-    description:
-      "Materiais nobres — couro, madeira maciça, pedra natural e linho — selecionados a dedo.",
-    color: "text-couro-cognac",
-  },
-  {
-    icon: Leaf,
-    title: "Sustentabilidade",
-    description:
-      "Práticas construtivas conscientes com gestão de resíduos e materiais ecoeficientes.",
-    color: "text-verde-oliva",
-  },
-  {
-    icon: Users,
-    title: "Equipe especializada",
-    description:
-      "Arquitetos, engenheiros e mestres de obra com mais de 15 anos de experiência.",
-    color: "text-couro-cognac",
-  },
+const valueStyle = [
+  { icon: Shield, color: "text-verde-oliva" },
+  { icon: Award, color: "text-couro-cognac" },
+  { icon: Leaf, color: "text-verde-oliva" },
+  { icon: Users, color: "text-couro-cognac" },
 ];
 
+
 export function About() {
+  const { t } = useLocale();
+  const c = t.about;
+  const values = c.values.map((v, i) => ({ ...v, ...valueStyle[i] }));
   // Parallax discreto só na imagem principal (limite de 24px)
   const imgParallax = useParallax(0.05, 24);
 
@@ -57,7 +38,7 @@ export function About() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <Image
                 src={IMAGES.flatlay}
-                alt="Materiais nobres do Studio Bossa: couro, madeira, linho e pedra"
+                alt={c.imgAlt}
                 width={800}
                 height={520}
                 className="h-[520px] w-full object-cover"
@@ -71,7 +52,7 @@ export function About() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <Image
                 src={IMAGES.couroDetalhe}
-                alt="Detalhe de couro cognac"
+                alt={c.detailAlt}
                 width={400}
                 height={224}
                 className="h-44 w-full object-cover lg:h-56"
@@ -83,7 +64,7 @@ export function About() {
                 15
               </div>
               <div className="mt-1 text-xs font-medium uppercase tracking-wider">
-                anos de mercado
+                {c.badge}
               </div>
             </div>
           </div>
@@ -93,39 +74,21 @@ export function About() {
             className="reveal"
           >
             <span className="eyebrow text-couro-cognac">
-              Sobre
+              {c.eyebrow}
             </span>
             <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
-              Equilíbrio entre
+              {c.titleA}
               <br />
-              <span className="text-verde-oliva">
-                solidez e leveza
-              </span>
+              <span className="text-verde-oliva">{c.titleB}</span>
             </h2>
 
             <div className="mt-6 space-y-5 text-base leading-relaxed text-jacaranda-soft sm:text-[1.05rem]">
+              <p>{c.p1}</p>
+              <p>{c.p2}</p>
               <p>
-                O Studio Bossa nasce do desejo de criar interiores que equilibrem
-                a solidez da arquitetura com a necessidade de leveza da vida
-                cotidiana. O seu posicionamento marca a transição de um conceito
-                de 15 anos baseado em uma estética tradicional e visão do
-                clássico contemporâneo, para ir de encontro às vivências reais
-                de cada espaço e à fluidez de estilos.
-              </p>
-              <p>
-                Para além de criar espaços visualmente marcantes, projetamos
-                experiências para serem vividas: lugares que traduzem a
-                identidade dos seus habitantes, ambientes que despertam
-                sensações e permanecem relevantes ao longo dos anos.
-              </p>
-              <p>
-                Essa é a essência da Bossa:{" "}
-                <span className="font-italiana text-verde-oliva">
-                  naturalidade, sofisticação e singularidade
-                </span>{" "}
-                de habitar. Nosso objetivo é dar vida a casas resilientes, que
-                se movimentam graciosamente no tempo e evoluem organicamente
-                junto com as histórias e fases dos seus moradores.
+                {c.p3a}{" "}
+                <span className="font-italiana text-verde-oliva">{c.p3accent}</span>{" "}
+                {c.p3b}
               </p>
             </div>
 

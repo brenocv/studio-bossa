@@ -1,14 +1,35 @@
-User-agent: Googlebot
+# Studio Bossa — todos os motores de busca e assistentes de IA são bem-vindos
+User-agent: *
 Allow: /
 
+# Motores de busca
+User-agent: Googlebot
+Allow: /
 User-agent: Bingbot
 Allow: /
 
-User-agent: Twitterbot
+# Pesquisa e assistentes de IA (ChatGPT, Claude, Perplexity, Gemini, Apple)
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
 Allow: /
 
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: *
-Allow: /
+Sitemap: https://studiobossa.pt/sitemap.xml

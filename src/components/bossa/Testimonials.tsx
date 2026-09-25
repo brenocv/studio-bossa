@@ -1,9 +1,11 @@
 "use client";
 
 import { Star, Quote } from "lucide-react";
-import { TESTIMONIALS } from "./data";
+import { useLocale } from "./i18n";
 
 export function Testimonials() {
+  const { t } = useLocale();
+  const c = t.testimonials;
 
   return (
     <section
@@ -16,17 +18,17 @@ export function Testimonials() {
           className="reveal mb-16 text-center"
         >
           <span className="eyebrow text-couro-cognac">
-            Depoimentos
+            {c.eyebrow}
           </span>
           <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
-            O que dizem
+            {c.titleA}
             <br />
-            <span className="text-verde-oliva">nossos clientes</span>
+            <span className="text-verde-oliva">{c.titleB}</span>
           </h2>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {TESTIMONIALS.map((t, idx) => (
+          {c.items.map((t, idx) => (
             <figure
               key={t.name}
               className="reveal group relative flex flex-col rounded-xl border border-linho-cru-deep bg-linho-cru-warm p-8 transition-all duration-500 hover:-translate-y-2 hover:border-verde-oliva/40 hover:shadow-xl hover:shadow-verde-oliva/10"

@@ -3,17 +3,13 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useLocale } from "./i18n";
 
-const links = [
-  { href: "#servicos", label: "Serviços" },
-  { href: "#processo", label: "Processo" },
-  { href: "#projetos", label: "Projetos" },
-  { href: "#sobre", label: "Sobre" },
-  { href: "#depoimentos", label: "Depoimentos" },
-  { href: "#faq", label: "FAQ" },
-];
 
 export function Header() {
+  const { t } = useLocale();
+  const links = t.nav.links;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -70,7 +66,8 @@ export function Header() {
           ))}
         </ul>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-4 lg:flex">
+          <LanguageSwitcher tone={scrolled ? "dark" : "light"} />
           <a
             href="#contato"
             className={`btn-lift inline-flex items-center rounded-full px-5 py-2.5 text-sm font-medium tracking-wide ${
@@ -79,19 +76,23 @@ export function Header() {
                 : "bg-linho-cru/15 text-linho-cru backdrop-blur-sm border border-linho-cru/30 hover:bg-couro-cognac hover:text-linho-cru"
             }`}
           >
-            Solicitar orçamento
+            {t.nav.cta}
           </a>
         </div>
 
+        <div className="flex items-center gap-2 lg:hidden">
+          <LanguageSwitcher tone={scrolled ? "dark" : "light"} />
         <button
           onClick={() => setOpen(!open)}
           className={`flex h-10 w-10 items-center justify-center rounded-lg transition-colors lg:hidden ${
             scrolled ? "text-jacaranda" : "text-linho-cru"
           }`}
-          aria-label="Menu"
+          aria-label={t.nav.menu}
+          aria-expanded={open}
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -119,7 +120,7 @@ export function Header() {
             onClick={() => setOpen(false)}
             className="mt-3 block rounded-full bg-jacaranda px-5 py-3 text-center text-sm font-semibold text-linho-cru"
           >
-            Solicitar orçamento
+            {t.nav.cta}
           </a>
         </div>
       </div>

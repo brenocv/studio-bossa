@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale } from "./i18n";
 import type { RefObject } from "react";
 import {
   Phone,
@@ -30,15 +31,11 @@ const initial: FormState = {
   message: "",
 };
 
-const serviceOptions = [
-  "Design de Interiores",
-  "Arquitetura & Obras",
-  "Reforma",
-  "Projeto 3D",
-  "Outro",
-];
 
 export function Contact() {
+  const { t } = useLocale();
+  const c = t.contact;
+  const f = c.form;
   const [form, setForm] = useState<FormState>(initial);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -54,7 +51,7 @@ export function Contact() {
       setSubmitted(true);
       setForm(initial);
     } catch {
-      setError("Não foi possível enviar agora. Tente novamente em instantes.");
+      setError(f.error);
     } finally {
       setLoading(false);
     }
@@ -76,17 +73,15 @@ export function Contact() {
             className="reveal lg:col-span-2"
           >
             <span className="eyebrow text-couro-cognac">
-              Vamos conversar
+              {c.eyebrow}
             </span>
             <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
-              Solicite seu
+              {c.titleA}
               <br />
-              <span className="text-verde-oliva">orçamento</span>
+              <span className="text-verde-oliva">{c.titleB}</span>
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-jacaranda-soft">
-              Conte-nos sobre o seu projeto. Respondemos em até 24 horas com
-              uma proposta inicial personalizada — e agendamos a primeira visita
-              técnica, sem compromisso.
+              {c.intro}
             </p>
 
             <div className="mt-10 space-y-5">
@@ -98,7 +93,7 @@ export function Contact() {
                   <Phone className="h-5 w-5" />
                 </span>
                 <div>
-                  <div className="text-sm text-jacaranda-soft/70">Telefone</div>
+                  <div className="text-sm text-jacaranda-soft/70">{c.phoneLabel}</div>
                   <div className="font-medium text-jacaranda">
                     +351 220 000 000
                   </div>
@@ -112,7 +107,7 @@ export function Contact() {
                   <Mail className="h-5 w-5" />
                 </span>
                 <div>
-                  <div className="text-sm text-jacaranda-soft/70">E-mail</div>
+                  <div className="text-sm text-jacaranda-soft/70">{c.emailLabel}</div>
                   <div className="font-medium text-jacaranda">
                     hello@studiobossa.pt
                   </div>
@@ -123,9 +118,9 @@ export function Contact() {
                   <MapPin className="h-5 w-5" />
                 </span>
                 <div>
-                  <div className="text-sm text-jacaranda-soft/70">Endereço</div>
+                  <div className="text-sm text-jacaranda-soft/70">{c.addressLabel}</div>
                   <div className="font-medium text-jacaranda">
-                    Rua das Flores, 100 — Porto, Portugal
+                    {c.address}
                   </div>
                 </div>
               </div>
@@ -134,11 +129,9 @@ export function Contact() {
                   <Clock className="h-5 w-5" />
                 </span>
                 <div>
-                  <div className="text-sm text-jacaranda-soft/70">
-                    Atendimento
-                  </div>
+                  <div className="text-sm text-jacaranda-soft/70">{c.hoursLabel}</div>
                   <div className="font-medium text-jacaranda">
-                    Seg–Sex 9h às 18h · Sáb 9h às 13h
+                    {c.hours}
                   </div>
                 </div>
               </div>
@@ -176,49 +169,48 @@ export function Contact() {
                     strokeWidth={1.5}
                   />
                   <h3 className="mt-6 font-italiana text-2xl font-normal text-jacaranda">
-                    Mensagem enviada!
+                    {f.sentTitle}
                   </h3>
                   <p className="mt-3 max-w-sm text-jacaranda-soft">
-                    Recebemos sua solicitação. Nossa equipe entrará em contato
-                    em breve para agendar uma visita técnica.
+                    {f.sentText}
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
                     className="mt-8 rounded-full border border-linho-cru-deep px-6 py-2.5 text-sm font-semibold text-jacaranda transition-colors hover:border-verde-oliva hover:text-verde-oliva"
                   >
-                    Enviar outra mensagem
+                    {f.again}
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid gap-5 sm:grid-cols-2">
                     <Field
-                      label="Nome completo"
+                      label={f.name}
                       value={form.name}
                       onChange={(v) => update("name", v)}
-                      placeholder="Seu nome"
+                      placeholder={f.namePh}
                       required
                     />
                     <Field
-                      label="E-mail"
+                      label={f.email}
                       type="email"
                       value={form.email}
                       onChange={(v) => update("email", v)}
-                      placeholder="seu@email.com"
+                      placeholder={f.emailPh}
                       required
                     />
                   </div>
                   <div className="grid gap-5 sm:grid-cols-2">
                     <Field
-                      label="Telefone / WhatsApp"
+                      label={f.phone}
                       value={form.phone}
                       onChange={(v) => update("phone", v)}
-                      placeholder="+351 912 345 678"
+                      placeholder={f.phonePh}
                       required
                     />
                     <div>
                       <label className="mb-2 block text-sm font-medium text-jacaranda">
-                        Tipo de serviço
+                        {f.service}
                       </label>
                       <select
                         value={form.service}
@@ -226,8 +218,8 @@ export function Contact() {
                         required
                         className="w-full rounded-xl border border-linho-cru-deep bg-linho-cru px-4 py-3 text-jacaranda outline-none transition-colors focus:border-verde-oliva"
                       >
-                        <option value="">Selecione…</option>
-                        {serviceOptions.map((s) => (
+                        <option value="">{f.select}</option>
+                        {f.services.map((s) => (
                           <option key={s} value={s}>
                             {s}
                           </option>
@@ -237,12 +229,12 @@ export function Contact() {
                   </div>
                   <div>
                     <label className="mb-2 block text-sm font-medium text-jacaranda">
-                      Mensagem
+                      {f.message}
                     </label>
                     <textarea
                       value={form.message}
                       onChange={(e) => update("message", e.target.value)}
-                      placeholder="Conte-nos sobre seu projeto: metragem, prazo desejado, estilo…"
+                      placeholder={f.messagePh}
                       required
                       rows={4}
                       className="w-full resize-none rounded-xl border border-linho-cru-deep bg-linho-cru px-4 py-3 text-jacaranda outline-none transition-colors focus:border-verde-oliva"
@@ -268,7 +260,7 @@ export function Contact() {
                       </span>
                     ) : (
                       <>
-                        Enviar solicitação
+                        {f.submit}
                         <Send className="h-5 w-5" />
                       </>
                     )}

@@ -1,8 +1,10 @@
 "use client";
 
-import { PROCESS } from "./data";
+import { useLocale } from "./i18n";
 
 export function Process() {
+  const { t } = useLocale();
+  const c = t.process;
 
   return (
     <section
@@ -17,20 +19,16 @@ export function Process() {
           className="reveal mb-16 max-w-3xl"
         >
           <span className="eyebrow text-linho-cru/70">
-            Como trabalhamos
+            {c.eyebrow}
           </span>
           <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-linho-cru sm:text-5xl lg:text-6xl text-balance">
-            Um processo{" "}
-            <span className="text-couro-cognac-light">
-              transparente
-            </span>
+            {c.titleA}{" "}
+            <span className="text-couro-cognac-light">{c.titleAccent}</span>
             <br />
-            do começo ao fim
+            {c.titleB}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-linho-cru/80">
-            Acreditamos em construir relações de confiança. Por isso, em cada
-            etapa do projeto você acompanha decisões, prazos e investimentos
-            com clareza total — sem surpresas, sem imprevistos.
+            {c.intro}
           </p>
         </div>
 
@@ -38,7 +36,7 @@ export function Process() {
           {/* Connecting line */}
           <div className="absolute left-0 right-0 top-12 hidden h-px bg-gradient-to-r from-transparent via-linho-cru/30 to-transparent lg:block" />
 
-          {PROCESS.map((p, idx) => (
+          {c.steps.map((p, idx) => (
             <div
               key={p.step}
               className="reveal group relative transition-transform duration-500 hover:-translate-y-2"

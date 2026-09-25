@@ -4,10 +4,13 @@ import { useState } from "react";
 import type { RefObject } from "react";
 import { Maximize, Clock, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import { PROJECTS } from "./data";
+import { useLocale } from "./i18n";
 
 export function Projects() {
   const [active, setActive] = useState(0);
+  const { t } = useLocale();
+  const c = t.projects;
+  const PROJECTS = c.items;
 
   return (
     <section id="projetos" className="relative bg-linho-cru py-24 lg:py-32">
@@ -18,17 +21,15 @@ export function Projects() {
         >
           <div className="max-w-2xl">
             <span className="eyebrow text-couro-cognac">
-              Portfólio
+              {c.eyebrow}
             </span>
             <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
-              Projetos que{" "}
-              <span className="text-verde-oliva">inspiram</span>
+              {c.titleA}{" "}
+              <span className="text-verde-oliva">{c.titleB}</span>
             </h2>
           </div>
           <p className="max-w-md text-base leading-relaxed text-jacaranda-soft">
-            Uma seleção de transformações reais que entregamos aos nossos
-            clientes. Cada projeto é único, assim como a história de quem o
-            habita.
+            {c.intro}
           </p>
         </div>
 
@@ -40,7 +41,7 @@ export function Projects() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <Image
                 src={PROJECTS[active].image}
-                alt={PROJECTS[active].title}
+                alt={`${PROJECTS[active].title} — ${PROJECTS[active].type}`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 66vw"
                 className="object-cover transition-all duration-700"
@@ -87,7 +88,7 @@ export function Projects() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt=""
                     fill
                     sizes="64px"
                     className="object-cover transition-transform duration-500 group-hover:scale-110"

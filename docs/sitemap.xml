@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url>
+<loc>https://studiobossa.pt/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/" />
+<changefreq>monthly</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+</urlset>

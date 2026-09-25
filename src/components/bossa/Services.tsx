@@ -2,9 +2,11 @@
 
 import { ArrowUpRight, Check } from "lucide-react";
 import Image from "next/image";
-import { SERVICES } from "./data";
+import { useLocale } from "./i18n";
 
 export function Services() {
+  const { t } = useLocale();
+  const c = t.services;
 
   return (
     <section id="servicos" className="relative bg-linho-cru py-24 lg:py-32">
@@ -15,25 +17,21 @@ export function Services() {
           className="reveal mb-16 max-w-3xl"
         >
           <span className="eyebrow text-couro-cognac">
-            Nossos serviços
+            {c.eyebrow}
           </span>
           <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] tracking-[-0.005em] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
-            Tudo para transformar
+            {c.titleA}
             <br />
-            <span className="text-verde-oliva">o seu espaço</span>
+            <span className="text-verde-oliva">{c.titleB}</span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-jacaranda-soft">
-            Do primeiro esboço ao último acabamento, cobrimos cada etapa do
-            processo com excelência técnica e sensibilidade estética. Marcenaria
-            própria, parceiros selecionados e materiais nobres — couro, madeira,
-            linho e pedra natural — traduzem o conceito de luxo discreto em cada
-            detalhe do projeto.
+            {c.intro}
           </p>
         </div>
 
         {/* Service cards */}
         <div className="grid gap-6 md:grid-cols-2">
-          {SERVICES.map((service, idx) => (
+          {c.items.map((service, idx) => (
             <article
               key={service.id}
               id={service.id}
@@ -47,7 +45,7 @@ export function Services() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <Image
                   src={service.image}
-                  alt={service.title}
+                  alt={service.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"

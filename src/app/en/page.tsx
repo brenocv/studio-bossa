@@ -1,9 +1,9 @@
 import { HomePage } from "@/components/bossa/HomePage";
 import { buildJsonLd, buildMetadata } from "@/components/bossa/seo";
 
-// Versão principal — Português de Portugal ( / )
-export const metadata = buildMetadata("pt");
+// English (UK) version ( /en/ )
+export const metadata = buildMetadata("en");
 
 export default function Page() {
-  return <HomePage locale="pt" jsonLd={buildJsonLd("pt")} />;
+  return <HomePage locale="en" jsonLd={buildJsonLd("en")} />;
 }

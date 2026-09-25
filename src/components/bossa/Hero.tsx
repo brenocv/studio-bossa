@@ -4,12 +4,15 @@ import { useEffect, useRef, useState, type RefObject } from "react";
 import { ArrowRight, Pause, Play } from "lucide-react";
 import { img } from "./imagePath";
 import { useParallax } from "./useParallax";
+import { useLocale } from "./i18n";
 
 const HERO_VIDEO_MP4 = img("/videos/hero-1.mp4");
 const HERO_VIDEO_WEBM = img("/videos/hero-1.webm");
 const HERO_POSTER = img("/videos/hero-1-poster.jpg");
 
 export function Hero() {
+  const { t } = useLocale();
+  const h = t.hero;
   // Parallax discreto no vídeo de fundo (máx. 70px). O texto NÃO tem parallax.
   const bgParallax = useParallax(0.12, 70);
 
@@ -89,30 +92,28 @@ export function Hero() {
       {/* Conteúdo */}
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end px-6 pt-36 pb-10 lg:pb-12">
         <div className="max-w-4xl">
-          <p
-            className="animate-fade-up eyebrow text-linho-cru/75"
+          <h1
+            className="animate-fade-up eyebrow max-w-xl !items-start leading-[1.9] text-linho-cru/80 before:mt-[0.95em] before:shrink-0"
             style={{ animationDelay: "0.1s", animationFillMode: "both" }}
           >
-            Design de interiores &amp; arquitetura · Porto
-          </p>
-
-          <h1
-            className="animate-fade-up mt-7 font-italiana text-[clamp(3.1rem,8.2vw,7.75rem)] font-normal leading-[0.94] tracking-[-0.01em] text-linho-cru"
-            style={{ animationDelay: "0.25s", animationFillMode: "both" }}
-          >
-            O luxo de se
-            <br />
-            <span className="text-couro-cognac-light">sentir em casa</span>
+            {h.h1}
           </h1>
 
+          <p
+            className="animate-fade-up mt-6 font-italiana text-[clamp(3.1rem,8.2vw,7.75rem)] font-normal leading-[0.94] tracking-[-0.01em] text-linho-cru"
+            style={{ animationDelay: "0.25s", animationFillMode: "both" }}
+          >
+            {h.taglineA}
+            <br />
+            <span className="text-couro-cognac-light">{h.taglineB}</span>
+          </p>
+
           <div
-            className="animate-fade-up mt-10 grid gap-8 md:grid-cols-[minmax(0,28rem)_auto] md:items-end md:gap-16"
+            className="animate-fade-up mt-10 grid gap-8 md:grid-cols-[minmax(0,30rem)_auto] md:items-end md:gap-16"
             style={{ animationDelay: "0.4s", animationFillMode: "both" }}
           >
             <p className="text-base leading-relaxed text-linho-cru/80 sm:text-lg">
-              Arquitetura precisa e sensibilidade estética para criar ambientes
-              que despertam sensações — com marcenaria nobre, couro, pedra
-              natural e linho.
+              {h.intro}
             </p>
 
             <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
@@ -120,14 +121,14 @@ export function Hero() {
                 href="#contato"
                 className="btn-lift btn-arrow group inline-flex items-center justify-center gap-3 rounded-full bg-couro-cognac px-7 py-3.5 text-[15px] font-medium tracking-wide text-linho-cru hover:bg-couro-cognac-light"
               >
-                Solicitar orçamento
+                {h.ctaPrimary}
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="#projetos"
                 className="link-line text-[15px] font-medium tracking-wide text-linho-cru"
               >
-                Ver projetos
+                {h.ctaSecondary}
               </a>
             </div>
           </div>
@@ -135,22 +136,22 @@ export function Hero() {
 
         {/* Rodapé do hero */}
         <div
-          className="animate-fade-in mt-14 flex items-center justify-between border-t border-linho-cru/20 pt-5 text-[11px] uppercase tracking-[0.28em] text-linho-cru/60"
+          className="animate-fade-in mt-14 flex items-center justify-between border-t border-linho-cru/20 pt-5 pr-20 lg:pr-24 text-[11px] uppercase tracking-[0.28em] text-linho-cru/60"
           style={{ animationDelay: "0.8s", animationFillMode: "both" }}
         >
           <span className="hidden sm:inline">41°09′N · 8°37′W</span>
           <a href="#servicos" className="flex items-center gap-3 transition-colors hover:text-linho-cru">
             <span className="scroll-line" aria-hidden />
-            Deslize
+            {h.scroll}
           </a>
           <button
             type="button"
             onClick={toggleVideo}
             className="flex items-center gap-2 uppercase transition-colors hover:text-linho-cru"
-            aria-label={playing ? "Pausar vídeo de fundo" : "Reproduzir vídeo de fundo"}
+            aria-label={playing ? h.pauseLabel : h.playLabel}
           >
             {playing ? <Pause className="h-3 w-3" /> : <Play className="h-3 w-3" />}
-            {playing ? "Pausar" : "Reproduzir"}
+            {playing ? h.pause : h.play}
           </button>
         </div>
       </div>

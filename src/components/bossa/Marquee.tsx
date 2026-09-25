@@ -1,18 +1,11 @@
 "use client";
 
-import { STATS } from "./data";
+import { useLocale } from "./i18n";
+
 
 export function Marquee() {
-  const items = [
-    "Design de Interiores",
-    "Marcenaria Autoral",
-    "Projetos 3D Fotorrealistas",
-    "Arquitetura & Obras",
-    "Reformas Completas",
-    "Pedra Natural",
-    "Couro & Linho",
-    "Iluminação Cenográfica",
-  ];
+  const { t } = useLocale();
+  const items = t.marquee;
   const doubled = [...items, ...items];
 
   return (
@@ -34,7 +27,7 @@ export function Marquee() {
       <div
         className="mx-auto mt-12 grid max-w-7xl grid-cols-2 gap-8 px-6 md:grid-cols-4"
       >
-        {STATS.map((s) => (
+        {t.stats.map((s) => (
           <div key={s.label} className="text-center">
             <div className="font-italiana text-5xl font-normal text-couro-cognac-light sm:text-6xl">
               {s.value}

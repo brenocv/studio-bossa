@@ -1,7 +1,12 @@
+"use client";
+
 import { Instagram, Facebook, Linkedin } from "lucide-react";
 import { Logo } from "./Logo";
+import { useLocale } from "./i18n";
 
 export function Footer() {
+  const { t } = useLocale();
+  const c = t.footer;
   return (
     <footer className="relative overflow-hidden border-t border-linho-cru-deep bg-jacaranda py-14">
       {/* Linha superior verde-oliva */}
@@ -14,9 +19,7 @@ export function Footer() {
               <Logo variant="white" height={32} />
             </a>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-linho-cru/60">
-              Studio Bossa — design de interiores, arquitetura e reformas de
-              alto padrão. Há 15 anos transformando casas em experiências.
-              O luxo discreto de se sentir em casa.
+              {c.about}
             </p>
             <div className="mt-6 flex gap-3">
               <a
@@ -42,55 +45,25 @@ export function Footer() {
 
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-linho-cru/85">
-              Navegação
+              {c.navTitle}
             </h4>
             <ul className="mt-4 space-y-3 text-sm">
-              <li>
-                <a
-                  href="#servicos"
-                  className="text-linho-cru/60 transition-colors hover:text-couro-cognac-light"
-                >
-                  Serviços
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#projetos"
-                  className="text-linho-cru/60 transition-colors hover:text-couro-cognac-light"
-                >
-                  Projetos
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#sobre"
-                  className="text-linho-cru/60 transition-colors hover:text-couro-cognac-light"
-                >
-                  Sobre
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#faq"
-                  className="text-linho-cru/60 transition-colors hover:text-couro-cognac-light"
-                >
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contato"
-                  className="text-linho-cru/60 transition-colors hover:text-couro-cognac-light"
-                >
-                  Contato
-                </a>
-              </li>
+              {c.nav.map((l) => (
+                <li key={l.href}>
+                  <a
+                    href={l.href}
+                    className="text-linho-cru/60 transition-colors hover:text-couro-cognac-light"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-linho-cru/85">
-              Contato
+              {c.contactTitle}
             </h4>
             <ul className="mt-4 space-y-3 text-sm text-linho-cru/60">
               <li>+351 220 000 000</li>
@@ -106,21 +79,20 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-linho-cru/15 pt-8 text-sm text-linho-cru/50 sm:flex-row">
           <p>
-            © {new Date().getFullYear()} Studio Bossa. Todos os direitos
-            reservados.
+            © {new Date().getFullYear()} Studio Bossa. {c.rights}
           </p>
           <div className="flex gap-6">
             <a
               href="#"
               className="transition-colors hover:text-linho-cru/85"
             >
-              Política de Privacidade
+              {c.privacy}
             </a>
             <a
               href="#"
               className="transition-colors hover:text-linho-cru/85"
             >
-              Termos de Uso
+              {c.terms}
             </a>
           </div>
         </div>

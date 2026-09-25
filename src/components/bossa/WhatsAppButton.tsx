@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLocale } from "./i18n";
 
 /**
  * Botão flutuante de WhatsApp — sempre visível no canto inferior direito.
@@ -10,31 +11,40 @@ import { useEffect, useState } from "react";
  *    Ex.: +351 912 345 678  →  "351912345678"
  */
 export const WHATSAPP_NUMBER = "351000000000";
-const WHATSAPP_MESSAGE =
-  "Olá, Studio Bossa! Vim pelo site e gostaria de saber mais sobre um projeto.";
 
 export function WhatsAppButton() {
+  const { t } = useLocale();
+  const w = t.whatsapp;
   const [visible, setVisible] = useState(false);
   const [showLabel, setShowLabel] = useState(false);
 
   useEffect(() => {
     const t1 = setTimeout(() => setVisible(true), 900);
-    // Etiqueta "Fale connosco" aparece uma vez e recolhe
-    const t2 = setTimeout(() => setShowLabel(true), 3500);
-    const t3 = setTimeout(() => setShowLabel(false), 9000);
-    return () => [t1, t2, t3].forEach(clearTimeout);
+    // A etiqueta aparece uma vez, depois de o visitante sair do hero, e recolhe
+    let shown = false;
+    let t2: ReturnType<typeof setTimeout>;
+    const onScroll = () => {
+      if (shown || window.scrollY < window.innerHeight * 0.8) return;
+      shown = true;
+      setShowLabel(true);
+      t2 = setTimeout(() => setShowLabel(false), 5000);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
-  const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    WHATSAPP_MESSAGE
-  )}`;
+  const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(w.message)}`;
 
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Falar com o Studio Bossa pelo WhatsApp"
+      aria-label={w.aria}
       onMouseEnter={() => setShowLabel(true)}
       onMouseLeave={() => setShowLabel(false)}
       onFocus={() => setShowLabel(true)}
@@ -49,7 +59,7 @@ export function WhatsAppButton() {
           showLabel ? "translate-x-0 opacity-100" : "pointer-events-none translate-x-2 opacity-0"
         }`}
       >
-        Fale connosco no WhatsApp
+        {w.label}
       </span>
 
       {/* Botão */}
