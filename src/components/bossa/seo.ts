@@ -6,7 +6,7 @@
  */
 import type { Metadata } from "next";
 import { DICT, type Locale } from "./content";
-import { PROJECT_PATH, getProject, media } from "./projects";
+import { PROJECTS_INDEX, PROJECT_PATH, getProject, media } from "./projects";
 
 export const SITE_URL = "https://studiobossa.pt"; // ← domínio definitivo
 
@@ -212,5 +212,30 @@ export function buildProjectJsonLd(locale: Locale, slug: string) {
     url: SITE_URL + PROJECT_PATH[locale](slug),
     image: m.gallery.map((g) => `${SITE_URL}/projetos/${slug}/${g.f}.jpg`),
     creator: { "@id": `${SITE_URL}/#studio-bossa`, "@type": "Organization", name: "Studio Bossa" },
+  };
+}
+
+/* ---------------- Página com todos os projetos ---------------- */
+
+export function buildIndexMetadata(locale: Locale): Metadata {
+  const c = DICT[locale].projectsIndex;
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: c.metaTitle,
+    description: c.metaDescription,
+    alternates: {
+      canonical: PROJECTS_INDEX[locale],
+      languages: { "pt-PT": PROJECTS_INDEX.pt, "en-GB": PROJECTS_INDEX.en, "x-default": PROJECTS_INDEX.pt },
+    },
+    openGraph: {
+      title: c.metaTitle,
+      description: c.metaDescription,
+      siteName: "Studio Bossa",
+      type: "website",
+      url: PROJECTS_INDEX[locale],
+      locale: locale === "en" ? "en_GB" : "pt_PT",
+      images: [{ url: "/projetos/ana-e-cesar/07.jpg" }],
+    },
+    robots: { index: true, follow: true },
   };
 }

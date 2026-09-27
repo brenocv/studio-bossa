@@ -11,7 +11,7 @@ import { Footer } from "./Footer";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { Lightbox } from "./Lightbox";
 import { useReveal } from "./useReveal";
-import { PROJECTS, PROJECT_PATH, getProject, media, photo } from "./projects";
+import { PROJECTS, PROJECTS_INDEX, PROJECT_PATH, getProject, media, photo } from "./projects";
 import type { Img } from "./projects-media";
 
 export function ProjectPage({
@@ -69,7 +69,7 @@ function ProjectBody({ slug }: { slug: string }) {
       {/* Cabeçalho do projeto */}
       <section className="mx-auto max-w-7xl px-4 pt-10 sm:px-6 lg:pt-14">
         <Link
-          href={home + "#projetos"}
+          href={PROJECTS_INDEX[locale]}
           className="group inline-flex items-center gap-2 text-[13px] font-medium tracking-wide text-jacaranda-soft transition-colors hover:text-couro-cognac"
         >
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
@@ -92,7 +92,7 @@ function ProjectBody({ slug }: { slug: string }) {
         <button
           type="button"
           onClick={() => setBox({ list: gallery, index: m.gallery.indexOf(coverImg), title: name })}
-          className="mt-10 block w-full rounded-2xl border border-linho-cru-deep bg-linho-cru-warm p-2 sm:p-3"
+          className="mt-10 block w-full border border-linho-cru-deep bg-linho-cru-warm p-2 sm:p-3"
           aria-label={`${name} — ${p.photo}`}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -101,7 +101,7 @@ function ProjectBody({ slug }: { slug: string }) {
             alt={`${name} — ${project.type[locale]}`}
             width={coverImg.w}
             height={coverImg.h}
-            className="max-h-[78vh] w-full rounded-xl object-cover"
+            className="max-h-[78vh] w-full object-cover"
           />
         </button>
       </section>
@@ -122,7 +122,7 @@ function ProjectBody({ slug }: { slug: string }) {
               key={im.f}
               type="button"
               onClick={() => setBox({ list: gallery, index: i, title: name })}
-              className="group mb-4 block w-full overflow-hidden rounded-xl bg-linho-cru-deep sm:mb-5"
+              className="group mb-4 block w-full overflow-hidden bg-linho-cru-deep sm:mb-5"
               aria-label={`${p.photo} ${i + 1}`}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -154,8 +154,8 @@ function ProjectBody({ slug }: { slug: string }) {
           <ol className="relative space-y-14 border-l border-jacaranda/15 pl-8 sm:pl-12">
             {t.process.steps.map((s, i) => (
               <li key={s.step} className="reveal relative">
-                <span className="absolute -left-[41px] top-1 flex h-4 w-4 items-center justify-center rounded-full border border-couro-cognac bg-linho-cru-warm sm:-left-[57px]" aria-hidden>
-                  <span className="h-1.5 w-1.5 rounded-full bg-couro-cognac" />
+                <span className="absolute -left-[41px] top-1 flex h-4 w-4 items-center justify-center border border-couro-cognac bg-linho-cru-warm sm:-left-[57px]" aria-hidden>
+                  <span className="h-1.5 w-1.5 bg-couro-cognac" />
                 </span>
                 <p className="font-italiana text-2xl text-couro-cognac">{s.step}</p>
                 <h3 className="mt-1 font-italiana italiana-sm text-2xl text-jacaranda sm:text-3xl">{s.title}</h3>
@@ -173,7 +173,7 @@ function ProjectBody({ slug }: { slug: string }) {
                           key={im.f}
                           type="button"
                           onClick={() => setBox({ list: survey, index: k, title: `${name} · ${p.surveyTitle}` })}
-                          className="group aspect-[3/4] overflow-hidden rounded-lg bg-linho-cru-deep"
+                          className="group aspect-[3/4] overflow-hidden bg-linho-cru-deep"
                           aria-label={survey[k].alt}
                         >
                           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -203,7 +203,7 @@ function ProjectBody({ slug }: { slug: string }) {
                                 <button
                                   type="button"
                                   onClick={() => setBox({ list, index: j, title: `${name} · ${p.studiesTitle}` })}
-                                  className="group block aspect-[4/5] w-full overflow-hidden rounded-lg bg-linho-cru-deep"
+                                  className="group block aspect-[4/5] w-full overflow-hidden bg-linho-cru-deep"
                                   aria-label={list[j].alt}
                                 >
                                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -228,7 +228,7 @@ function ProjectBody({ slug }: { slug: string }) {
 
       {/* Convite */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:py-24">
-        <div className="reveal grid gap-8 rounded-2xl bg-jacaranda px-7 py-12 text-linho-cru sm:px-12 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+        <div className="reveal grid gap-8 bg-jacaranda px-7 py-12 text-linho-cru sm:px-12 lg:grid-cols-[1.4fr_1fr] lg:items-center">
           <div>
             <h2 className="font-italiana text-4xl font-normal leading-[1.05] sm:text-5xl">{p.ctaTitle}</h2>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-linho-cru/80">{p.ctaText}</p>
@@ -236,7 +236,7 @@ function ProjectBody({ slug }: { slug: string }) {
           <div className="lg:text-right">
             <Link
               href={home + "#contato"}
-              className="btn-lift btn-arrow inline-flex items-center gap-3 rounded-full bg-couro-cognac px-7 py-3.5 text-[15px] font-medium tracking-wide hover:bg-couro-cognac-light"
+              className="btn-lift btn-arrow inline-flex items-center gap-3 bg-couro-cognac px-7 py-3.5 text-[15px] font-medium tracking-wide hover:bg-couro-cognac-light"
             >
               {p.ctaButton}
               <ArrowRight className="h-4 w-4" />
@@ -247,9 +247,9 @@ function ProjectBody({ slug }: { slug: string }) {
         {/* Próximo projeto */}
         <Link
           href={PROJECT_PATH[locale](next.slug)}
-          className="group mt-6 flex items-center gap-5 rounded-2xl border border-linho-cru-deep p-3 pr-6 transition-colors hover:border-couro-cognac/40 hover:bg-linho-cru-warm"
+          className="group mt-6 flex items-center gap-5 border border-linho-cru-deep p-3 pr-6 transition-colors hover:border-couro-cognac/40 hover:bg-linho-cru-warm"
         >
-          <span className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl sm:h-28 sm:w-40">
+          <span className="relative h-24 w-24 shrink-0 overflow-hidden sm:h-28 sm:w-40">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={photo(next.slug, nextMedia.cover, "sm")} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
           </span>

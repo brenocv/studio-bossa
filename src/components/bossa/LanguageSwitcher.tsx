@@ -65,7 +65,7 @@ export function LanguageSwitcher({ tone = "light" }: { tone?: "light" | "dark" }
             aria-current={active ? "true" : undefined}
             aria-label={name}
             title={name}
-            className={`flex items-center gap-1.5 rounded-full px-2 py-1.5 text-[11px] font-medium tracking-[0.14em] transition-all duration-300 ${
+            className={`flex items-center gap-1.5 px-2 py-1.5 text-[11px] font-medium tracking-[0.14em] transition-all duration-300 ${
               active
                 ? tone === "light"
                   ? "bg-linho-cru/15 text-linho-cru"
@@ -76,7 +76,7 @@ export function LanguageSwitcher({ tone = "light" }: { tone?: "light" | "dark" }
             }`}
           >
             <span
-              className={`block h-[13px] w-[19px] overflow-hidden rounded-[2px] ring-1 ${
+              className={`block h-[13px] w-[19px] overflow-hidden ring-1 ${
                 tone === "light" ? "ring-linho-cru/40" : "ring-jacaranda/15"
               } ${active ? "" : "saturate-[.6]"}`}
             >

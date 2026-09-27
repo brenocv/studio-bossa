@@ -8,7 +8,7 @@ import { Hero } from "./Hero";
 import { Marquee } from "./Marquee";
 import { Services } from "./Services";
 import { Process } from "./Process";
-import { RecentProjects } from "./RecentProjects";
+import { ProjectCarousel } from "./ProjectCarousel";
 import { Preloader } from "./Preloader";
 import { About } from "./About";
 import { Testimonials } from "./Testimonials";
@@ -32,7 +32,7 @@ export function HomePage({ locale, jsonLd }: { locale: Locale; jsonLd: object[] 
         <Header />
         <main className="flex-1">
           <Hero />
-          <RecentProjects />
+          <ProjectCarousel />
           <Marquee />
           <Services />
           <Process />

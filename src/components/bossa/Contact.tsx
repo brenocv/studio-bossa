@@ -89,7 +89,7 @@ export function Contact() {
                 href="tel:+351220000000"
                 className="group flex items-center gap-4 text-jacaranda-soft transition-colors hover:text-couro-cognac"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-verde-oliva/15 text-verde-oliva transition-colors group-hover:bg-couro-cognac group-hover:text-linho-cru">
+                <span className="flex h-11 w-11 items-center justify-center bg-verde-oliva/15 text-verde-oliva transition-colors group-hover:bg-couro-cognac group-hover:text-linho-cru">
                   <Phone className="h-5 w-5" />
                 </span>
                 <div>
@@ -103,7 +103,7 @@ export function Contact() {
                 href="mailto:hello@studiobossa.pt"
                 className="group flex items-center gap-4 text-jacaranda-soft transition-colors hover:text-couro-cognac"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-verde-oliva/15 text-verde-oliva transition-colors group-hover:bg-couro-cognac group-hover:text-linho-cru">
+                <span className="flex h-11 w-11 items-center justify-center bg-verde-oliva/15 text-verde-oliva transition-colors group-hover:bg-couro-cognac group-hover:text-linho-cru">
                   <Mail className="h-5 w-5" />
                 </span>
                 <div>
@@ -114,7 +114,7 @@ export function Contact() {
                 </div>
               </a>
               <div className="flex items-center gap-4 text-jacaranda-soft">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-verde-oliva/15 text-verde-oliva">
+                <span className="flex h-11 w-11 items-center justify-center bg-verde-oliva/15 text-verde-oliva">
                   <MapPin className="h-5 w-5" />
                 </span>
                 <div>
@@ -125,7 +125,7 @@ export function Contact() {
                 </div>
               </div>
               <div className="flex items-center gap-4 text-jacaranda-soft">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-verde-oliva/15 text-verde-oliva">
+                <span className="flex h-11 w-11 items-center justify-center bg-verde-oliva/15 text-verde-oliva">
                   <Clock className="h-5 w-5" />
                 </span>
                 <div>
@@ -140,19 +140,19 @@ export function Contact() {
             <div className="mt-8 flex gap-3">
               <a
                 href="#"
-                className="magnetic flex h-10 w-10 items-center justify-center rounded-xl bg-linho-cru-deep text-jacaranda transition-colors hover:bg-verde-oliva hover:text-linho-cru"
+                className="magnetic flex h-10 w-10 items-center justify-center bg-linho-cru-deep text-jacaranda transition-colors hover:bg-verde-oliva hover:text-linho-cru"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="magnetic flex h-10 w-10 items-center justify-center rounded-xl bg-linho-cru-deep text-jacaranda transition-colors hover:bg-verde-oliva hover:text-linho-cru"
+                className="magnetic flex h-10 w-10 items-center justify-center bg-linho-cru-deep text-jacaranda transition-colors hover:bg-verde-oliva hover:text-linho-cru"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="magnetic flex h-10 w-10 items-center justify-center rounded-xl bg-linho-cru-deep text-jacaranda transition-colors hover:bg-verde-oliva hover:text-linho-cru"
+                className="magnetic flex h-10 w-10 items-center justify-center bg-linho-cru-deep text-jacaranda transition-colors hover:bg-verde-oliva hover:text-linho-cru"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -161,7 +161,7 @@ export function Contact() {
 
           {/* Right — form */}
           <div className="reveal lg:col-span-3">
-            <div className="rounded-xl border border-linho-cru-deep bg-linho-cru-warm p-8 lg:p-10">
+            <div className="border border-linho-cru-deep bg-linho-cru-warm p-8 lg:p-10">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center">
                   <CheckCircle
@@ -176,7 +176,7 @@ export function Contact() {
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="mt-8 rounded-full border border-linho-cru-deep px-6 py-2.5 text-sm font-semibold text-jacaranda transition-colors hover:border-verde-oliva hover:text-verde-oliva"
+                    className="mt-8 border border-linho-cru-deep px-6 py-2.5 text-sm font-semibold text-jacaranda transition-colors hover:border-verde-oliva hover:text-verde-oliva"
                   >
                     {f.again}
                   </button>
@@ -216,7 +216,7 @@ export function Contact() {
                         value={form.service}
                         onChange={(e) => update("service", e.target.value)}
                         required
-                        className="w-full rounded-xl border border-linho-cru-deep bg-linho-cru px-4 py-3 text-jacaranda outline-none transition-colors focus:border-verde-oliva"
+                        className="w-full border border-linho-cru-deep bg-linho-cru px-4 py-3 text-jacaranda outline-none transition-colors focus:border-verde-oliva"
                       >
                         <option value="">{f.select}</option>
                         {f.services.map((s) => (
@@ -237,12 +237,12 @@ export function Contact() {
                       placeholder={f.messagePh}
                       required
                       rows={4}
-                      className="w-full resize-none rounded-xl border border-linho-cru-deep bg-linho-cru px-4 py-3 text-jacaranda outline-none transition-colors focus:border-verde-oliva"
+                      className="w-full resize-none border border-linho-cru-deep bg-linho-cru px-4 py-3 text-jacaranda outline-none transition-colors focus:border-verde-oliva"
                     />
                   </div>
 
                   {error && (
-                    <p className="rounded-xl border border-red-900/50 bg-red-950/30 px-4 py-3 text-sm text-red-700">
+                    <p className="border border-red-900/50 bg-red-950/30 px-4 py-3 text-sm text-red-700">
                       {error}
                     </p>
                   )}
@@ -250,13 +250,13 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="btn-lift group inline-flex w-full items-center justify-center gap-2 rounded-full bg-couro-cognac px-7 py-4 text-base font-semibold text-linho-cru hover:bg-couro-cognac-light hover:shadow-xl hover:shadow-couro-cognac/30 disabled:opacity-60"
+                    className="btn-lift group inline-flex w-full items-center justify-center gap-2 bg-couro-cognac px-7 py-4 text-base font-semibold text-linho-cru hover:bg-couro-cognac-light hover:shadow-xl hover:shadow-couro-cognac/30 disabled:opacity-60"
                   >
                     {loading ? (
                       <span className="flex items-center gap-1">
-                        <span className="loading-dot h-2 w-2 rounded-full bg-linho-cru" />
-                        <span className="loading-dot h-2 w-2 rounded-full bg-linho-cru" />
-                        <span className="loading-dot h-2 w-2 rounded-full bg-linho-cru" />
+                        <span className="loading-dot h-2 w-2 bg-linho-cru" />
+                        <span className="loading-dot h-2 w-2 bg-linho-cru" />
+                        <span className="loading-dot h-2 w-2 bg-linho-cru" />
                       </span>
                     ) : (
                       <>
@@ -301,7 +301,7 @@ function Field({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         required={required}
-        className="w-full rounded-xl border border-linho-cru-deep bg-linho-cru px-4 py-3 text-jacaranda outline-none transition-colors focus:border-verde-oliva"
+        className="w-full border border-linho-cru-deep bg-linho-cru px-4 py-3 text-jacaranda outline-none transition-colors focus:border-verde-oliva"
       />
     </div>
   );

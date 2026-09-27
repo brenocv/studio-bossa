@@ -86,7 +86,7 @@ export function CustomCursor() {
       <div
         ref={dotRef}
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[9999] h-2 w-2 rounded-full bg-couro-cognac transition-[width,height,opacity] duration-200"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] h-2 w-2 bg-couro-cognac transition-[width,height,opacity] duration-200"
         style={{
           opacity: hovering ? 0 : 1,
           willChange: "transform",
@@ -97,7 +97,7 @@ export function CustomCursor() {
       <div
         ref={ringRef}
         aria-hidden
-        className={`pointer-events-none fixed left-0 top-0 z-[9999] rounded-full border transition-[width,height,border-color,background-color] duration-200 ${
+        className={`pointer-events-none fixed left-0 top-0 z-[9999] border transition-[width,height,border-color,background-color] duration-200 ${
           hovering
             ? "h-12 w-12 border-verde-oliva bg-verde-oliva/15"
             : clicked

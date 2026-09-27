@@ -49,7 +49,7 @@ export function Header() {
           <LanguageSwitcher tone="dark" />
           <Link
             href={home + "#contato"}
-            className="btn-lift inline-flex items-center rounded-full bg-jacaranda px-5 py-2.5 text-sm font-medium tracking-wide text-linho-cru hover:bg-couro-cognac"
+            className="btn-lift inline-flex items-center bg-jacaranda px-5 py-2.5 text-sm font-medium tracking-wide text-linho-cru hover:bg-couro-cognac"
           >
             {t.nav.cta}
           </Link>
@@ -59,7 +59,7 @@ export function Header() {
           <LanguageSwitcher tone="dark" />
           <button
             onClick={() => setOpen(!open)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg text-jacaranda"
+            className="flex h-10 w-10 items-center justify-center text-jacaranda"
             aria-label={t.nav.menu}
             aria-expanded={open}
           >
@@ -74,14 +74,14 @@ export function Header() {
           open ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="mx-4 mt-3 rounded-lg border border-linho-cru-deep bg-linho-cru-warm p-4">
+        <div className="mx-4 mt-3 border border-linho-cru-deep bg-linho-cru-warm p-4">
           <ul className="flex flex-col gap-1">
             {links.map((l) => (
               <li key={l.href}>
                 <Link
                   href={home + l.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-4 py-3 text-base font-medium text-jacaranda-soft transition-colors hover:bg-linho-cru hover:text-couro-cognac"
+                  className="block px-4 py-3 text-base font-medium text-jacaranda-soft transition-colors hover:bg-linho-cru hover:text-couro-cognac"
                 >
                   {l.label}
                 </Link>
@@ -91,7 +91,7 @@ export function Header() {
           <Link
             href={home + "#contato"}
             onClick={() => setOpen(false)}
-            className="mt-3 block rounded-full bg-jacaranda px-5 py-3 text-center text-sm font-semibold text-linho-cru"
+            className="mt-3 block bg-jacaranda px-5 py-3 text-center text-sm font-semibold text-linho-cru"
           >
             {t.nav.cta}
           </Link>

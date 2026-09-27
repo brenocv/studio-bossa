@@ -73,7 +73,7 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0rem;
   --background: #F5F2E8;
   --foreground: #3E2723;
   --card: #F5F2E8;
@@ -377,7 +377,7 @@
 }
 ::-webkit-scrollbar-thumb {
   background: var(--couro-cognac);
-  border-radius: 5px;
+  border-radius: 0;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--couro-cognac-deep);
@@ -546,3 +546,6 @@ html.is-loading, html.is-loading body { overflow: hidden; }
   .preloader-logo { clip-path: none; animation: none; }
   .preloader { animation: preloaderFailsafe 0.4s ease 6s forwards !important; }
 }
+
+/* Sem cantos arredondados em todo o site */
+:where(button, input, select, textarea, img, video) { border-radius: 0; }

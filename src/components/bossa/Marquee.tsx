@@ -18,7 +18,7 @@ export function Marquee() {
             className="flex items-center gap-12 font-italiana text-[1.7rem] text-linho-cru-deep"
           >
             {item}
-            <span className="h-1 w-1 rounded-full bg-couro-cognac-light" aria-hidden />
+            <span className="h-1 w-1 bg-couro-cognac-light" aria-hidden />
           </span>
         ))}
       </div>

@@ -25,19 +25,19 @@ export function Footer() {
             <div className="mt-6 flex gap-3">
               <a
                 href="#"
-                className="magnetic flex h-10 w-10 items-center justify-center rounded-xl bg-linho-cru/10 text-linho-cru/70 transition-colors hover:bg-couro-cognac hover:text-linho-cru"
+                className="magnetic flex h-10 w-10 items-center justify-center bg-linho-cru/10 text-linho-cru/70 transition-colors hover:bg-couro-cognac hover:text-linho-cru"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="magnetic flex h-10 w-10 items-center justify-center rounded-xl bg-linho-cru/10 text-linho-cru/70 transition-colors hover:bg-couro-cognac hover:text-linho-cru"
+                className="magnetic flex h-10 w-10 items-center justify-center bg-linho-cru/10 text-linho-cru/70 transition-colors hover:bg-couro-cognac hover:text-linho-cru"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="magnetic flex h-10 w-10 items-center justify-center rounded-xl bg-linho-cru/10 text-linho-cru/70 transition-colors hover:bg-verde-oliva hover:text-linho-cru"
+                className="magnetic flex h-10 w-10 items-center justify-center bg-linho-cru/10 text-linho-cru/70 transition-colors hover:bg-verde-oliva hover:text-linho-cru"
               >
                 <Linkedin className="h-5 w-5" />
               </a>

@@ -125,6 +125,8 @@ export const PROJECT_PATH: Record<Locale, (slug: string) => string> = {
   en: (s) => `/en/projects/${s}/`,
 };
 
+export const PROJECTS_INDEX: Record<Locale, string> = { pt: "/projetos/", en: "/en/projects/" };
+
 export function getProject(slug: string) {
   return PROJECTS.find((p) => p.slug === slug);
 }

@@ -66,7 +66,7 @@ export function Lightbox({
         <button
           ref={closeRef}
           onClick={onClose}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-linho-cru/25 text-linho-cru transition-colors hover:bg-linho-cru/10"
+          className="flex h-10 w-10 items-center justify-center border border-linho-cru/25 text-linho-cru transition-colors hover:bg-linho-cru/10"
           aria-label={p.close}
         >
           <X className="h-5 w-5" />
@@ -80,20 +80,20 @@ export function Lightbox({
           src={cur.src}
           alt={cur.alt}
           onClick={(e) => e.stopPropagation()}
-          className="max-h-[82vh] max-w-full rounded-md object-contain shadow-2xl animate-fade-in"
+          className="max-h-[82vh] max-w-full object-contain shadow-2xl animate-fade-in"
         />
         {n > 1 && (
           <>
             <button
               onClick={(e) => { e.stopPropagation(); go(-1); }}
-              className="absolute left-3 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-linho-cru/25 text-linho-cru transition-colors hover:bg-linho-cru/10 sm:flex"
+              className="absolute left-3 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center border border-linho-cru/25 text-linho-cru transition-colors hover:bg-linho-cru/10 sm:flex"
               aria-label={p.prevPhoto}
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); go(1); }}
-              className="absolute right-3 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-linho-cru/25 text-linho-cru transition-colors hover:bg-linho-cru/10 sm:flex"
+              className="absolute right-3 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center border border-linho-cru/25 text-linho-cru transition-colors hover:bg-linho-cru/10 sm:flex"
               aria-label={p.nextPhoto}
             >
               <ChevronRight className="h-5 w-5" />

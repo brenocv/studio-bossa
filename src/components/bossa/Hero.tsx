@@ -94,9 +94,9 @@ export function Hero() {
     <section id="topo" className="bg-linho-cru pt-[84px] lg:pt-[96px]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Moldura */}
-        <div className="rounded-2xl border border-linho-cru-deep bg-linho-cru-warm p-2 shadow-[0_30px_60px_-40px_rgb(62_39_35/0.45)] sm:p-3">
+        <div className="border border-linho-cru-deep bg-linho-cru-warm p-2 shadow-[0_30px_60px_-40px_rgb(62_39_35/0.45)] sm:p-3">
           <div
-            className="relative aspect-[4/5] overflow-hidden rounded-xl bg-jacaranda-deep sm:aspect-[16/9] lg:aspect-auto lg:h-[min(66vh,720px)]"
+            className="relative aspect-[4/5] overflow-hidden bg-jacaranda-deep sm:aspect-[16/9] lg:aspect-auto lg:h-[min(66vh,720px)]"
             aria-label={h.videoLabel}
             role="img"
           >
@@ -127,7 +127,7 @@ export function Hero() {
               {VIDEOS.map((_, i) => (
                 <span
                   key={i}
-                  className={`h-[2px] rounded-full transition-all duration-700 ${
+                  className={`h-[2px] transition-all duration-700 ${
                     i === current ? "w-8 bg-linho-cru" : "w-4 bg-linho-cru/40"
                   }`}
                 />
@@ -137,7 +137,7 @@ export function Hero() {
             <button
               type="button"
               onClick={toggle}
-              className="absolute bottom-3 right-3 flex items-center gap-2 rounded-full bg-jacaranda-deep/40 px-3.5 py-2 text-[11px] font-medium uppercase tracking-[0.22em] text-linho-cru backdrop-blur-md transition-colors hover:bg-jacaranda-deep/60 sm:bottom-4 sm:right-4"
+              className="absolute bottom-3 right-3 flex items-center gap-2 bg-jacaranda-deep/40 px-3.5 py-2 text-[11px] font-medium uppercase tracking-[0.22em] text-linho-cru backdrop-blur-md transition-colors hover:bg-jacaranda-deep/60 sm:bottom-4 sm:right-4"
               aria-label={playing ? h.pauseLabel : h.playLabel}
             >
               {playing ? <Pause className="h-3 w-3" /> : <Play className="h-3 w-3" />}
@@ -146,13 +146,10 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Slogan */}
-        <div className="py-14 text-center sm:py-20">
-          <span className="mx-auto mb-7 block h-10 w-px bg-couro-cognac/50" aria-hidden />
-          <h1 className="animate-fade-up font-italiana text-[clamp(2.6rem,6.4vw,5.75rem)] font-normal leading-[1] text-jacaranda">
-            {h.taglineA}{" "}
-            <br className="hidden sm:block" />
-            <span className="text-couro-cognac">{h.taglineB}</span>
+        {/* Slogan — uma só linha */}
+        <div className="py-12 text-center sm:py-16">
+          <h1 className="animate-fade-up whitespace-nowrap font-italiana text-[clamp(1.35rem,6.6vw,3.1rem)] font-normal leading-none text-jacaranda">
+            {h.taglineA} <span className="text-couro-cognac">{h.taglineB}</span>
           </h1>
         </div>
       </div>

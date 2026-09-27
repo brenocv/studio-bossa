@@ -32,7 +32,7 @@ export function About() {
           <div className="reveal relative">
             <div
               ref={imgParallax.ref as React.RefObject<HTMLDivElement>}
-              className="relative overflow-hidden rounded-xl"
+              className="relative overflow-hidden "
               style={{ transform: `translateY(${imgParallax.offset}px)` }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -47,7 +47,7 @@ export function About() {
               <div className="absolute inset-0 bg-verde-oliva/15 mix-blend-multiply" />
             </div>
             <div
-              className="absolute -bottom-8 -right-4 w-52 overflow-hidden rounded-lg border-4 border-linho-cru-warm shadow-2xl lg:-right-8 lg:w-64"
+              className="absolute -bottom-8 -right-4 w-52 overflow-hidden border-4 border-linho-cru-warm shadow-2xl lg:-right-8 lg:w-64"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <Image
@@ -59,7 +59,7 @@ export function About() {
               />
             </div>
             {/* Floating badge — verde oliva */}
-            <div className="absolute -left-4 top-8 rounded-lg bg-verde-oliva px-6 py-4 text-linho-cru shadow-xl lg:-left-8">
+            <div className="absolute -left-4 top-8 bg-verde-oliva px-6 py-4 text-linho-cru shadow-xl lg:-left-8">
               <div className="font-italiana text-3xl font-normal leading-none">
                 15
               </div>
@@ -96,10 +96,10 @@ export function About() {
               {values.map((v) => (
                 <div
                   key={v.title}
-                  className="group flex gap-4 rounded-lg border border-linho-cru-deep/50 bg-linho-cru/50 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-couro-cognac/30 hover:bg-linho-cru hover:shadow-lg hover:shadow-jacaranda/5"
+                  className="group flex gap-4 border border-linho-cru-deep/50 bg-linho-cru/50 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-couro-cognac/30 hover:bg-linho-cru hover:shadow-lg hover:shadow-jacaranda/5"
                 >
                   <div
-                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-linho-cru-deep ${v.color} transition-transform duration-300 group-hover:scale-110`}
+                    className={`flex h-11 w-11 shrink-0 items-center justify-center bg-linho-cru-deep ${v.color} transition-transform duration-300 group-hover:scale-110`}
                   >
                     <v.icon className="h-5 w-5" strokeWidth={2} />
                   </div>

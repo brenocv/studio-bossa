@@ -42,11 +42,11 @@ export function Process() {
               className="reveal group relative transition-transform duration-500 hover:-translate-y-2"
               data-reveal-delay={`${idx * 100}`}
             >
-              <div className="relative mb-6 flex h-24 w-24 items-center justify-center rounded-lg border border-linho-cru/20 bg-jacaranda/40 backdrop-blur-sm transition-colors duration-500 group-hover:bg-couro-cognac">
+              <div className="relative mb-6 flex h-24 w-24 items-center justify-center border border-linho-cru/20 bg-jacaranda/40 backdrop-blur-sm transition-colors duration-500 group-hover:bg-couro-cognac">
                 <span className="font-italiana text-3xl font-normal text-couro-cognac-light transition-colors duration-500 group-hover:text-linho-cru">
                   {p.step}
                 </span>
-                <div className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-linho-cru ring-4 ring-verde-oliva" />
+                <div className="absolute -right-1 -top-1 h-3 w-3 bg-linho-cru ring-4 ring-verde-oliva" />
               </div>
               <h3 className="font-italiana italiana-sm text-2xl font-normal text-linho-cru">
                 {p.title}

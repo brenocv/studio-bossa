@@ -24,7 +24,7 @@ export function Palette() {
           {PALETTE.map((color, idx) => (
             <div
               key={color.name}
-              className="reveal group flex flex-col overflow-hidden rounded-2xl border border-linho-cru/15 bg-jacaranda-soft/40"
+              className="reveal group flex flex-col overflow-hidden border border-linho-cru/15 bg-jacaranda-soft/40"
               data-reveal-delay={`${idx * 100}`}
             >
               {/* Color swatch */}

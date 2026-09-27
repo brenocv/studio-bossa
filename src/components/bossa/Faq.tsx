@@ -34,7 +34,7 @@ export function Faq() {
             return (
               <div
                 key={idx}
-                className={`overflow-hidden rounded-lg border transition-all duration-300 ${
+                className={`overflow-hidden border transition-all duration-300 ${
                   isOpen
                     ? "border-couro-cognac/40 bg-linho-cru"
                     : "border-linho-cru/15 bg-jacaranda/30 hover:border-couro-cognac-light/30"
@@ -55,7 +55,7 @@ export function Faq() {
                     {item.question}
                   </span>
                   <span
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all ${
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center transition-all ${
                       isOpen
                         ? "bg-couro-cognac text-linho-cru rotate-180"
                         : "bg-linho-cru/15 text-linho-cru"

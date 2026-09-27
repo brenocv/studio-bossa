@@ -31,7 +31,7 @@ export function Testimonials() {
           {c.items.map((t, idx) => (
             <figure
               key={t.name}
-              className="reveal group relative flex flex-col rounded-xl border border-linho-cru-deep bg-linho-cru-warm p-8 transition-all duration-500 hover:-translate-y-2 hover:border-verde-oliva/40 hover:shadow-xl hover:shadow-verde-oliva/10"
+              className="reveal group relative flex flex-col border border-linho-cru-deep bg-linho-cru-warm p-8 transition-all duration-500 hover:-translate-y-2 hover:border-verde-oliva/40 hover:shadow-xl hover:shadow-verde-oliva/10"
               data-reveal-delay={`${idx * 100}`}
             >
               {/* Quote verde-oliva */}
@@ -49,7 +49,7 @@ export function Testimonials() {
               </blockquote>
               <figcaption className="mt-6 border-t border-linho-cru-deep pt-5">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-verde-oliva/15 font-italiana italiana-sm text-xl font-normal text-verde-oliva">
+                  <div className="flex h-11 w-11 items-center justify-center bg-verde-oliva/15 font-italiana italiana-sm text-xl font-normal text-verde-oliva">
                     {t.name.charAt(0)}
                   </div>
                   <div>

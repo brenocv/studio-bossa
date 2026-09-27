@@ -43,7 +43,7 @@ export function Cta() {
           </p>
           <a
             href="#contato"
-            className="btn-lift btn-arrow group mt-8 inline-flex items-center gap-2 rounded-full bg-couro-cognac px-8 py-4 text-base font-medium tracking-wide text-linho-cru hover:bg-couro-cognac-light"
+            className="btn-lift btn-arrow group mt-8 inline-flex items-center gap-2 bg-couro-cognac px-8 py-4 text-base font-medium tracking-wide text-linho-cru hover:bg-couro-cognac-light"
           >
             {c.button}
             <ArrowRight className="h-5 w-5" />

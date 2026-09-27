@@ -13,6 +13,7 @@
  */
 
 import { IMAGES } from "./data";
+import { img } from "./imagePath";
 
 export type Locale = "pt" | "en";
 
@@ -72,67 +73,47 @@ const pt = {
     titleA: "Tudo para transformar",
     titleB: "a sua casa",
     intro:
-      "Do primeiro esboço ao último acabamento, o nosso atelier acompanha cada etapa da remodelação da sua casa no Porto e em Vila Nova de Gaia. Marcenaria própria, parceiros selecionados e materiais nobres — couro, madeira, linho e pedra natural — traduzem o conceito de luxo discreto em cada detalhe.",
+      "Quatro formas de trabalharmos consigo — separadas ou em conjunto — no Porto e em Vila Nova de Gaia.",
     items: [
       {
         id: "interiores",
         title: "Design de Interiores",
-        tagline: "Espaços que traduzem o seu estilo",
+        tagline: "",
         description:
-          "Combinamos estética e funcionalidade para criar interiores por medida. Do mobiliário à paleta de cores, cada projeto reflete a sua personalidade e a forma como quer viver o espaço.",
-        image: IMAGES.salaVerdeOliva,
-        alt: "Sala de estar em verde-oliva com marcenaria em madeira — design de interiores no Porto",
-        features: [
-          "Consultoria de estilo",
-          "Mobiliário por medida",
-          "Iluminação cenográfica",
-          "Curadoria de materiais nobres",
-        ],
-      },
-      {
-        id: "arquitetura",
-        title: "Arquitetura e Obras",
-        tagline: "Construção e ampliação com rigor",
-        description:
-          "Executamos construção nova e ampliações com engenharia precisa, materiais certificados e controlo rigoroso de qualidade em cada fase. Marcenaria nobre, pedra natural e acabamentos impecáveis.",
-        image: IMAGES.showroomMadeira,
-        alt: "Atelier com amostras de madeira e materiais — arquitetura e obras no Porto",
-        features: [
-          "Fundações e estrutura",
-          "Marcenaria de autor",
-          "Instalações completas",
-          "Gestão integral da obra",
-        ],
+          "Projetos de interiores por medida, com imagens 3D fotorrealistas para ver tudo antes de começar.",
+        image: img("/projetos/quarto-casal/06-sm.jpg"),
+        alt: "Quarto de casal em tons de areia — design de interiores no Porto",
+        features: [] as string[],
       },
       {
         id: "remodelacao",
-        title: "Remodelação Chave na Mão",
-        tagline: "Apartamentos e moradias renovados",
+        title: "Remodelação",
+        tagline: "",
         description:
-          "Remodelamos cozinhas, casas de banho, quartos e zonas comuns com acabamentos de alto padrão e prazos cumpridos. Demolição cuidada, canalização e eletricidade, e entrega das chaves impecável.",
-        image: IMAGES.cozinha,
-        alt: "Cozinha remodelada com acabamentos em madeira e pedra — remodelação de apartamentos no Porto e Gaia",
-        features: [
-          "Demolição e preparação",
-          "Canalização e eletricidade",
-          "Acabamentos premium",
-          "Gestão transparente",
-        ],
+          "Remodelação de apartamentos e moradias chave na mão, da demolição à entrega das chaves.",
+        image: img("/projetos/ana-e-cesar/07-sm.jpg"),
+        alt: "Cozinha remodelada em verde-oliva e madeira — remodelação no Porto e Gaia",
+        features: [] as string[],
       },
       {
-        id: "projetos-3d",
-        title: "Projetos 3D",
-        tagline: "Veja antes de construir",
+        id: "consultoria",
+        title: "Consultoria",
+        tagline: "",
         description:
-          "Criamos imagens 3D fotorrealistas para que veja cada detalhe do resultado final antes de a obra começar. Ajustes sem custos surpresa e decisões com total segurança.",
-        image: IMAGES.banheiro,
-        alt: "Render 3D fotorrealista de casa de banho — projeto 3D de interiores",
-        features: [
-          "Modelação volumétrica",
-          "Render fotorrealista",
-          "Visita virtual interativa",
-          "Materiais e iluminação reais",
-        ],
+          "Apoio na escolha de materiais, cores, mobiliário e iluminação, para decidir com segurança.",
+        image: IMAGES.flatlay,
+        alt: "Amostras de materiais nobres — consultoria de interiores",
+        features: [] as string[],
+      },
+      {
+        id: "acompanhamento",
+        title: "Acompanhamento de Obras",
+        tagline: "",
+        description:
+          "Acompanhamos a obra no local para garantir que o que foi projetado é o que fica construído.",
+        image: img("/projetos/escritorio-adv/levantamento-03-sm.jpg"),
+        alt: "Espaço em obra com medições marcadas na parede — acompanhamento de obras",
+        features: [] as string[],
       },
     ],
   },
@@ -369,12 +350,10 @@ const pt = {
       service: "Tipo de serviço",
       select: "Selecione…",
       services: [
-        "Remodelação de apartamento",
-        "Remodelação de moradia",
-        "Cozinha ou casa de banho",
-        "Arquitetura e obras",
         "Design de interiores",
-        "Projeto 3D",
+        "Remodelação",
+        "Consultoria",
+        "Acompanhamento de obras",
         "Outro",
       ],
       message: "Mensagem",
@@ -411,10 +390,23 @@ const pt = {
     view: "Ver projeto",
     tileTitle: "O próximo projeto pode ser o seu",
     tileButton: "Pedir orçamento",
+    more: "Mais projetos",
+    prev: "Projeto anterior",
+    next: "Projeto seguinte",
+  },
+
+  projectsIndex: {
+    eyebrow: "Portefólio · Porto e Gaia",
+    title: "Projetos",
+    intro:
+      "Remodelações, arquitetura de interiores e projetos 3D desenvolvidos pelo nosso atelier — de apartamentos completos a quartos, escritórios e lavandarias.",
+    metaTitle: "Projetos de remodelação e interiores no Porto | Studio Bossa",
+    metaDescription:
+      "Portefólio do Studio Bossa: projetos 3D de remodelação e design de interiores para apartamentos, moradias, quartos e escritórios no Porto e em Vila Nova de Gaia.",
   },
 
   projectPage: {
-    back: "Projetos recentes",
+    back: "Todos os projetos",
     gallery: "Galeria",
     process: "Processo",
     processIntro:
@@ -501,67 +493,47 @@ const en: Dict = {
     titleA: "Everything to transform",
     titleB: "your home",
     intro:
-      "From the first sketch to the final finish, our studio guides every stage of your home renovation in Porto and Vila Nova de Gaia. In-house joinery, trusted partners and noble materials — leather, wood, linen and natural stone — bring quiet luxury to every detail.",
+      "Four ways to work with us — on their own or combined — in Porto and Vila Nova de Gaia.",
     items: [
       {
         id: "interiores",
         title: "Interior Design",
-        tagline: "Spaces that reflect your style",
+        tagline: "",
         description:
-          "We combine aesthetics and function to create bespoke interiors. From furniture to colour palette, every project reflects your personality and the way you want to live.",
-        image: IMAGES.salaVerdeOliva,
-        alt: "Olive-green living room with timber joinery — interior design in Porto",
-        features: [
-          "Style consultancy",
-          "Bespoke furniture",
-          "Scenic lighting",
-          "Curated noble materials",
-        ],
-      },
-      {
-        id: "arquitetura",
-        title: "Architecture and Construction",
-        tagline: "New builds and extensions, done right",
-        description:
-          "We deliver new builds and extensions with precise engineering, certified materials and rigorous quality control at every stage. Fine joinery, natural stone and impeccable finishes.",
-        image: IMAGES.showroomMadeira,
-        alt: "Studio with timber and material samples — architecture and construction in Porto",
-        features: [
-          "Foundations & structure",
-          "Signature joinery",
-          "Full installations",
-          "End-to-end site management",
-        ],
+          "Bespoke interior design, with photorealistic 3D visuals so you can see everything before work begins.",
+        image: img("/projetos/quarto-casal/06-sm.jpg"),
+        alt: "Master bedroom in sand tones — interior design in Porto",
+        features: [] as string[],
       },
       {
         id: "remodelacao",
-        title: "Turnkey Renovation",
-        tagline: "Flats and houses, renewed",
+        title: "Renovation",
+        tagline: "",
         description:
-          "We renovate kitchens, bathrooms, bedrooms and living areas with high-end finishes, on schedule. Careful strip-out, plumbing and electrics, and a flawless handover.",
-        image: IMAGES.cozinha,
-        alt: "Renovated kitchen with timber and stone finishes — flat renovation in Porto and Gaia",
-        features: [
-          "Strip-out & preparation",
-          "Plumbing & electrics",
-          "Premium finishes",
-          "Transparent management",
-        ],
+          "Turnkey renovation of flats and houses, from strip-out to handing over the keys.",
+        image: img("/projetos/ana-e-cesar/07-sm.jpg"),
+        alt: "Olive-green kitchen with timber — renovation in Porto and Gaia",
+        features: [] as string[],
       },
       {
-        id: "projetos-3d",
-        title: "3D Design",
-        tagline: "See it before it's built",
+        id: "consultoria",
+        title: "Consultancy",
+        tagline: "",
         description:
-          "We create photorealistic 3D visuals so you can see every detail of the finished space before work begins. Changes without surprise costs, decisions with complete confidence.",
-        image: IMAGES.banheiro,
-        alt: "Photorealistic 3D render of a bathroom — 3D interior design",
-        features: [
-          "Massing models",
-          "Photorealistic renders",
-          "Interactive virtual tour",
-          "True-to-life materials & light",
-        ],
+          "Guidance on materials, colours, furniture and lighting, so you can decide with confidence.",
+        image: IMAGES.flatlay,
+        alt: "Samples of noble materials — interior design consultancy",
+        features: [] as string[],
+      },
+      {
+        id: "acompanhamento",
+        title: "Site Supervision",
+        tagline: "",
+        description:
+          "We follow the work on site to make sure what was designed is exactly what gets built.",
+        image: img("/projetos/escritorio-adv/levantamento-03-sm.jpg"),
+        alt: "Space under works with measurements marked on the wall — site supervision",
+        features: [] as string[],
       },
     ],
   },
@@ -798,12 +770,10 @@ const en: Dict = {
       service: "Type of service",
       select: "Select…",
       services: [
-        "Flat renovation",
-        "House renovation",
-        "Kitchen or bathroom",
-        "Architecture & construction",
         "Interior design",
-        "3D design",
+        "Renovation",
+        "Consultancy",
+        "Site supervision",
         "Other",
       ],
       message: "Message",
@@ -840,10 +810,23 @@ const en: Dict = {
     view: "View project",
     tileTitle: "Your home could be our next project",
     tileButton: "Get a quote",
+    more: "More projects",
+    prev: "Previous project",
+    next: "Next project",
+  },
+
+  projectsIndex: {
+    eyebrow: "Portfolio · Porto and Gaia",
+    title: "Projects",
+    intro:
+      "Renovations, interior architecture and 3D design projects by our studio — from complete flats to bedrooms, offices and laundry rooms.",
+    metaTitle: "Renovation and interior design projects in Porto | Studio Bossa",
+    metaDescription:
+      "Studio Bossa portfolio: 3D renovation and interior design projects for flats, houses, bedrooms and offices in Porto and Vila Nova de Gaia.",
   },
 
   projectPage: {
-    back: "Recent projects",
+    back: "All projects",
     gallery: "Gallery",
     process: "Process",
     processIntro:
