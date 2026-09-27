@@ -13,10 +13,7 @@ export function Brands() {
   return (
     <section className="bg-linho-cru py-14 lg:py-16" aria-labelledby="marcas-title">
       <div className="mx-auto max-w-7xl px-4 text-center sm:px-6">
-        <p className="eyebrow justify-center text-couro-cognac">{c.eyebrow}</p>
-        <h2 id="marcas-title" className="mt-3 font-italiana text-3xl font-normal text-jacaranda sm:text-4xl">
-          {c.title}
-        </h2>
+        <p id="marcas-title" className="eyebrow justify-center text-couro-cognac">{c.eyebrow}</p>
       </div>
 
       <div className="brands-marquee group relative mt-10 overflow-hidden">

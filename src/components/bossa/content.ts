@@ -21,7 +21,7 @@ const pt = {
   langName: "Português",
   nav: {
     links: [
-      { href: "#projetos", label: "Projetos" },
+      { href: "/projetos/", label: "Projetos" },
       { href: "#servicos", label: "Serviços" },
       { href: "#processo", label: "Processo" },
       { href: "#sobre", label: "Sobre" },
@@ -384,7 +384,7 @@ const pt = {
     navTitle: "Navegação",
     nav: [
       { href: "#servicos", label: "Serviços" },
-      { href: "#projetos", label: "Projetos" },
+      { href: "/projetos/", label: "Projetos" },
       { href: "#sobre", label: "Sobre" },
       { href: "/perguntas/", label: "Perguntas" },
       { href: "#contato", label: "Contacto" },
@@ -453,7 +453,7 @@ const en: Dict = {
   langName: "English",
   nav: {
     links: [
-      { href: "#projetos", label: "Projects" },
+      { href: "/en/projects/", label: "Projects" },
       { href: "#servicos", label: "Services" },
       { href: "#processo", label: "Process" },
       { href: "#sobre", label: "About" },
@@ -815,7 +815,7 @@ const en: Dict = {
     navTitle: "Navigation",
     nav: [
       { href: "#servicos", label: "Services" },
-      { href: "#projetos", label: "Projects" },
+      { href: "/en/projects/", label: "Projects" },
       { href: "#sobre", label: "About" },
       { href: "/en/faq/", label: "FAQ" },
       { href: "#contato", label: "Contact" },
