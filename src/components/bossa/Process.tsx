@@ -8,28 +8,28 @@ export function Process() {
   const c = t.process;
 
   return (
-    <section id="processo" className="bg-linho-cru py-24 lg:py-32">
+    <section id="processo" className="bg-couro-cognac py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="reveal mb-14 max-w-3xl lg:mb-16">
-          <span className="eyebrow text-couro-cognac">{c.eyebrow}</span>
-          <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
-            {c.titleA} <span className="text-couro-cognac">{c.titleAccent}</span>
+          <span className="eyebrow text-linho-cru/80">{c.eyebrow}</span>
+          <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-linho-cru sm:text-5xl lg:text-6xl text-balance">
+            {c.titleA} <span className="text-jacaranda">{c.titleAccent}</span>
             <br />
             {c.titleB}
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-jacaranda-soft">{c.intro}</p>
+          <p className="mt-6 text-lg leading-relaxed text-linho-cru/85">{c.intro}</p>
         </div>
 
         <ol className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {c.steps.map((p, idx) => (
             <li
               key={p.step}
-              className="reveal group border-t border-jacaranda/15 pt-6"
+              className="reveal group border-t border-linho-cru/25 pt-6"
               data-reveal-delay={`${idx * 100}`}
             >
-              <span className="font-italiana text-5xl leading-none text-couro-cognac">{p.step}</span>
-              <h3 className="mt-5 font-italiana italiana-sm text-2xl font-normal text-jacaranda">{p.title}</h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-jacaranda-soft">{p.description}</p>
+              <span className="font-italiana text-5xl leading-none text-jacaranda">{p.step}</span>
+              <h3 className="mt-5 font-italiana italiana-sm text-2xl font-normal text-linho-cru">{p.title}</h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-linho-cru/80">{p.description}</p>
             </li>
           ))}
         </ol>

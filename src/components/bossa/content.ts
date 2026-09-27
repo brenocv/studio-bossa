@@ -36,8 +36,8 @@ const pt = {
   hero: {
     // H1 da página (texto principal para o Google)
     h1: "Remodelação, arquitetura e design de interiores no Porto e Gaia",
-    taglineA: "O luxo de se",
-    taglineB: "sentir em casa",
+    taglineA: "O luxo de",
+    taglineB: "sentir-se em casa",
     intro:
       "Atelier de arquitetura e design de interiores no Porto. Projetamos e executamos remodelações de apartamentos e moradias — do projeto 3D à entrega das chaves — com marcenaria nobre, couro, pedra natural e linho.",
     ctaPrimary: "Pedir orçamento",
@@ -148,7 +148,7 @@ const pt = {
         step: "04",
         title: "Entrega e Pós-obra",
         description:
-          "Entregamos a casa pronta a habitar, com garantia e acompanhamento pós-obra. O luxo de se sentir em casa — verdadeiramente.",
+          "Entregamos a casa pronta a habitar, com garantia e acompanhamento pós-obra. O luxo de sentir-se em casa — verdadeiramente.",
       },
     ],
   },
@@ -161,7 +161,7 @@ const pt = {
       "Uma seleção de remodelações e projetos de interiores que entregámos aos nossos clientes. Cada projeto é único, tal como a história de quem o habita.",
     items: [
       {
-        title: "Residência Jardins",
+        title: "Residência Boavista",
         type: "Design de Interiores",
         area: "180 m²",
         duration: "5 meses",
@@ -179,7 +179,7 @@ const pt = {
           "Projeto de interiores para penthouse com zonas integradas e vista panorâmica. Tecidos naturais, linho cru e iluminação cenográfica.",
       },
       {
-        title: "Moradia Pinheiros",
+        title: "Moradia Foz do Douro",
         type: "Arquitetura e Interiores",
         area: "350 m²",
         duration: "9 meses",
@@ -260,21 +260,21 @@ const pt = {
     items: [
       {
         name: "Mariana Costa",
-        role: "Apartamento — Vila Mariana",
+        role: "Apartamento — Cedofeita",
         quote:
           "O Studio Bossa transformou o meu apartamento para lá do que eu imaginava. O projeto 3D deu-me total segurança e a obra foi entregue dentro do prazo. Cada material escolhido tem uma história.",
         rating: 5,
       },
       {
         name: "Roberto e Helena Martins",
-        role: "Moradia — Alphaville",
+        role: "Moradia — Aldoar",
         quote:
           "Profissionalismo do início ao fim. A equipa foi organizada, limpa e atenta a cada pormenor. Recomendamos de olhos fechados — voltámos a contratá-los para a casa de praia.",
         rating: 5,
       },
       {
         name: "Fernanda Lobo",
-        role: "Penthouse — Jardins",
+        role: "Penthouse — Boavista",
         quote:
           "O design de interiores superou todas as expetativas. Cada divisão reflete exatamente o estilo que eu queria. A paleta terrosa criou uma atmosfera única.",
         rating: 5,
@@ -592,7 +592,7 @@ const en: Dict = {
       "A selection of renovations and interior projects we have delivered for our clients. Every project is unique, just like the story of those who live there.",
     items: [
       {
-        title: "Jardins Residence",
+        title: "Boavista Residence",
         type: "Interior Design",
         area: "180 m²",
         duration: "5 months",
@@ -610,7 +610,7 @@ const en: Dict = {
           "Interior design for a penthouse with open living spaces and panoramic views. Natural fabrics, raw linen and scenic lighting.",
       },
       {
-        title: "Pinheiros House",
+        title: "Foz do Douro House",
         type: "Architecture & Interiors",
         area: "350 m²",
         duration: "9 months",
@@ -691,21 +691,21 @@ const en: Dict = {
     items: [
       {
         name: "Mariana Costa",
-        role: "Flat — Vila Mariana",
+        role: "Flat — Cedofeita",
         quote:
           "Studio Bossa transformed my flat beyond anything I had imagined. The 3D design gave me complete confidence and the work was finished on time. Every material has a story.",
         rating: 5,
       },
       {
         name: "Roberto & Helena Martins",
-        role: "House — Alphaville",
+        role: "House — Aldoar",
         quote:
           "Professional from start to finish. The team was organised, tidy and attentive to every detail. We recommend them without hesitation — we hired them again for our beach house.",
         rating: 5,
       },
       {
         name: "Fernanda Lobo",
-        role: "Penthouse — Jardins",
+        role: "Penthouse — Boavista",
         quote:
           "The interior design exceeded every expectation. Each room reflects exactly the style I wanted. The earthy palette created a truly unique atmosphere.",
         rating: 5,
