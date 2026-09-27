@@ -16,7 +16,7 @@ export function About() {
   return (
     <section
       id="sobre"
-      className="relative overflow-hidden bg-linho-cru-warm py-24 lg:py-32"
+      className="relative overflow-hidden bg-linho-cru py-24 lg:py-32"
     >
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-16 lg:grid-cols-2">
@@ -35,11 +35,9 @@ export function About() {
                 height={520}
                 className="h-[520px] w-full object-cover"
               />
-              {/* Overlay verde-oliva sutil */}
-              <div className="absolute inset-0 bg-verde-oliva/15 mix-blend-multiply" />
             </div>
             <div
-              className="absolute -bottom-8 -right-4 w-52 overflow-hidden border-4 border-linho-cru-warm shadow-2xl lg:-right-8 lg:w-64"
+              className="absolute -bottom-8 -right-4 w-52 overflow-hidden border-4 border-linho-cru shadow-2xl lg:-right-8 lg:w-64"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <Image
@@ -51,7 +49,7 @@ export function About() {
               />
             </div>
             {/* Floating badge — verde oliva */}
-            <div className="absolute -left-4 top-8 bg-verde-oliva px-6 py-4 text-linho-cru shadow-xl lg:-left-8">
+            <div className="absolute -left-4 top-8 border-l-2 border-verde-oliva bg-jacaranda px-6 py-4 text-linho-cru shadow-xl lg:-left-8">
               <div className="font-italiana text-3xl font-normal leading-none">
                 15
               </div>

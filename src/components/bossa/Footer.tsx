@@ -9,9 +9,9 @@ export function Footer() {
   const { t, home } = useLocale();
   const c = t.footer;
   return (
-    <footer className="relative overflow-hidden border-t border-linho-cru-deep bg-jacaranda py-14">
+    <footer className="relative overflow-hidden bg-jacaranda py-14">
       {/* Linha superior verde-oliva */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-verde-oliva via-couro-cognac to-verde-oliva" />
+      <div className="absolute left-0 right-0 top-0 h-px bg-linho-cru/10" />
 
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-10 md:grid-cols-4">
@@ -37,7 +37,7 @@ export function Footer() {
               </a>
               <a
                 href="#"
-                className="magnetic flex h-10 w-10 items-center justify-center bg-linho-cru/10 text-linho-cru/70 transition-colors hover:bg-verde-oliva hover:text-linho-cru"
+                className="magnetic flex h-10 w-10 items-center justify-center bg-linho-cru/10 text-linho-cru/70 transition-colors hover:bg-couro-cognac hover:text-linho-cru"
               >
                 <Linkedin className="h-5 w-5" />
               </a>

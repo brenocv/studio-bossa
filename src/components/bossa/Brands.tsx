@@ -11,7 +11,7 @@ export function Brands() {
   const row = [...BRANDS, ...BRANDS];
 
   return (
-    <section className="border-y border-linho-cru-deep bg-linho-cru-warm py-14 lg:py-16" aria-labelledby="marcas-title">
+    <section className="bg-linho-cru py-14 lg:py-16" aria-labelledby="marcas-title">
       <div className="mx-auto max-w-7xl px-4 text-center sm:px-6">
         <p className="eyebrow justify-center text-couro-cognac">{c.eyebrow}</p>
         <h2 id="marcas-title" className="mt-3 font-italiana text-3xl font-normal text-jacaranda sm:text-4xl">
@@ -21,8 +21,8 @@ export function Brands() {
 
       <div className="brands-marquee group relative mt-10 overflow-hidden">
         {/* esbatimento nas pontas */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-linho-cru-warm to-transparent sm:w-32" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-linho-cru-warm to-transparent sm:w-32" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-linho-cru to-transparent sm:w-32" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-linho-cru to-transparent sm:w-32" />
 
         <ul className="brands-track flex w-max items-stretch">
           {row.map((b, i) => (

@@ -63,7 +63,7 @@ export function Contact() {
   return (
     <section
       id="contato"
-      className="relative overflow-hidden bg-linho-cru py-24 lg:py-32"
+      className="relative overflow-hidden bg-linho-claro py-24 lg:py-32"
     >
 
       <div className="relative mx-auto max-w-7xl px-6">
@@ -89,7 +89,7 @@ export function Contact() {
                 href="tel:+351220000000"
                 className="group flex items-center gap-4 text-jacaranda-soft transition-colors hover:text-couro-cognac"
               >
-                <span className="flex h-11 w-11 items-center justify-center bg-verde-oliva/15 text-verde-oliva transition-colors group-hover:bg-couro-cognac group-hover:text-linho-cru">
+                <span className="flex h-11 w-11 items-center justify-center border border-jacaranda/15 text-verde-oliva transition-colors group-hover:border-couro-cognac group-hover:text-couro-cognac">
                   <Phone className="h-5 w-5" />
                 </span>
                 <div>
@@ -103,7 +103,7 @@ export function Contact() {
                 href="mailto:hello@studiobossa.pt"
                 className="group flex items-center gap-4 text-jacaranda-soft transition-colors hover:text-couro-cognac"
               >
-                <span className="flex h-11 w-11 items-center justify-center bg-verde-oliva/15 text-verde-oliva transition-colors group-hover:bg-couro-cognac group-hover:text-linho-cru">
+                <span className="flex h-11 w-11 items-center justify-center border border-jacaranda/15 text-verde-oliva transition-colors group-hover:border-couro-cognac group-hover:text-couro-cognac">
                   <Mail className="h-5 w-5" />
                 </span>
                 <div>
@@ -114,7 +114,7 @@ export function Contact() {
                 </div>
               </a>
               <div className="flex items-center gap-4 text-jacaranda-soft">
-                <span className="flex h-11 w-11 items-center justify-center bg-verde-oliva/15 text-verde-oliva">
+                <span className="flex h-11 w-11 items-center justify-center border border-jacaranda/15 text-verde-oliva">
                   <MapPin className="h-5 w-5" />
                 </span>
                 <div>
@@ -125,7 +125,7 @@ export function Contact() {
                 </div>
               </div>
               <div className="flex items-center gap-4 text-jacaranda-soft">
-                <span className="flex h-11 w-11 items-center justify-center bg-verde-oliva/15 text-verde-oliva">
+                <span className="flex h-11 w-11 items-center justify-center border border-jacaranda/15 text-verde-oliva">
                   <Clock className="h-5 w-5" />
                 </span>
                 <div>
@@ -140,19 +140,19 @@ export function Contact() {
             <div className="mt-8 flex gap-3">
               <a
                 href="#"
-                className="magnetic flex h-10 w-10 items-center justify-center bg-linho-cru-deep text-jacaranda transition-colors hover:bg-verde-oliva hover:text-linho-cru"
+                className="magnetic flex h-10 w-10 items-center justify-center border border-jacaranda/15 text-jacaranda transition-colors hover:bg-jacaranda hover:text-linho-cru"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="magnetic flex h-10 w-10 items-center justify-center bg-linho-cru-deep text-jacaranda transition-colors hover:bg-verde-oliva hover:text-linho-cru"
+                className="magnetic flex h-10 w-10 items-center justify-center border border-jacaranda/15 text-jacaranda transition-colors hover:bg-jacaranda hover:text-linho-cru"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="magnetic flex h-10 w-10 items-center justify-center bg-linho-cru-deep text-jacaranda transition-colors hover:bg-verde-oliva hover:text-linho-cru"
+                className="magnetic flex h-10 w-10 items-center justify-center border border-jacaranda/15 text-jacaranda transition-colors hover:bg-jacaranda hover:text-linho-cru"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -161,7 +161,7 @@ export function Contact() {
 
           {/* Right — form */}
           <div className="reveal lg:col-span-3">
-            <div className="border border-linho-cru-deep bg-linho-cru-warm p-8 lg:p-10">
+            <div className="border border-jacaranda/15 bg-linho-cru p-8 lg:p-10">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center">
                   <CheckCircle

@@ -9,13 +9,13 @@ export function Marquee() {
   const doubled = [...items, ...items];
 
   return (
-    <section className="relative overflow-hidden bg-jacaranda py-5">
+    <section className="relative overflow-hidden bg-linho-claro py-5">
       {/* Track do marquee */}
       <div className="flex marquee-track gap-12 whitespace-nowrap py-1">
         {doubled.map((item, i) => (
           <span
             key={i}
-            className="flex items-center gap-12 font-italiana text-[1.7rem] text-linho-cru-deep"
+            className="flex items-center gap-12 font-italiana text-[1.7rem] text-jacaranda/80"
           >
             {item}
             <span className="h-1 w-1 bg-couro-cognac-light" aria-hidden />
@@ -29,18 +29,16 @@ export function Marquee() {
       >
         {t.stats.map((s) => (
           <div key={s.label} className="text-center">
-            <div className="font-italiana text-5xl font-normal text-couro-cognac-light sm:text-6xl">
+            <div className="font-italiana text-5xl font-normal text-couro-cognac sm:text-6xl">
               {s.value}
             </div>
-            <div className="mt-3 text-[11px] uppercase tracking-[0.28em] text-linho-cru/55">
+            <div className="mt-3 text-[11px] uppercase tracking-[0.28em] text-jacaranda/55">
               {s.label}
             </div>
           </div>
         ))}
       </div>
-
-      {/* Linha fina verde-oliva na borda inferior */}
-      <div className="mt-12 h-px w-full bg-gradient-to-r from-transparent via-verde-oliva-light to-transparent" />
+      <div className="mt-12" />
     </section>
   );
 }

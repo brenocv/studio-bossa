@@ -92,7 +92,7 @@ function ProjectBody({ slug }: { slug: string }) {
         <button
           type="button"
           onClick={() => setBox({ list: gallery, index: m.gallery.indexOf(coverImg), title: name })}
-          className="mt-10 block w-full border border-linho-cru-deep bg-linho-cru-warm p-2 sm:p-3"
+          className="mt-10 block w-full"
           aria-label={`${name} — ${p.photo}`}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -141,7 +141,7 @@ function ProjectBody({ slug }: { slug: string }) {
       </section>
 
       {/* Processo */}
-      <section className="bg-linho-cru-warm py-20 lg:py-28">
+      <section className="bg-linho-claro py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="reveal mb-14 max-w-2xl">
             <p className="eyebrow text-couro-cognac">{t.process.eyebrow}</p>
@@ -154,7 +154,7 @@ function ProjectBody({ slug }: { slug: string }) {
           <ol className="relative space-y-14 border-l border-jacaranda/15 pl-8 sm:pl-12">
             {t.process.steps.map((s, i) => (
               <li key={s.step} className="reveal relative">
-                <span className="absolute -left-[41px] top-1 flex h-4 w-4 items-center justify-center border border-couro-cognac bg-linho-cru-warm sm:-left-[57px]" aria-hidden>
+                <span className="absolute -left-[41px] top-1 flex h-4 w-4 items-center justify-center border border-couro-cognac bg-linho-claro sm:-left-[57px]" aria-hidden>
                   <span className="h-1.5 w-1.5 bg-couro-cognac" />
                 </span>
                 <p className="font-italiana text-2xl text-couro-cognac">{s.step}</p>
@@ -247,7 +247,7 @@ function ProjectBody({ slug }: { slug: string }) {
         {/* Próximo projeto */}
         <Link
           href={PROJECT_PATH[locale](next.slug)}
-          className="group mt-6 flex items-center gap-5 border border-linho-cru-deep p-3 pr-6 transition-colors hover:border-couro-cognac/40 hover:bg-linho-cru-warm"
+          className="group mt-6 flex items-center gap-5 border border-linho-cru-deep p-3 pr-6 transition-colors hover:border-couro-cognac/40"
         >
           <span className="relative h-24 w-24 shrink-0 overflow-hidden sm:h-28 sm:w-40">
             {/* eslint-disable-next-line @next/next/no-img-element */}

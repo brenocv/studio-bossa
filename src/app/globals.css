@@ -29,6 +29,7 @@
   --color-linho-cru: #F5F2E8;
   --color-linho-cru-warm: #efe9da;
   --color-linho-cru-deep: #e3dcc9;
+  --color-linho-claro: #FAF8F3;
 
   /* Variáveis shadcn mapeadas para a paleta Bossa */
   --color-background: var(--linho-cru);
@@ -465,6 +466,9 @@
   0% { transform: scale(1); opacity: 0.45; }
   80%, 100% { transform: scale(1.7); opacity: 0; }
 }
+
+/* Linha discreta a separar as secções (mesmo quando têm a mesma cor) */
+main > section + section { border-top: 1px solid rgb(62 39 35 / 0.1); }
 
 /* Âncoras não ficam escondidas pelo menu fixo */
 section[id] { scroll-margin-top: 88px; }

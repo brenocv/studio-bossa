@@ -12,44 +12,38 @@ export function Faq() {
   return (
     <section
       id="faq"
-      className="relative overflow-hidden bg-verde-oliva py-24 lg:py-32"
+      className="relative overflow-hidden bg-linho-cru py-24 lg:py-28"
     >
-      {/* Padrão decorativo */}
-      <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_30%_30%,#F5F2E8_0,transparent_50%)]" />
 
       <div className="relative mx-auto max-w-3xl px-6">
         <div className="reveal mb-14 text-center">
-          <span className="eyebrow text-linho-cru/70">
+          <span className="eyebrow text-couro-cognac">
             {c.eyebrow}
           </span>
-          <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-linho-cru sm:text-5xl lg:text-6xl text-balance">
+          <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
             {c.titleA}{" "}
-            <span className="text-couro-cognac-light">{c.titleB}</span>
+            <span className="text-couro-cognac">{c.titleB}</span>
           </h2>
         </div>
 
-        <div className="reveal flex flex-col gap-3">
+        <div className="reveal flex flex-col border-t border-jacaranda/15">
           {c.items.map((item, idx) => {
             const isOpen = open === idx;
             return (
               <div
                 key={idx}
-                className={`overflow-hidden border transition-all duration-300 ${
-                  isOpen
-                    ? "border-couro-cognac/40 bg-linho-cru"
-                    : "border-linho-cru/15 bg-jacaranda/30 hover:border-couro-cognac-light/30"
-                }`}
+                className="overflow-hidden border-b border-jacaranda/15"
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : idx)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                  className="group flex w-full items-center justify-between gap-4 py-6 text-left"
                 >
                   <span
                     className={`font-italiana italiana-sm text-xl sm:text-[1.4rem] leading-snug font-normal transition-colors ${
                       isOpen
                         ? "text-couro-cognac"
-                        : "text-linho-cru group-hover:text-linho-cru"
+                        : "text-jacaranda group-hover:text-couro-cognac"
                     }`}
                   >
                     {item.question}
@@ -57,8 +51,8 @@ export function Faq() {
                   <span
                     className={`flex h-8 w-8 shrink-0 items-center justify-center transition-all ${
                       isOpen
-                        ? "bg-couro-cognac text-linho-cru rotate-180"
-                        : "bg-linho-cru/15 text-linho-cru"
+                        ? "border border-couro-cognac text-couro-cognac rotate-180"
+                        : "border border-jacaranda/25 text-jacaranda"
                     }`}
                   >
                     {isOpen ? (
@@ -76,7 +70,7 @@ export function Faq() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-5 text-base leading-relaxed text-jacaranda-soft">
+                    <p className="max-w-2xl pb-6 text-base leading-relaxed text-jacaranda-soft">
                       {item.answer}
                     </p>
                   </div>
