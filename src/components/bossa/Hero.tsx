@@ -91,12 +91,11 @@ export function Hero() {
   };
 
   return (
-    <section id="topo" className="bg-linho-cru pt-[84px] lg:pt-[96px]">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        {/* Moldura */}
-        <div className="border border-linho-cru-deep bg-linho-cru-warm p-2 shadow-[0_30px_60px_-40px_rgb(62_39_35/0.45)] sm:p-3">
+    <section id="topo" className="bg-jacaranda pt-[76px] lg:pt-[84px]">
+      <div className="px-3 pt-3 sm:px-4 sm:pt-4 lg:px-5 lg:pt-5">
+        {/* Vídeo panorâmico, quase de ponta a ponta */}
           <div
-            className="relative aspect-[4/5] overflow-hidden bg-jacaranda-deep sm:aspect-[16/9] lg:aspect-auto lg:h-[min(66vh,720px)]"
+            className="relative aspect-[4/3] overflow-hidden bg-jacaranda-deep sm:aspect-[16/9] lg:aspect-[21/9] lg:max-h-[calc(100svh-120px)] lg:w-full"
             aria-label={h.videoLabel}
             role="img"
           >
@@ -144,12 +143,11 @@ export function Hero() {
               {playing ? h.pause : h.play}
             </button>
           </div>
-        </div>
 
         {/* Slogan — uma só linha */}
-        <div className="py-12 text-center sm:py-16">
-          <h1 className="animate-fade-up whitespace-nowrap font-italiana text-[clamp(1.35rem,6.6vw,3.1rem)] font-normal leading-none text-jacaranda">
-            {h.taglineA} <span className="text-couro-cognac">{h.taglineB}</span>
+        <div className="px-4 py-12 text-center sm:py-16 lg:py-20">
+          <h1 className="animate-fade-up whitespace-nowrap font-italiana text-[clamp(1.35rem,6.6vw,3.1rem)] font-normal leading-none text-linho-cru">
+            {h.taglineA} <span className="text-couro-cognac-light">{h.taglineB}</span>
           </h1>
         </div>
       </div>

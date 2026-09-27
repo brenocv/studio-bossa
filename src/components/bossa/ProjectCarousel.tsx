@@ -51,7 +51,7 @@ export function ProjectCarousel() {
   const cur = PROJECTS[active];
 
   return (
-    <section id="projetos" className="overflow-hidden bg-linho-cru pb-24 lg:pb-32">
+    <section id="projetos" className="overflow-hidden bg-linho-cru pb-24 pt-20 lg:pb-32 lg:pt-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="reveal mb-10 flex flex-col items-start gap-3 sm:mb-14">
           <p className="eyebrow text-couro-cognac">{c.eyebrow}</p>
