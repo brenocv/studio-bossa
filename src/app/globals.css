@@ -479,6 +479,10 @@ section[id] { scroll-margin-top: 88px; }
   .project-tile:focus-visible .project-tile-label { opacity: 1; transform: translateY(0); }
 }
 
+/* Faixa de marcas */
+.brands-track { animation: marquee 38s linear infinite; }
+.brands-marquee:hover .brands-track { animation-play-state: paused; }
+
 /* ============================================================
    Ecrã de carregamento
    ============================================================ */
@@ -543,6 +547,7 @@ html.is-loading, html.is-loading body { overflow: hidden; }
   }
   .reveal { opacity: 1; transform: none; }
   .marquee-track { animation: none; }
+  .brands-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; }
   .preloader-logo { clip-path: none; animation: none; }
   .preloader { animation: preloaderFailsafe 0.4s ease 6s forwards !important; }
 }

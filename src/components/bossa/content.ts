@@ -282,6 +282,11 @@ const pt = {
     ],
   },
 
+  brands: {
+    eyebrow: "Parceiros",
+    title: "Marcas com que trabalhamos",
+  },
+
   cta: {
     titleA: "Pronto para remodelar",
     titleB: "a sua casa?",
@@ -700,6 +705,11 @@ const en: Dict = {
         rating: 5,
       },
     ],
+  },
+
+  brands: {
+    eyebrow: "Partners",
+    title: "Brands we work with",
   },
 
   cta: {

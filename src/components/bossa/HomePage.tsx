@@ -12,6 +12,7 @@ import { ProjectCarousel } from "./ProjectCarousel";
 import { Preloader } from "./Preloader";
 import { About } from "./About";
 import { Testimonials } from "./Testimonials";
+import { Brands } from "./Brands";
 import { Cta } from "./Cta";
 import { Faq } from "./Faq";
 import { Contact } from "./Contact";
@@ -38,6 +39,7 @@ export function HomePage({ locale, jsonLd }: { locale: Locale; jsonLd: object[] 
           <Process />
           <About />
           <Testimonials />
+          <Brands />
           <Cta />
           <Faq />
           <Contact />

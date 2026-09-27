@@ -1,23 +1,15 @@
 "use client";
 
-import { Shield, Award, Leaf, Users } from "lucide-react";
 import Image from "next/image";
 import { IMAGES } from "./data";
 import { useParallax } from "./useParallax";
 import { useLocale } from "./i18n";
 
-const valueStyle = [
-  { icon: Shield, color: "text-verde-oliva" },
-  { icon: Award, color: "text-couro-cognac" },
-  { icon: Leaf, color: "text-verde-oliva" },
-  { icon: Users, color: "text-couro-cognac" },
-];
 
 
 export function About() {
   const { t } = useLocale();
   const c = t.about;
-  const values = c.values.map((v, i) => ({ ...v, ...valueStyle[i] }));
   // Parallax discreto só na imagem principal (limite de 24px)
   const imgParallax = useParallax(0.05, 24);
 
@@ -27,7 +19,7 @@ export function About() {
       className="relative overflow-hidden bg-linho-cru-warm py-24 lg:py-32"
     >
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid items-start gap-16 lg:grid-cols-2">
+        <div className="grid items-center gap-16 lg:grid-cols-2">
           {/* Imagens */}
           <div className="reveal relative">
             <div
@@ -90,27 +82,6 @@ export function About() {
                 <span className="font-italiana italiana-sm text-[1.3em] leading-none text-verde-oliva">{c.p3accent}</span>{" "}
                 {c.p3b}
               </p>
-            </div>
-
-            <div className="mt-10 grid gap-6 sm:grid-cols-2">
-              {values.map((v) => (
-                <div
-                  key={v.title}
-                  className="group flex gap-4 border border-linho-cru-deep/50 bg-linho-cru/50 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-couro-cognac/30 hover:bg-linho-cru hover:shadow-lg hover:shadow-jacaranda/5"
-                >
-                  <div
-                    className={`flex h-11 w-11 shrink-0 items-center justify-center bg-linho-cru-deep ${v.color} transition-transform duration-300 group-hover:scale-110`}
-                  >
-                    <v.icon className="h-5 w-5" strokeWidth={2} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-jacaranda">{v.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-jacaranda-soft">
-                      {v.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
