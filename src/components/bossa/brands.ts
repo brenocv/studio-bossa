@@ -9,12 +9,12 @@
 export type Brand = { name: string; logo: string | null };
 
 export const BRANDS: Brand[] = [
-  { name: "Pedroso & Osório", logo: null }, // ex.: "pedroso-osorio.svg"
-  { name: "Tapetes Cut Cut", logo: null }, // ex.: "tapetes-cut-cut.svg"
-  { name: "Damasceno & Antunes", logo: null }, // ex.: "damasceno-antunes.svg"
-  { name: "Porcelanosa", logo: null }, // ex.: "porcelanosa.svg"
-  { name: "Elastron", logo: null }, // ex.: "elastron.svg"
-  { name: "GoHome", logo: null }, // ex.: "gohome.svg"
-  { name: "Aromas del Campo", logo: null }, // ex.: "aromas-del-campo.svg"
-  { name: "Fenabel", logo: null }, // ex.: "fenabel.svg"
+  { name: "Pedroso & Osório", logo: "pedroso-osorio.svg" },
+  { name: "Tapetes Cut Cut", logo: "cutcut.png" },
+  { name: "Damasceno & Antunes", logo: "damaceno-antunes.png" },
+  { name: "Porcelanosa", logo: "porcelanosa.png" },
+  { name: "Elastron", logo: "elastron.png" },
+  { name: "GoHome", logo: "gohome.png" },
+  { name: "Aromas del Campo", logo: "aromas-del-campo.svg" },
+  { name: "Fenabel", logo: "fenabel.svg" },
 ];

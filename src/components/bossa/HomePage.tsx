@@ -38,9 +38,9 @@ export function HomePage({ locale, jsonLd }: { locale: Locale; jsonLd: object[] 
           <Process />
           <About />
           <Testimonials />
-          <Brands />
           <Cta />
           <Contact />
+          <Brands />
         </main>
         <Footer />
         <WhatsAppButton />

@@ -469,6 +469,7 @@
 
 /* Linha discreta a separar as secções (mesmo quando têm a mesma cor) */
 main > section + section { border-top: 1px solid rgb(62 39 35 / 0.1); }
+main > section.bg-verde-oliva + section.bg-verde-oliva { border-top-color: rgb(245 242 232 / 0.22); }
 
 /* Âncoras não ficam escondidas pelo menu fixo */
 section[id] { scroll-margin-top: 88px; }
