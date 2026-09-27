@@ -40,8 +40,8 @@ function FlagUK() {
 }
 
 const OPTIONS = [
-  { locale: "pt" as const, href: "/", code: "PT", name: "Português (Portugal)", Flag: FlagPT },
-  { locale: "en" as const, href: "/en/", code: "EN", name: "English (UK)", Flag: FlagUK },
+  { locale: "pt" as const, code: "PT", name: "Português (Portugal)", Flag: FlagPT },
+  { locale: "en" as const, code: "EN", name: "English (UK)", Flag: FlagUK },
 ];
 
 /**
@@ -49,12 +49,13 @@ const OPTIONS = [
  * (claro quando está sobre o vídeo, escuro quando o header fica cor de linho).
  */
 export function LanguageSwitcher({ tone = "light" }: { tone?: "light" | "dark" }) {
-  const { locale, t } = useLocale();
+  const { locale, t, alternates } = useLocale();
 
   return (
     <nav aria-label={t.nav.switchTo} className="flex items-center gap-1">
-      {OPTIONS.map(({ locale: l, href, code, name, Flag }) => {
+      {OPTIONS.map(({ locale: l, code, name, Flag }) => {
         const active = l === locale;
+        const href = alternates[l];
         return (
           <Link
             key={l}

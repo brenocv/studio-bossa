@@ -14,4 +14,158 @@
 <changefreq>monthly</changefreq>
 <priority>0.8</priority>
 </url>
+<url>
+<loc>https://studiobossa.pt/projetos/ana-e-cesar/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/ana-e-cesar/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/ana-e-cesar/" />
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/projects/ana-e-cesar/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/ana-e-cesar/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/ana-e-cesar/" />
+<changefreq>yearly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/projetos/escritorio-adv/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/escritorio-adv/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/escritorio-adv/" />
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/projects/escritorio-adv/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/escritorio-adv/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/escritorio-adv/" />
+<changefreq>yearly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/projetos/miguel/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/miguel/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/miguel/" />
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/projects/miguel/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/miguel/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/miguel/" />
+<changefreq>yearly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/projetos/diana/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/diana/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/diana/" />
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/projects/diana/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/diana/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/diana/" />
+<changefreq>yearly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/projetos/sala/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/sala/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/sala/" />
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/projects/sala/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/sala/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/sala/" />
+<changefreq>yearly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/projetos/atelier/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/atelier/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/atelier/" />
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/projects/atelier/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/atelier/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/atelier/" />
+<changefreq>yearly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/projetos/quarto-casal/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/quarto-casal/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/quarto-casal/" />
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/projects/quarto-casal/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/quarto-casal/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/quarto-casal/" />
+<changefreq>yearly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/projetos/quarto-filhas/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/quarto-filhas/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/quarto-filhas/" />
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/projects/quarto-filhas/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/quarto-filhas/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/quarto-filhas/" />
+<changefreq>yearly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/projetos/quarto-jovem-nazare/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/quarto-jovem-nazare/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/quarto-jovem-nazare/" />
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/projects/quarto-jovem-nazare/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/quarto-jovem-nazare/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/quarto-jovem-nazare/" />
+<changefreq>yearly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/projetos/quarto-senhora/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/quarto-senhora/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/quarto-senhora/" />
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/projects/quarto-senhora/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/quarto-senhora/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/quarto-senhora/" />
+<changefreq>yearly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/projetos/lavandaria/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/lavandaria/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/lavandaria/" />
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/projects/lavandaria/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/lavandaria/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/lavandaria/" />
+<changefreq>yearly</changefreq>
+<priority>0.5</priority>
+</url>
 </urlset>

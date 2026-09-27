@@ -6,6 +6,7 @@
  */
 import type { Metadata } from "next";
 import { DICT, type Locale } from "./content";
+import { PROJECT_PATH, getProject, media } from "./projects";
 
 export const SITE_URL = "https://studiobossa.pt"; // ← domínio definitivo
 
@@ -83,7 +84,7 @@ export function buildMetadata(locale: Locale): Metadata {
       url: PATHS[locale],
       locale: locale === "en" ? "en_GB" : "pt_PT",
       alternateLocale: locale === "en" ? ["pt_PT"] : ["en_GB"],
-      images: [{ url: "/videos/hero-1-poster.jpg", width: 1920, height: 1066 }],
+      images: [{ url: "/videos/hero-1-poster.jpg", width: 1600, height: 880 }],
     },
     twitter: {
       card: "summary_large_image",
@@ -167,3 +168,49 @@ export function buildJsonLd(locale: Locale) {
 }
 
 export { PATHS };
+
+/* ---------------- Páginas de projeto ---------------- */
+
+export function buildProjectMetadata(locale: Locale, slug: string): Metadata {
+  const p = getProject(slug)!;
+  const m = media(slug);
+  const title = `${p.name[locale]} — ${p.type[locale]} | Studio Bossa`;
+  const description = p.summary[locale].length > 158 ? p.summary[locale].slice(0, 155).replace(/\s+\S*$/, "") + "…" : p.summary[locale];
+  const cover = `/projetos/${slug}/${m.cover}.jpg`;
+  return {
+    metadataBase: new URL(SITE_URL),
+    title,
+    description,
+    alternates: {
+      canonical: PROJECT_PATH[locale](slug),
+      languages: { "pt-PT": PROJECT_PATH.pt(slug), "en-GB": PROJECT_PATH.en(slug), "x-default": PROJECT_PATH.pt(slug) },
+    },
+    openGraph: {
+      title,
+      description,
+      siteName: "Studio Bossa",
+      type: "article",
+      url: PROJECT_PATH[locale](slug),
+      locale: locale === "en" ? "en_GB" : "pt_PT",
+      images: [{ url: cover }],
+    },
+    twitter: { card: "summary_large_image", title, description, images: [cover] },
+    robots: { index: true, follow: true },
+  };
+}
+
+export function buildProjectJsonLd(locale: Locale, slug: string) {
+  const p = getProject(slug)!;
+  const m = media(slug);
+  return {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: p.name[locale],
+    genre: p.type[locale],
+    description: p.summary[locale],
+    inLanguage: locale === "en" ? "en-GB" : "pt-PT",
+    url: SITE_URL + PROJECT_PATH[locale](slug),
+    image: m.gallery.map((g) => `${SITE_URL}/projetos/${slug}/${g.f}.jpg`),
+    creator: { "@id": `${SITE_URL}/#studio-bossa`, "@type": "Organization", name: "Studio Bossa" },
+  };
+}

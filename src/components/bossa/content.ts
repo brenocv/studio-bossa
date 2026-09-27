@@ -20,9 +20,9 @@ const pt = {
   langName: "Português",
   nav: {
     links: [
+      { href: "#projetos", label: "Projetos" },
       { href: "#servicos", label: "Serviços" },
       { href: "#processo", label: "Processo" },
-      { href: "#projetos", label: "Projetos" },
       { href: "#sobre", label: "Sobre" },
       { href: "#depoimentos", label: "Testemunhos" },
       { href: "#faq", label: "Perguntas" },
@@ -44,8 +44,9 @@ const pt = {
     scroll: "Deslize",
     pause: "Pausar",
     play: "Reproduzir",
-    pauseLabel: "Pausar vídeo de fundo",
-    playLabel: "Reproduzir vídeo de fundo",
+    pauseLabel: "Pausar vídeo",
+    videoLabel: "Vídeo de ambientes de interiores",
+    playLabel: "Reproduzir vídeo",
   },
 
   marquee: [
@@ -404,6 +405,38 @@ const pt = {
     terms: "Termos de Utilização",
   },
 
+  recent: {
+    eyebrow: "Remodelação, arquitetura e interiores · Porto e Gaia",
+    title: "Projetos recentes",
+    view: "Ver projeto",
+    tileTitle: "O próximo projeto pode ser o seu",
+    tileButton: "Pedir orçamento",
+  },
+
+  projectPage: {
+    back: "Projetos recentes",
+    gallery: "Galeria",
+    process: "Processo",
+    processIntro:
+      "Todos os projetos do atelier seguem o mesmo método — do primeiro encontro à entrega das chaves, com decisões claras em cada etapa.",
+    ctaTitle: "Quer um projeto assim?",
+    ctaText: "Fale connosco sobre a sua casa. A primeira visita técnica é por nossa conta.",
+    ctaButton: "Pedir orçamento",
+    next: "Próximo projeto",
+    photo: "Fotografia",
+    close: "Fechar",
+    prevPhoto: "Fotografia anterior",
+    nextPhoto: "Fotografia seguinte",
+    metaSuffix: "Projeto de interiores no Porto | Studio Bossa",
+    surveyTitle: "Levantamento do espaço original",
+    studiesTitle: "Estudos e versões",
+    before: "Primeira versão",
+    after: "Versão final",
+    photos: "fotografias",
+  },
+
+  loader: "A carregar",
+
   whatsapp: {
     label: "Fale connosco no WhatsApp",
     aria: "Falar com o Studio Bossa pelo WhatsApp",
@@ -417,9 +450,9 @@ const en: Dict = {
   langName: "English",
   nav: {
     links: [
+      { href: "#projetos", label: "Projects" },
       { href: "#servicos", label: "Services" },
       { href: "#processo", label: "Process" },
-      { href: "#projetos", label: "Projects" },
       { href: "#sobre", label: "About" },
       { href: "#depoimentos", label: "Testimonials" },
       { href: "#faq", label: "FAQ" },
@@ -440,8 +473,9 @@ const en: Dict = {
     scroll: "Scroll",
     pause: "Pause",
     play: "Play",
-    pauseLabel: "Pause background video",
-    playLabel: "Play background video",
+    pauseLabel: "Pause video",
+    videoLabel: "Video of interior spaces",
+    playLabel: "Play video",
   },
 
   marquee: [
@@ -799,6 +833,38 @@ const en: Dict = {
     privacy: "Privacy Policy",
     terms: "Terms of Use",
   },
+
+  recent: {
+    eyebrow: "Renovation, architecture & interiors · Porto and Gaia",
+    title: "Recent projects",
+    view: "View project",
+    tileTitle: "Your home could be our next project",
+    tileButton: "Get a quote",
+  },
+
+  projectPage: {
+    back: "Recent projects",
+    gallery: "Gallery",
+    process: "Process",
+    processIntro:
+      "Every project follows the same studio method — from our first meeting to handing over the keys, with clear decisions at every stage.",
+    ctaTitle: "Would you like a project like this?",
+    ctaText: "Tell us about your home. Your first site visit is on us.",
+    ctaButton: "Get a quote",
+    next: "Next project",
+    photo: "Photo",
+    close: "Close",
+    prevPhoto: "Previous photo",
+    nextPhoto: "Next photo",
+    metaSuffix: "Interior design project in Porto | Studio Bossa",
+    surveyTitle: "Survey of the original space",
+    studiesTitle: "Studies and versions",
+    before: "First version",
+    after: "Final version",
+    photos: "photos",
+  },
+
+  loader: "Loading",
 
   whatsapp: {
     label: "Chat with us on WhatsApp",

@@ -8,7 +8,8 @@ import { Hero } from "./Hero";
 import { Marquee } from "./Marquee";
 import { Services } from "./Services";
 import { Process } from "./Process";
-import { Projects } from "./Projects";
+import { RecentProjects } from "./RecentProjects";
+import { Preloader } from "./Preloader";
 import { About } from "./About";
 import { Testimonials } from "./Testimonials";
 import { Cta } from "./Cta";
@@ -26,14 +27,15 @@ export function HomePage({ locale, jsonLd }: { locale: Locale; jsonLd: object[] 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <Preloader />
       <div className="flex min-h-screen flex-col bg-linho-cru text-jacaranda">
         <Header />
         <main className="flex-1">
           <Hero />
+          <RecentProjects />
           <Marquee />
           <Services />
           <Process />
-          <Projects />
           <About />
           <Testimonials />
           <Cta />

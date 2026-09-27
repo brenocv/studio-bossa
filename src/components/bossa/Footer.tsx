@@ -1,11 +1,12 @@
 "use client";
 
 import { Instagram, Facebook, Linkedin } from "lucide-react";
+import Link from "next/link";
 import { Logo } from "./Logo";
 import { useLocale } from "./i18n";
 
 export function Footer() {
-  const { t } = useLocale();
+  const { t, home } = useLocale();
   const c = t.footer;
   return (
     <footer className="relative overflow-hidden border-t border-linho-cru-deep bg-jacaranda py-14">
@@ -15,9 +16,9 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
-            <a href="#topo" className="flex items-center">
+            <Link href={home} className="flex items-center" aria-label="Studio Bossa">
               <Logo variant="white" height={32} />
-            </a>
+            </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-linho-cru/60">
               {c.about}
             </p>
@@ -50,12 +51,12 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm">
               {c.nav.map((l) => (
                 <li key={l.href}>
-                  <a
-                    href={l.href}
+                  <Link
+                    href={home + l.href}
                     className="text-linho-cru/60 transition-colors hover:text-couro-cognac-light"
                   >
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

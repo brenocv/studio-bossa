@@ -1,40 +1,87 @@
 "use client";
 
-import { useEffect, useRef, useState, type RefObject } from "react";
-import { ArrowRight, Pause, Play } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Pause, Play } from "lucide-react";
 import { img } from "./imagePath";
-import { useParallax } from "./useParallax";
 import { useLocale } from "./i18n";
 
-const HERO_VIDEO_MP4 = img("/videos/hero-1.mp4");
-const HERO_POSTER = img("/videos/hero-1-poster.jpg");
+/**
+ * Hero: vídeo emoldurado + slogan por baixo.
+ *
+ * Os vídeos passam em sequência (1 → 2 → 3 → 4 → 1 …). Perto do fim de cada um,
+ * o seguinte começa num segundo leitor por baixo e os dois cruzam-se (esmaecer).
+ * Os vídeos já estão codificados em câmara lenta (metade da velocidade,
+ * com frames interpolados). Para abrandar ainda mais, reduza PLAYBACK_RATE.
+ */
+const VIDEOS = [1, 2, 3, 4].map((n) => ({
+  src: img(`/videos/hero-${n}.mp4`),
+  poster: img(`/videos/hero-${n}-poster.jpg`),
+}));
+const FADE_S = 1.8; // duração do esmaecer entre vídeos (segundos)
+const PLAYBACK_RATE = 1; // 1 = velocidade do ficheiro (já em câmara lenta)
 
 export function Hero() {
   const { t } = useLocale();
   const h = t.hero;
-  // Parallax discreto no vídeo de fundo (máx. 70px). O texto NÃO tem parallax.
-  const bgParallax = useParallax(0.12, 70);
 
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const a = useRef<HTMLVideoElement>(null);
+  const b = useRef<HTMLVideoElement>(null);
+  const els = [a, b];
+  const front = useRef(0); // leitor visível (0 ou 1)
+  const loaded = useRef([0, 1]); // índice do vídeo carregado em cada leitor
+  const switching = useRef(false);
+  const [frontState, setFrontState] = useState(0);
+  const [current, setCurrent] = useState(0);
   const [playing, setPlaying] = useState(true);
-  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    v.muted = true;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
-      v.pause();
+    const [va, vb] = [a.current!, b.current!];
+    for (const v of [va, vb]) {
+      v.muted = true;
+      v.playbackRate = PLAYBACK_RATE;
+    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setPlaying(false);
       return;
     }
-    v.play().catch(() => setPlaying(false));
+    va.play().catch(() => setPlaying(false));
   }, []);
 
-  const toggleVideo = () => {
-    const v = videoRef.current;
-    if (!v) return;
+  const crossfade = useCallback(() => {
+    if (switching.current) return;
+    switching.current = true;
+    const from = front.current;
+    const to = 1 - from;
+    const incoming = els[to].current!;
+    incoming.currentTime = 0;
+    incoming.playbackRate = PLAYBACK_RATE;
+    incoming.play().catch(() => {});
+    front.current = to;
+    setFrontState(to);
+    setCurrent(loaded.current[to]);
+
+    window.setTimeout(() => {
+      // o leitor que saiu fica a preparar o vídeo seguinte
+      const outgoing = els[from].current!;
+      outgoing.pause();
+      const next = (loaded.current[to] + 1) % VIDEOS.length;
+      loaded.current[from] = next;
+      outgoing.src = VIDEOS[next].src;
+      outgoing.poster = VIDEOS[next].poster;
+      outgoing.load();
+      switching.current = false;
+    }, FADE_S * 1000 + 150);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const onTime = (i: number) => {
+    if (i !== front.current) return;
+    const v = els[i].current!;
+    if (v.duration && v.duration - v.currentTime <= FADE_S) crossfade();
+  };
+
+  const toggle = () => {
+    const v = els[front.current].current!;
     if (v.paused) {
       v.play().then(() => setPlaying(true)).catch(() => {});
     } else {
@@ -44,113 +91,69 @@ export function Hero() {
   };
 
   return (
-    <section
-      id="topo"
-      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-jacaranda-deep"
-    >
-      {/* Vídeo de fundo */}
-      <div
-        ref={bgParallax.ref as RefObject<HTMLDivElement>}
-        className="absolute inset-0"
-        aria-hidden
-      >
-        <div
-          className="absolute inset-x-0 -top-[8%] h-[116%]"
-          style={{ transform: `translate3d(0, ${bgParallax.offset}px, 0)` }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={HERO_POSTER}
-            alt=""
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <video
-            ref={videoRef}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1600ms] ease-out ${
-              ready ? "opacity-100" : "opacity-0"
-            }`}
-            poster={HERO_POSTER}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            onCanPlay={() => setReady(true)}
-          >
-            <source src={HERO_VIDEO_MP4} type="video/mp4" />
-          </video>
-          {/* Véus para legibilidade — mais densos à esquerda e em baixo */}
-          <div className="absolute inset-0 bg-gradient-to-r from-jacaranda-deep/80 via-jacaranda/30 to-transparent" />
-          <div className="absolute inset-0 bg-jacaranda-deep/35 md:hidden" />
-          <div className="absolute inset-0 bg-gradient-to-t from-jacaranda-deep/85 via-transparent to-jacaranda-deep/35" />
-          <div className="absolute inset-0 bg-verde-oliva/5 mix-blend-multiply" />
-        </div>
-      </div>
-
-      {/* Conteúdo */}
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end px-6 pt-36 pb-10 lg:pb-12">
-        <div className="max-w-4xl">
-          <h1
-            className="animate-fade-up eyebrow text-over-media-soft max-w-xl !items-start leading-[1.9] text-linho-cru/80 before:mt-[0.95em] before:shrink-0"
-            style={{ animationDelay: "0.1s", animationFillMode: "both" }}
-          >
-            {h.h1}
-          </h1>
-
-          <p
-            className="animate-fade-up text-over-media mt-6 font-italiana text-[clamp(3.1rem,8.2vw,7.75rem)] font-normal leading-[0.94] text-linho-cru"
-            style={{ animationDelay: "0.25s", animationFillMode: "both" }}
-          >
-            {h.taglineA}
-            <br />
-            <span className="text-couro-cognac-light">{h.taglineB}</span>
-          </p>
-
+    <section id="topo" className="bg-linho-cru pt-[84px] lg:pt-[96px]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        {/* Moldura */}
+        <div className="rounded-2xl border border-linho-cru-deep bg-linho-cru-warm p-2 shadow-[0_30px_60px_-40px_rgb(62_39_35/0.45)] sm:p-3">
           <div
-            className="animate-fade-up mt-10 grid gap-8 md:grid-cols-[minmax(0,30rem)_auto] md:items-end md:gap-16"
-            style={{ animationDelay: "0.4s", animationFillMode: "both" }}
+            className="relative aspect-[4/5] overflow-hidden rounded-xl bg-jacaranda-deep sm:aspect-[16/9] lg:aspect-auto lg:h-[min(66vh,720px)]"
+            aria-label={h.videoLabel}
+            role="img"
           >
-            <p className="text-over-media-soft text-base leading-relaxed text-linho-cru/85 sm:text-lg">
-              {h.intro}
-            </p>
+            {[0, 1].map((i) => (
+              <video
+                key={i}
+                ref={els[i]}
+                className={`absolute inset-0 h-full w-full object-cover transition-opacity ease-in-out ${
+                  frontState === i ? "opacity-100" : "opacity-0"
+                }`}
+                style={{ transitionDuration: `${FADE_S}s` }}
+                src={VIDEOS[i].src}
+                poster={VIDEOS[i].poster}
+                muted
+                playsInline
+                preload={i === 0 ? "auto" : "metadata"}
+                onTimeUpdate={() => onTime(i)}
+                onEnded={() => i === front.current && crossfade()}
+                aria-hidden
+              />
+            ))}
 
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
-              <a
-                href="#contato"
-                className="btn-lift btn-arrow group inline-flex items-center justify-center gap-3 rounded-full bg-couro-cognac px-7 py-3.5 text-[15px] font-medium tracking-wide text-linho-cru hover:bg-couro-cognac-light"
-              >
-                {h.ctaPrimary}
-                <ArrowRight className="h-4 w-4" />
-              </a>
-              <a
-                href="#projetos"
-                className="link-line text-[15px] font-medium tracking-wide text-linho-cru"
-              >
-                {h.ctaSecondary}
-              </a>
+            {/* Vinheta suave só para os controlos */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-jacaranda-deep/55 to-transparent" />
+
+            {/* Indicador do vídeo atual */}
+            <div className="absolute bottom-4 left-4 flex gap-1.5 sm:bottom-5 sm:left-5" aria-hidden>
+              {VIDEOS.map((_, i) => (
+                <span
+                  key={i}
+                  className={`h-[2px] rounded-full transition-all duration-700 ${
+                    i === current ? "w-8 bg-linho-cru" : "w-4 bg-linho-cru/40"
+                  }`}
+                />
+              ))}
             </div>
+
+            <button
+              type="button"
+              onClick={toggle}
+              className="absolute bottom-3 right-3 flex items-center gap-2 rounded-full bg-jacaranda-deep/40 px-3.5 py-2 text-[11px] font-medium uppercase tracking-[0.22em] text-linho-cru backdrop-blur-md transition-colors hover:bg-jacaranda-deep/60 sm:bottom-4 sm:right-4"
+              aria-label={playing ? h.pauseLabel : h.playLabel}
+            >
+              {playing ? <Pause className="h-3 w-3" /> : <Play className="h-3 w-3" />}
+              {playing ? h.pause : h.play}
+            </button>
           </div>
         </div>
 
-        {/* Rodapé do hero */}
-        <div
-          className="animate-fade-in mt-14 flex items-center justify-between border-t border-linho-cru/20 pt-5 pr-20 lg:pr-24 text-[11px] uppercase tracking-[0.28em] text-linho-cru/60"
-          style={{ animationDelay: "0.8s", animationFillMode: "both" }}
-        >
-          <span className="hidden sm:inline">41°09′N · 8°37′W</span>
-          <a href="#servicos" className="flex items-center gap-3 transition-colors hover:text-linho-cru">
-            <span className="scroll-line" aria-hidden />
-            {h.scroll}
-          </a>
-          <button
-            type="button"
-            onClick={toggleVideo}
-            className="flex items-center gap-2 uppercase transition-colors hover:text-linho-cru"
-            aria-label={playing ? h.pauseLabel : h.playLabel}
-          >
-            {playing ? <Pause className="h-3 w-3" /> : <Play className="h-3 w-3" />}
-            {playing ? h.pause : h.play}
-          </button>
+        {/* Slogan */}
+        <div className="py-14 text-center sm:py-20">
+          <span className="mx-auto mb-7 block h-10 w-px bg-couro-cognac/50" aria-hidden />
+          <h1 className="animate-fade-up font-italiana text-[clamp(2.6rem,6.4vw,5.75rem)] font-normal leading-[1] text-jacaranda">
+            {h.taglineA}{" "}
+            <br className="hidden sm:block" />
+            <span className="text-couro-cognac">{h.taglineB}</span>
+          </h1>
         </div>
       </div>
     </section>
