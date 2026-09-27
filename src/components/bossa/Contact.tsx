@@ -63,7 +63,7 @@ export function Contact() {
   return (
     <section
       id="contato"
-      className="relative overflow-hidden bg-verde-oliva py-24 lg:py-32"
+      className="relative overflow-hidden bg-linho-cru py-24 lg:py-32"
     >
 
       <div className="relative mx-auto max-w-7xl px-6">
@@ -72,65 +72,65 @@ export function Contact() {
           <div
             className="reveal lg:col-span-2"
           >
-            <span className="eyebrow text-linho-cru/75">
+            <span className="eyebrow text-couro-cognac">
               {c.eyebrow}
             </span>
-            <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-linho-cru sm:text-5xl lg:text-6xl text-balance">
+            <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
               {c.titleA}
               <br />
-              <span className="text-linho-cru-deep/80">{c.titleB}</span>
+              <span className="text-couro-cognac">{c.titleB}</span>
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-linho-cru/85">
+            <p className="mt-6 text-lg leading-relaxed text-jacaranda-soft">
               {c.intro}
             </p>
 
             <div className="mt-10 space-y-5">
               <a
                 href="tel:+351220000000"
-                className="group flex items-center gap-4 text-linho-cru/85 transition-colors hover:text-linho-cru"
+                className="group flex items-center gap-4 text-jacaranda-soft transition-colors hover:text-jacaranda"
               >
-                <span className="flex h-11 w-11 items-center justify-center border border-linho-cru/25 text-linho-cru transition-colors group-hover:border-linho-cru">
+                <span className="flex h-11 w-11 items-center justify-center border border-jacaranda/15 text-jacaranda transition-colors group-hover:border-couro-cognac">
                   <Phone className="h-5 w-5" />
                 </span>
                 <div>
-                  <div className="text-sm text-linho-cru/60">{c.phoneLabel}</div>
-                  <div className="font-medium text-linho-cru">
+                  <div className="text-sm text-jacaranda-soft/70">{c.phoneLabel}</div>
+                  <div className="font-medium text-jacaranda">
                     +351 220 000 000
                   </div>
                 </div>
               </a>
               <a
                 href="mailto:hello@studiobossa.pt"
-                className="group flex items-center gap-4 text-linho-cru/85 transition-colors hover:text-linho-cru"
+                className="group flex items-center gap-4 text-jacaranda-soft transition-colors hover:text-jacaranda"
               >
-                <span className="flex h-11 w-11 items-center justify-center border border-linho-cru/25 text-linho-cru transition-colors group-hover:border-linho-cru">
+                <span className="flex h-11 w-11 items-center justify-center border border-jacaranda/15 text-jacaranda transition-colors group-hover:border-couro-cognac">
                   <Mail className="h-5 w-5" />
                 </span>
                 <div>
-                  <div className="text-sm text-linho-cru/60">{c.emailLabel}</div>
-                  <div className="font-medium text-linho-cru">
+                  <div className="text-sm text-jacaranda-soft/70">{c.emailLabel}</div>
+                  <div className="font-medium text-jacaranda">
                     hello@studiobossa.pt
                   </div>
                 </div>
               </a>
-              <div className="flex items-center gap-4 text-linho-cru/85">
-                <span className="flex h-11 w-11 items-center justify-center border border-linho-cru/25 text-linho-cru">
+              <div className="flex items-center gap-4 text-jacaranda-soft">
+                <span className="flex h-11 w-11 items-center justify-center border border-jacaranda/15 text-jacaranda">
                   <MapPin className="h-5 w-5" />
                 </span>
                 <div>
-                  <div className="text-sm text-linho-cru/60">{c.addressLabel}</div>
-                  <div className="font-medium text-linho-cru">
+                  <div className="text-sm text-jacaranda-soft/70">{c.addressLabel}</div>
+                  <div className="font-medium text-jacaranda">
                     {c.address}
                   </div>
                 </div>
               </div>
-              <div className="flex items-center gap-4 text-linho-cru/85">
-                <span className="flex h-11 w-11 items-center justify-center border border-linho-cru/25 text-linho-cru">
+              <div className="flex items-center gap-4 text-jacaranda-soft">
+                <span className="flex h-11 w-11 items-center justify-center border border-jacaranda/15 text-jacaranda">
                   <Clock className="h-5 w-5" />
                 </span>
                 <div>
-                  <div className="text-sm text-linho-cru/60">{c.hoursLabel}</div>
-                  <div className="font-medium text-linho-cru">
+                  <div className="text-sm text-jacaranda-soft/70">{c.hoursLabel}</div>
+                  <div className="font-medium text-jacaranda">
                     {c.hours}
                   </div>
                 </div>
@@ -140,19 +140,19 @@ export function Contact() {
             <div className="mt-8 flex gap-3">
               <a
                 href="#"
-                className="magnetic flex h-10 w-10 items-center justify-center border border-linho-cru/25 text-linho-cru transition-colors hover:bg-linho-cru hover:text-verde-oliva"
+                className="magnetic flex h-10 w-10 items-center justify-center border border-jacaranda/15 text-jacaranda transition-colors hover:bg-jacaranda hover:text-linho-cru"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="magnetic flex h-10 w-10 items-center justify-center border border-linho-cru/25 text-linho-cru transition-colors hover:bg-linho-cru hover:text-verde-oliva"
+                className="magnetic flex h-10 w-10 items-center justify-center border border-jacaranda/15 text-jacaranda transition-colors hover:bg-jacaranda hover:text-linho-cru"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="magnetic flex h-10 w-10 items-center justify-center border border-linho-cru/25 text-linho-cru transition-colors hover:bg-linho-cru hover:text-verde-oliva"
+                className="magnetic flex h-10 w-10 items-center justify-center border border-jacaranda/15 text-jacaranda transition-colors hover:bg-jacaranda hover:text-linho-cru"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -161,7 +161,7 @@ export function Contact() {
 
           {/* Right — form */}
           <div className="reveal lg:col-span-3">
-            <div className="bg-linho-cru p-8 lg:p-10">
+            <div className="border border-jacaranda/15 p-8 lg:p-10">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center">
                   <CheckCircle
