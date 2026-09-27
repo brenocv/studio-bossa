@@ -10,7 +10,7 @@ export function Cta() {
   const c = t.cta;
 
   return (
-    <section className="bg-linho-claro py-20 lg:py-24">
+    <section className="bg-linho-cru py-20 lg:py-24">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
         <div className="reveal">
           <h2 className="font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl text-balance">

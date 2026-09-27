@@ -8,7 +8,7 @@ export function Process() {
   const c = t.process;
 
   return (
-    <section id="processo" className="bg-linho-claro py-24 lg:py-32">
+    <section id="processo" className="bg-linho-cru py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="reveal mb-14 max-w-3xl lg:mb-16">
           <span className="eyebrow text-couro-cognac">{c.eyebrow}</span>

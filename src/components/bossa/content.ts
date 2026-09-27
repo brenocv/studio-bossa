@@ -26,7 +26,7 @@ const pt = {
       { href: "#processo", label: "Processo" },
       { href: "#sobre", label: "Sobre" },
       { href: "#depoimentos", label: "Testemunhos" },
-      { href: "#faq", label: "Perguntas" },
+      { href: "/perguntas/", label: "Perguntas" },
     ],
     cta: "Pedir orçamento",
     menu: "Abrir menu",
@@ -296,6 +296,12 @@ const pt = {
   },
 
   faq: {
+    moreTitle: "Ainda tem dúvidas?",
+    moreText: "Fale connosco — respondemos no prazo de 24 horas.",
+    moreButton: "Falar connosco",
+    metaTitle: "Perguntas frequentes sobre remodelação no Porto | Studio Bossa",
+    metaDescription:
+      "Prazos, garantia, zonas onde trabalhamos, projeto 3D e marcenaria: respostas às perguntas mais frequentes sobre remodelação e design de interiores no Porto e Gaia.",
     eyebrow: "Perguntas frequentes",
     titleA: "Tire as suas",
     titleB: "dúvidas",
@@ -380,7 +386,7 @@ const pt = {
       { href: "#servicos", label: "Serviços" },
       { href: "#projetos", label: "Projetos" },
       { href: "#sobre", label: "Sobre" },
-      { href: "#faq", label: "Perguntas" },
+      { href: "/perguntas/", label: "Perguntas" },
       { href: "#contato", label: "Contacto" },
     ],
     contactTitle: "Contacto",
@@ -452,7 +458,7 @@ const en: Dict = {
       { href: "#processo", label: "Process" },
       { href: "#sobre", label: "About" },
       { href: "#depoimentos", label: "Testimonials" },
-      { href: "#faq", label: "FAQ" },
+      { href: "/en/faq/", label: "FAQ" },
     ],
     cta: "Get a quote",
     menu: "Open menu",
@@ -721,6 +727,12 @@ const en: Dict = {
   },
 
   faq: {
+    moreTitle: "Still have questions?",
+    moreText: "Get in touch — we reply within 24 hours.",
+    moreButton: "Contact us",
+    metaTitle: "Frequently asked questions about renovation in Porto | Studio Bossa",
+    metaDescription:
+      "Timelines, guarantees, areas we cover, 3D design and joinery: answers to the most common questions about renovation and interior design in Porto and Gaia.",
     eyebrow: "Frequently asked questions",
     titleA: "Questions,",
     titleB: "answered",
@@ -805,7 +817,7 @@ const en: Dict = {
       { href: "#servicos", label: "Services" },
       { href: "#projetos", label: "Projects" },
       { href: "#sobre", label: "About" },
-      { href: "#faq", label: "FAQ" },
+      { href: "/en/faq/", label: "FAQ" },
       { href: "#contato", label: "Contact" },
     ],
     contactTitle: "Contact",

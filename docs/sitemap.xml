@@ -29,6 +29,20 @@
 <priority>0.6</priority>
 </url>
 <url>
+<loc>https://studiobossa.pt/perguntas/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/perguntas/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/faq/" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/faq/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/perguntas/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/faq/" />
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
 <loc>https://studiobossa.pt/projetos/ana-e-cesar/</loc>
 <xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/ana-e-cesar/" />
 <xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/ana-e-cesar/" />

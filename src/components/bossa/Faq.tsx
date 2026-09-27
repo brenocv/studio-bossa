@@ -2,17 +2,19 @@
 
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { useLocale } from "./i18n";
 
 export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
-  const { t } = useLocale();
+  const { t, home } = useLocale();
   const c = t.faq;
 
   return (
     <section
       id="faq"
-      className="relative overflow-hidden bg-linho-cru py-24 lg:py-28"
+      className="relative overflow-hidden bg-linho-cru pb-24 pt-16 lg:pb-28 lg:pt-20"
     >
 
       <div className="relative mx-auto max-w-3xl px-6">
@@ -20,10 +22,10 @@ export function Faq() {
           <span className="eyebrow text-couro-cognac">
             {c.eyebrow}
           </span>
-          <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
+          <h1 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
             {c.titleA}{" "}
             <span className="text-couro-cognac">{c.titleB}</span>
-          </h2>
+          </h1>
         </div>
 
         <div className="reveal flex flex-col border-t border-jacaranda/15">
@@ -78,6 +80,18 @@ export function Faq() {
               </div>
             );
           })}
+        </div>
+
+        <div className="reveal mt-16 text-center">
+          <p className="font-italiana text-3xl text-jacaranda">{c.moreTitle}</p>
+          <p className="mt-3 text-base text-jacaranda-soft">{c.moreText}</p>
+          <Link
+            href={home + "#contato"}
+            className="btn-lift btn-arrow mt-7 inline-flex items-center gap-3 bg-jacaranda px-8 py-4 text-sm font-medium uppercase tracking-[0.2em] text-linho-cru transition-colors hover:bg-couro-cognac"
+          >
+            {c.moreButton}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>

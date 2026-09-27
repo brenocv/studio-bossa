@@ -36,7 +36,7 @@ export function Header() {
           {links.map((l) => (
             <li key={l.href}>
               <Link
-                href={home + l.href}
+                href={l.href.startsWith("/") ? l.href : home + l.href}
                 className="nav-underline text-[13px] font-medium tracking-[0.06em] transition-colors hover:text-couro-cognac-light"
               >
                 {l.label}
@@ -49,7 +49,7 @@ export function Header() {
           <LanguageSwitcher tone="light" />
           <Link
             href={home + "#contato"}
-            className="btn-lift inline-flex items-center bg-linho-cru px-5 py-2.5 text-sm font-medium tracking-wide text-jacaranda hover:bg-couro-cognac hover:text-linho-cru"
+            className="btn-lift inline-flex items-center rounded-full bg-linho-cru px-5 py-2.5 text-sm font-medium tracking-wide text-jacaranda hover:bg-couro-cognac hover:text-linho-cru"
           >
             {t.nav.cta}
           </Link>
@@ -79,7 +79,7 @@ export function Header() {
             {links.map((l) => (
               <li key={l.href}>
                 <Link
-                  href={home + l.href}
+                  href={l.href.startsWith("/") ? l.href : home + l.href}
                   onClick={() => setOpen(false)}
                   className="block px-4 py-3 text-base font-medium text-linho-cru/85 transition-colors hover:bg-linho-cru/10 hover:text-couro-cognac-light"
                 >
@@ -91,7 +91,7 @@ export function Header() {
           <Link
             href={home + "#contato"}
             onClick={() => setOpen(false)}
-            className="mt-3 block bg-linho-cru px-5 py-3 text-center text-sm font-semibold text-jacaranda"
+            className="mt-3 block rounded-full bg-linho-cru px-5 py-3 text-center text-sm font-semibold text-jacaranda"
           >
             {t.nav.cta}
           </Link>

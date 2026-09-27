@@ -164,7 +164,7 @@ export function buildJsonLd(locale: Locale) {
     publisher: { "@id": `${SITE_URL}/#studio-bossa` },
   };
 
-  return [business, website, faq];
+  return [business, website];
 }
 
 export { PATHS };
@@ -237,5 +237,46 @@ export function buildIndexMetadata(locale: Locale): Metadata {
       images: [{ url: "/projetos/ana-e-cesar/07.jpg" }],
     },
     robots: { index: true, follow: true },
+  };
+}
+
+/* ---------------- Página de perguntas frequentes ---------------- */
+
+const FAQ_PATHS: Record<Locale, string> = { pt: "/perguntas/", en: "/en/faq/" };
+
+export function buildFaqMetadata(locale: Locale): Metadata {
+  const c = DICT[locale].faq;
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: c.metaTitle,
+    description: c.metaDescription,
+    alternates: {
+      canonical: FAQ_PATHS[locale],
+      languages: { "pt-PT": FAQ_PATHS.pt, "en-GB": FAQ_PATHS.en, "x-default": FAQ_PATHS.pt },
+    },
+    openGraph: {
+      title: c.metaTitle,
+      description: c.metaDescription,
+      siteName: "Studio Bossa",
+      type: "website",
+      url: FAQ_PATHS[locale],
+      locale: locale === "en" ? "en_GB" : "pt_PT",
+    },
+    robots: { index: true, follow: true },
+  };
+}
+
+export function buildFaqJsonLd(locale: Locale) {
+  const t = DICT[locale];
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    inLanguage: locale === "en" ? "en-GB" : "pt-PT",
+    url: SITE_URL + FAQ_PATHS[locale],
+    mainEntity: t.faq.items.map((q) => ({
+      "@type": "Question",
+      name: q.question,
+      acceptedAnswer: { "@type": "Answer", text: q.answer },
+    })),
   };
 }

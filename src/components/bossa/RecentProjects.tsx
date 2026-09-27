@@ -73,7 +73,7 @@ export function RecentProjects({ all = false }: { all?: boolean }) {
                 <p className="font-italiana text-[2.1rem] leading-[1.08]">{c.tileTitle}</p>
                 <Link
                   href={home + "#contato"}
-                  className="btn-lift btn-arrow mt-8 inline-flex items-center gap-3 bg-couro-cognac px-6 py-3 text-sm font-medium tracking-wide hover:bg-couro-cognac-light"
+                  className="btn-lift btn-arrow mt-8 inline-flex items-center gap-3 rounded-full bg-couro-cognac px-6 py-3 text-sm font-medium tracking-wide hover:bg-couro-cognac-light"
                 >
                   {c.tileButton}
                   <ArrowRight className="h-4 w-4" />

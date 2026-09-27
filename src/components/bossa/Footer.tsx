@@ -52,7 +52,7 @@ export function Footer() {
               {c.nav.map((l) => (
                 <li key={l.href}>
                   <Link
-                    href={home + l.href}
+                    href={l.href.startsWith("/") ? l.href : home + l.href}
                     className="text-linho-cru/60 transition-colors hover:text-couro-cognac-light"
                   >
                     {l.label}

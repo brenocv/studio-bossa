@@ -63,7 +63,7 @@ export function Contact() {
   return (
     <section
       id="contato"
-      className="relative overflow-hidden bg-linho-claro py-24 lg:py-32"
+      className="relative overflow-hidden bg-linho-cru py-24 lg:py-32"
     >
 
       <div className="relative mx-auto max-w-7xl px-6">

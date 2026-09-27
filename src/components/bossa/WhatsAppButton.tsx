@@ -55,7 +55,7 @@ export function WhatsAppButton() {
     >
       {/* Etiqueta */}
       <span
-        className={`hidden origin-right whitespace-nowrap border border-linho-cru-deep bg-linho-cru/95 px-4 py-2 text-[13px] font-medium tracking-wide text-jacaranda shadow-lg shadow-jacaranda/10 backdrop-blur-md transition-all duration-500 sm:block ${
+        className={`hidden origin-right whitespace-nowrap rounded-full border border-linho-cru-deep bg-linho-cru/95 px-4 py-2 text-[13px] font-medium tracking-wide text-jacaranda shadow-lg shadow-jacaranda/10 backdrop-blur-md transition-all duration-500 sm:block ${
           showLabel ? "translate-x-0 opacity-100" : "pointer-events-none translate-x-2 opacity-0"
         }`}
       >
@@ -63,8 +63,8 @@ export function WhatsAppButton() {
       </span>
 
       {/* Botão */}
-      <span className="relative flex h-14 w-14 items-center justify-center bg-verde-oliva text-linho-cru shadow-xl shadow-jacaranda/30 ring-2 ring-linho-cru transition-all duration-300 group-hover:-translate-y-0.5 group-hover:bg-verde-oliva-deep">
-        <span className="wa-ping absolute inset-0 bg-verde-oliva" aria-hidden />
+      <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-verde-oliva text-linho-cru shadow-xl shadow-jacaranda/30 ring-2 ring-linho-cru transition-all duration-300 group-hover:-translate-y-0.5 group-hover:bg-verde-oliva-deep">
+        <span className="wa-ping absolute inset-0 rounded-full bg-verde-oliva" aria-hidden />
         {/* Balão de conversa com telefone */}
         <svg
           viewBox="0 0 24 24"

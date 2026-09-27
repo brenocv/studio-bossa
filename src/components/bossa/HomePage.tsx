@@ -14,7 +14,6 @@ import { About } from "./About";
 import { Testimonials } from "./Testimonials";
 import { Brands } from "./Brands";
 import { Cta } from "./Cta";
-import { Faq } from "./Faq";
 import { Contact } from "./Contact";
 import { Footer } from "./Footer";
 import { WhatsAppButton } from "./WhatsAppButton";
@@ -41,7 +40,6 @@ export function HomePage({ locale, jsonLd }: { locale: Locale; jsonLd: object[] 
           <Testimonials />
           <Brands />
           <Cta />
-          <Faq />
           <Contact />
         </main>
         <Footer />

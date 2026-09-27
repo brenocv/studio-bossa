@@ -141,7 +141,7 @@ function ProjectBody({ slug }: { slug: string }) {
       </section>
 
       {/* Processo */}
-      <section className="bg-linho-claro py-20 lg:py-28">
+      <section className="bg-linho-cru py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="reveal mb-14 max-w-2xl">
             <p className="eyebrow text-couro-cognac">{t.process.eyebrow}</p>
@@ -154,7 +154,7 @@ function ProjectBody({ slug }: { slug: string }) {
           <ol className="relative space-y-14 border-l border-jacaranda/15 pl-8 sm:pl-12">
             {t.process.steps.map((s, i) => (
               <li key={s.step} className="reveal relative">
-                <span className="absolute -left-[41px] top-1 flex h-4 w-4 items-center justify-center border border-couro-cognac bg-linho-claro sm:-left-[57px]" aria-hidden>
+                <span className="absolute -left-[41px] top-1 flex h-4 w-4 items-center justify-center border border-couro-cognac bg-linho-cru sm:-left-[57px]" aria-hidden>
                   <span className="h-1.5 w-1.5 bg-couro-cognac" />
                 </span>
                 <p className="font-italiana text-2xl text-couro-cognac">{s.step}</p>
@@ -236,7 +236,7 @@ function ProjectBody({ slug }: { slug: string }) {
           <div className="lg:text-right">
             <Link
               href={home + "#contato"}
-              className="btn-lift btn-arrow inline-flex items-center gap-3 bg-couro-cognac px-7 py-3.5 text-[15px] font-medium tracking-wide hover:bg-couro-cognac-light"
+              className="btn-lift btn-arrow inline-flex items-center gap-3 rounded-full bg-couro-cognac px-7 py-3.5 text-[15px] font-medium tracking-wide hover:bg-couro-cognac-light"
             >
               {p.ctaButton}
               <ArrowRight className="h-4 w-4" />
