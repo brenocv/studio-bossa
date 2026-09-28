@@ -23,7 +23,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b border-linho-cru/10 bg-jacaranda/95 backdrop-blur-xl transition-[padding,box-shadow] duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b border-linho-cru/10 bg-jacaranda transition-[padding,box-shadow] duration-500 ${
         scrolled ? "py-3 shadow-[0_8px_30px_-18px_rgb(0_0_0/0.6)]" : "py-4 lg:py-5"
       }`}
     >
