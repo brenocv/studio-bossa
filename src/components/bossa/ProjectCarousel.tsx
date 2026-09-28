@@ -13,7 +13,7 @@ const N = PROJECTS.length;
 type Layout = { w: number; x: number[]; s: number[]; o: number[] };
 const LAYOUTS: Record<"lg" | "sm" | "xs", Layout> = {
   //            centro, ±1,   ±2,   fora
-  lg: { w: 32, x: [0, 28, 45, 60], s: [1, 0.78, 0.6, 0.5], o: [1, 0.9, 0.45, 0.12] },
+  lg: { w: 32, x: [0, 28, 45, 60], s: [1, 0.78, 0.6, 0.5], o: [1, 0.9, 0.5, 0] },
   sm: { w: 46, x: [0, 42, 70, 90], s: [1, 0.8, 0.6, 0.5], o: [1, 0.8, 0.2, 0] },
   xs: { w: 74, x: [0, 66, 100, 120], s: [1, 0.84, 0.6, 0.5], o: [1, 0.6, 0.1, 0] },
 };
@@ -96,57 +96,53 @@ export function ProjectCarousel() {
             const shadow = isCenter
               ? "0 32px 64px -18px rgba(62,39,35,0.4), 0 12px 24px -10px rgba(62,39,35,0.22)"
               : `0 ${18 - a * 4}px ${34 - a * 6}px -12px rgba(62,39,35,${0.28 - a * 0.06})`;
-            const common = {
-              className:
-                "absolute left-1/2 top-0 aspect-[4/5] overflow-hidden bg-linho-cru-deep transition-[transform,opacity,filter,box-shadow] duration-[1100ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform",
-              style: {
-                width: `${L.w}%`,
-                transform: `translateX(calc(-50% + ${sign * L.x[a]}%*${100 / L.w})) scale(${L.s[a]})`,
-                opacity: L.o[a],
-                zIndex: 10 - a,
-                filter: isCenter ? "none" : "saturate(0.75) brightness(0.92)",
-                boxShadow: shadow,
-                transitionDelay: `${a * 40}ms`,
-                pointerEvents: (a <= 2 ? "auto" : "none") as "none" | "auto",
-              },
-            };
-            const image = (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={photo(p.slug, m.cover, "sm")}
-                srcSet={`${photo(p.slug, m.cover, "sm")} 900w, ${photo(p.slug, m.cover)} 1800w`}
-                sizes="(min-width: 1024px) 440px, 74vw"
-                alt={`${p.name[locale]} — ${p.type[locale]}`}
-                loading={a <= 2 ? "eager" : "lazy"}
-                decoding="async"
-                className="h-full w-full object-cover"
-              />
-            );
-            return isCenter ? (
-              <Link
+            // O cartão é sempre o mesmo elemento (só muda a camada clicável por cima),
+            // para que o navegador anime o percurso em vez de o recriar na nova posição.
+            return (
+              <div
                 key={p.slug}
-                href={PROJECT_PATH[locale](p.slug)}
-                {...common}
-                className={`${common.className} group`}
-                aria-label={`${p.name[locale]} — ${c.view}`}
+                className="group absolute left-1/2 top-0 aspect-[4/5] overflow-hidden bg-linho-cru-deep transition-[transform,opacity,filter,box-shadow] duration-[1000ms] ease-[cubic-bezier(0.65,0,0.35,1)] will-change-transform"
+                style={{
+                  width: `${L.w}%`,
+                  transform: `translateX(calc(-50% + ${sign * L.x[a]}%*${100 / L.w})) scale(${L.s[a]})`,
+                  opacity: L.o[a],
+                  zIndex: 10 - a,
+                  filter: isCenter ? "none" : "saturate(0.75) brightness(0.92)",
+                  boxShadow: shadow,
+                  pointerEvents: a <= 2 ? "auto" : "none",
+                }}
               >
-                {image}
-                <span className="absolute inset-x-0 bottom-0 flex translate-y-full items-center justify-between bg-jacaranda/85 px-5 py-3 text-[11px] font-medium uppercase tracking-[0.22em] text-linho-cru transition-transform duration-500 group-hover:translate-y-0">
-                  {c.view}
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </Link>
-            ) : (
-              <button
-                key={p.slug}
-                type="button"
-                {...common}
-                onClick={() => go(d)}
-                tabIndex={a <= 2 ? 0 : -1}
-                aria-label={p.name[locale]}
-              >
-                {image}
-              </button>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={photo(p.slug, m.cover, "sm")}
+                  srcSet={`${photo(p.slug, m.cover, "sm")} 900w, ${photo(p.slug, m.cover)} 1800w`}
+                  sizes="(min-width: 1024px) 440px, 74vw"
+                  alt={`${p.name[locale]} — ${p.type[locale]}`}
+                  loading={a <= 2 ? "eager" : "lazy"}
+                  decoding="async"
+                  className="h-full w-full object-cover"
+                />
+                {isCenter ? (
+                  <Link
+                    href={PROJECT_PATH[locale](p.slug)}
+                    className="absolute inset-0"
+                    aria-label={`${p.name[locale]} — ${c.view}`}
+                  >
+                    <span className="absolute inset-x-0 bottom-0 flex translate-y-full items-center justify-between bg-jacaranda/85 px-5 py-3 text-[11px] font-medium uppercase tracking-[0.22em] text-linho-cru transition-transform duration-500 group-hover:translate-y-0">
+                      {c.view}
+                      <ArrowRight className="h-4 w-4" />
+                    </span>
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    className="absolute inset-0 cursor-pointer"
+                    onClick={() => go(d)}
+                    tabIndex={a <= 2 ? 0 : -1}
+                    aria-label={p.name[locale]}
+                  />
+                )}
+              </div>
             );
           })}
 

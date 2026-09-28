@@ -441,7 +441,7 @@ const pt = {
   loader: "A carregar",
 
   whatsapp: {
-    label: "Fale connosco no WhatsApp",
+    label: "Fale conosco no Whatsapp",
     aria: "Falar com o Studio Bossa pelo WhatsApp",
     message: "Olá, Studio Bossa! Vim pelo site e gostaria de saber mais sobre um projeto.",
   },

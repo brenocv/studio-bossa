@@ -161,9 +161,9 @@ export function Contact() {
 
           {/* Right — form */}
           <div className="reveal lg:col-span-3">
-            <div className="flex h-full flex-col justify-center border border-jacaranda/15 p-8 lg:p-10">
+            <div className="flex h-full flex-col border border-jacaranda/15 p-8 lg:p-10">
               {submitted ? (
-                <div className="flex flex-col items-center justify-center py-16 text-center">
+                <div className="flex flex-1 flex-col items-center justify-center py-16 text-center">
                   <CheckCircle
                     className="h-16 w-16 text-verde-oliva"
                     strokeWidth={1.5}
@@ -182,7 +182,7 @@ export function Contact() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="flex flex-1 flex-col gap-5">
                   <div className="grid gap-5 sm:grid-cols-2">
                     <Field
                       label={f.name}
@@ -227,7 +227,7 @@ export function Contact() {
                       </select>
                     </div>
                   </div>
-                  <div>
+                  <div className="flex flex-1 flex-col">
                     <label className="mb-2 block text-sm font-medium text-jacaranda">
                       {f.message}
                     </label>
@@ -237,7 +237,7 @@ export function Contact() {
                       placeholder={f.messagePh}
                       required
                       rows={4}
-                      className="w-full resize-none border border-linho-cru-deep bg-linho-cru px-4 py-3 text-jacaranda outline-none transition-colors focus:border-verde-oliva"
+                      className="min-h-[7.5rem] w-full flex-1 resize-none border border-linho-cru-deep bg-linho-cru px-4 py-3 text-jacaranda outline-none transition-colors focus:border-verde-oliva"
                     />
                   </div>
 
