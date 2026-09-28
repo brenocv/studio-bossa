@@ -13,7 +13,7 @@ export function Process() {
         <div className="reveal mb-14 max-w-3xl lg:mb-16">
           <span className="eyebrow text-jacaranda">{c.eyebrow}</span>
           <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
-            {c.titleA} {c.titleAccent}
+            {c.titleA} <span className="text-couro-cognac">{c.titleAccent}</span>
             <br />
             {c.titleB}
           </h2>

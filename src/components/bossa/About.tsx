@@ -69,7 +69,7 @@ export function About() {
             <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
               {c.titleA}
               <br />
-              <span>{c.titleB}</span>
+              <span className="text-couro-cognac">{c.titleB}</span>
             </h2>
 
             <div className="mt-6 space-y-5 text-base leading-relaxed text-jacaranda-soft sm:text-[1.05rem]">
@@ -77,7 +77,7 @@ export function About() {
               <p>{c.p2}</p>
               <p>
                 {c.p3a}{" "}
-                <span className="font-italiana italiana-sm text-[1.3em] leading-none text-verde-oliva">{c.p3accent}</span>{" "}
+                <span className="font-italiana italiana-sm text-[1.3em] leading-none text-couro-cognac">{c.p3accent}</span>{" "}
                 {c.p3b}
               </p>
             </div>

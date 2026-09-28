@@ -78,7 +78,7 @@ export function Contact() {
             <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
               {c.titleA}
               <br />
-              <span>{c.titleB}</span>
+              <span className="text-couro-cognac">{c.titleB}</span>
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-jacaranda-soft">
               {c.intro}
