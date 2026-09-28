@@ -20,21 +20,7 @@ export function WhatsAppButton() {
 
   useEffect(() => {
     const t1 = setTimeout(() => setVisible(true), 900);
-    // A etiqueta aparece uma vez, depois de o visitante sair do hero, e recolhe
-    let shown = false;
-    let t2: ReturnType<typeof setTimeout>;
-    const onScroll = () => {
-      if (shown || window.scrollY < window.innerHeight * 0.8) return;
-      shown = true;
-      setShowLabel(true);
-      t2 = setTimeout(() => setShowLabel(false), 5000);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => clearTimeout(t1);
   }, []);
 
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(w.message)}`;
@@ -49,21 +35,22 @@ export function WhatsAppButton() {
       onMouseLeave={() => setShowLabel(false)}
       onFocus={() => setShowLabel(true)}
       onBlur={() => setShowLabel(false)}
-      className={`wa-float group fixed z-40 flex items-center gap-3 transition-all duration-700 ease-out ${
-        visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
+      // o contentor não recebe o rato: só o símbolo (e o balão, quando visível) reagem
+      className={`wa-float pointer-events-none fixed z-40 flex items-center gap-3 transition-all duration-700 ease-out ${
+        visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
       }`}
     >
       {/* Etiqueta */}
       <span
         className={`hidden origin-right whitespace-nowrap rounded-full border border-linho-cru-deep bg-linho-cru/95 px-4 py-2 text-[13px] font-medium tracking-wide text-jacaranda shadow-lg shadow-jacaranda/10 backdrop-blur-md transition-all duration-500 sm:block ${
-          showLabel ? "translate-x-0 opacity-100" : "pointer-events-none translate-x-2 opacity-0"
+          showLabel ? "pointer-events-auto translate-x-0 opacity-100" : "translate-x-2 opacity-0"
         }`}
       >
         {w.label}
       </span>
 
       {/* Botão */}
-      <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-verde-oliva text-linho-cru shadow-xl shadow-jacaranda/30 ring-2 ring-linho-cru transition-all duration-300 group-hover:-translate-y-0.5 group-hover:bg-verde-oliva-deep">
+      <span className={`peer relative flex h-14 w-14 items-center justify-center rounded-full bg-verde-oliva text-linho-cru shadow-xl shadow-jacaranda/30 ring-2 ring-linho-cru transition-all duration-300 hover:-translate-y-0.5 ${visible ? "pointer-events-auto" : ""}`}>
         <span className="wa-ping absolute inset-0 rounded-full bg-verde-oliva" aria-hidden />
         {/* Balão de conversa com telefone */}
         <svg

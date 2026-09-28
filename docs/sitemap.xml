@@ -196,4 +196,32 @@
 <changefreq>yearly</changefreq>
 <priority>0.5</priority>
 </url>
+<url>
+<loc>https://studiobossa.pt/privacidade/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/privacidade/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/privacy/" />
+<changefreq>yearly</changefreq>
+<priority>0.2</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/privacy/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/privacidade/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/privacy/" />
+<changefreq>yearly</changefreq>
+<priority>0.1</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/termos/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/termos/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/terms/" />
+<changefreq>yearly</changefreq>
+<priority>0.2</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/terms/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/termos/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/terms/" />
+<changefreq>yearly</changefreq>
+<priority>0.1</priority>
+</url>
 </urlset>

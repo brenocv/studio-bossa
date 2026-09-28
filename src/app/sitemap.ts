@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/components/bossa/seo";
 import { PROJECTS, PROJECTS_INDEX, PROJECT_PATH } from "@/components/bossa/projects";
+import { LEGAL_PATH } from "@/components/bossa/legal";
 
 export const dynamic = "force-static";
 
@@ -20,6 +21,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const languages = { "pt-PT": SITE_URL + PROJECT_PATH.pt(p.slug), "en-GB": SITE_URL + PROJECT_PATH.en(p.slug) };
     pages.push({ url: languages["pt-PT"], changeFrequency: "yearly", priority: 0.7, alternates: { languages } });
     pages.push({ url: languages["en-GB"], changeFrequency: "yearly", priority: 0.5, alternates: { languages } });
+  }
+  for (const paths of Object.values(LEGAL_PATH)) {
+    const languages = { "pt-PT": SITE_URL + paths.pt, "en-GB": SITE_URL + paths.en };
+    pages.push({ url: languages["pt-PT"], changeFrequency: "yearly", priority: 0.2, alternates: { languages } });
+    pages.push({ url: languages["en-GB"], changeFrequency: "yearly", priority: 0.1, alternates: { languages } });
   }
   return pages;
 }

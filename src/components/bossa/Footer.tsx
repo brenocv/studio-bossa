@@ -4,12 +4,13 @@ import { Instagram, Facebook, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { useLocale } from "./i18n";
+import { PRIVACY_PATH, TERMS_PATH } from "./legal";
 
 export function Footer() {
-  const { t, home } = useLocale();
+  const { t, home, locale } = useLocale();
   const c = t.footer;
   return (
-    <footer className="relative overflow-hidden bg-jacaranda py-14">
+    <footer className="relative overflow-hidden bg-jacaranda pb-28 pt-14 lg:pb-32">
       {/* Linha superior verde-oliva */}
       <div className="absolute left-0 right-0 top-0 h-px bg-linho-cru/10" />
 
@@ -70,9 +71,9 @@ export function Footer() {
               <li>+351 220 000 000</li>
               <li>hello@studiobossa.pt</li>
               <li>
-                Rua das Flores, 100
+                Rua Engenheiro Ferreira Dias, 161
                 <br />
-                Porto — Portugal
+                Sala 204 · Porto — Portugal
               </li>
             </ul>
           </div>
@@ -83,18 +84,12 @@ export function Footer() {
             © {new Date().getFullYear()} Studio Bossa. {c.rights}
           </p>
           <div className="flex gap-6">
-            <a
-              href="#"
-              className="transition-colors hover:text-linho-cru/85"
-            >
+            <Link href={PRIVACY_PATH[locale]} className="transition-colors hover:text-linho-cru/85">
               {c.privacy}
-            </a>
-            <a
-              href="#"
-              className="transition-colors hover:text-linho-cru/85"
-            >
+            </Link>
+            <Link href={TERMS_PATH[locale]} className="transition-colors hover:text-linho-cru/85">
               {c.terms}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

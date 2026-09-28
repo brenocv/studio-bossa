@@ -5,6 +5,7 @@
  *    Enquanto estiver em teste, estes URLs apenas aparecem nas tags de SEO.
  */
 import type { Metadata } from "next";
+import { LEGAL, LEGAL_PATH, type LegalKind } from "./legal";
 import { DICT, type Locale } from "./content";
 import { PROJECTS_INDEX, PROJECT_PATH, getProject, media } from "./projects";
 
@@ -121,10 +122,11 @@ export function buildJsonLd(locale: Locale) {
     knowsLanguage: ["pt-PT", "en-GB"],
     address: {
       "@type": "PostalAddress",
+      streetAddress: "Rua Engenheiro Ferreira Dias, 161, Sala 204",
       addressLocality: "Porto",
       addressRegion: "Porto",
       addressCountry: "PT",
-      // TODO: streetAddress e postalCode reais
+      // TODO: acrescentar postalCode quando confirmado
     },
     areaServed: [
       { "@type": "City", name: "Porto" },
@@ -278,5 +280,30 @@ export function buildFaqJsonLd(locale: Locale) {
       name: q.question,
       acceptedAnswer: { "@type": "Answer", text: q.answer },
     })),
+  };
+}
+
+/* ---------------- Páginas legais ---------------- */
+
+export function buildLegalMetadata(kind: LegalKind, locale: Locale): Metadata {
+  const d = LEGAL[kind][locale];
+  const paths = LEGAL_PATH[kind];
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: d.metaTitle,
+    description: d.metaDescription,
+    alternates: {
+      canonical: paths[locale],
+      languages: { "pt-PT": paths.pt, "en-GB": paths.en, "x-default": paths.pt },
+    },
+    openGraph: {
+      title: d.metaTitle,
+      description: d.metaDescription,
+      siteName: "Studio Bossa",
+      type: "website",
+      url: paths[locale],
+      locale: locale === "en" ? "en_GB" : "pt_PT",
+    },
+    robots: { index: true, follow: true },
   };
 }

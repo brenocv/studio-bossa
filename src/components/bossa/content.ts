@@ -348,7 +348,7 @@ const pt = {
     phoneLabel: "Telefone",
     emailLabel: "E-mail",
     addressLabel: "Morada",
-    address: "Rua das Flores, 100 — Porto, Portugal",
+    address: "Rua Engenheiro Ferreira Dias, 161, Sala 204 — Porto",
     hoursLabel: "Horário",
     hours: "Seg–Sex 9h–18h · Sáb 9h–13h",
     form: {
@@ -779,7 +779,7 @@ const en: Dict = {
     phoneLabel: "Phone",
     emailLabel: "Email",
     addressLabel: "Address",
-    address: "Rua das Flores, 100 — Porto, Portugal",
+    address: "Rua Engenheiro Ferreira Dias, 161, Sala 204 — Porto",
     hoursLabel: "Opening hours",
     hours: "Mon–Fri 9am–6pm · Sat 9am–1pm",
     form: {
