@@ -95,7 +95,7 @@ export function Hero() {
       <div className="px-3 pt-3 sm:px-4 sm:pt-4 lg:px-5 lg:pt-5">
         {/* Vídeo panorâmico, quase de ponta a ponta */}
           <div
-            className="relative aspect-[4/3] overflow-hidden bg-jacaranda-deep sm:aspect-[16/9] lg:aspect-[21/9] lg:max-h-[calc(100svh-120px)] lg:w-full"
+            className="relative mx-auto aspect-[4/3] overflow-hidden bg-jacaranda-deep sm:aspect-[16/9] lg:aspect-[16/7] lg:w-3/4"
             aria-label={h.videoLabel}
             role="img"
           >
@@ -147,7 +147,7 @@ export function Hero() {
         {/* Slogan — uma só linha */}
         <div className="px-4 py-8 text-center sm:py-10 lg:py-12">
           <h1 className="animate-fade-up whitespace-nowrap font-italiana text-[clamp(1.25rem,6vw,2.6rem)] font-normal leading-none text-linho-cru">
-            {h.taglineA} <span className="text-couro-cognac-light">{h.taglineB}</span>
+            {h.taglineA} {h.taglineB}
           </h1>
         </div>
       </div>
