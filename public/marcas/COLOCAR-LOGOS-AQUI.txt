@@ -1,4 +1,0 @@
-Coloque aqui os logotipos das marcas parceiras (SVG ou PNG com fundo transparente).
-Depois, em src/components/bossa/brands.ts, troque logo: null pelo nome do ficheiro, por exemplo:
-  { name: "Porcelanosa", logo: "porcelanosa.svg" },
-E volte a correr: npm run build:pages

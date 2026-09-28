@@ -14,9 +14,9 @@ export function Services() {
           <div>
             <span className="eyebrow text-jacaranda">{c.eyebrow}</span>
             <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
-              {c.titleA}
+              {c.titleA} <span className="text-couro-cognac">{c.titleAccent}</span>
               <br />
-              <span>{c.titleB}</span>
+              {c.titleB}
             </h2>
           </div>
           <p className="max-w-lg text-base leading-relaxed text-jacaranda-soft sm:text-lg lg:justify-self-end">

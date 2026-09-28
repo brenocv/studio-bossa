@@ -20,7 +20,7 @@ export function Footer() {
             <Link href={home} className="flex items-center" aria-label="Studio Bossa">
               <Logo variant="white" height={60} className="h-14 w-auto lg:h-[60px]" />
             </Link>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/80">
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-white">
               {c.about}
             </p>
             <p className="mt-6 text-[11px] font-medium uppercase tracking-[0.24em] text-white">
@@ -57,7 +57,7 @@ export function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href.startsWith("/") ? l.href : home + l.href}
-                    className="text-white/80 transition-colors hover:text-couro-cognac-light"
+                    className="text-white transition-colors hover:text-couro-cognac-light"
                   >
                     {l.label}
                   </Link>
@@ -70,7 +70,7 @@ export function Footer() {
             <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
               {c.contactTitle}
             </h4>
-            <ul className="mt-4 space-y-3 text-sm text-white/80">
+            <ul className="mt-4 space-y-3 text-sm text-white">
               <li>+351 220 000 000</li>
               <li>hello@studiobossa.pt</li>
               <li>
@@ -82,7 +82,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-linho-cru/15 pt-8 text-sm text-white/85 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-linho-cru/15 pt-8 text-sm text-white sm:flex-row">
           <p>
             © {new Date().getFullYear()} Studio Bossa. {c.rights}
           </p>

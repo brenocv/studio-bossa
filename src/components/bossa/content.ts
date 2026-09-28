@@ -70,7 +70,8 @@ const pt = {
 
   services: {
     eyebrow: "Serviços",
-    titleA: "Tudo para transformar",
+    titleA: "Tudo para",
+    titleAccent: "transformar",
     titleB: "a sua casa",
     intro:
       "Quatro formas de trabalharmos consigo — separadas ou em conjunto — no Porto e em Vila Nova de Gaia.",
@@ -502,7 +503,8 @@ const en: Dict = {
 
   services: {
     eyebrow: "Services",
-    titleA: "Everything to transform",
+    titleA: "Everything to",
+    titleAccent: "transform",
     titleB: "your home",
     intro:
       "Four ways to work with us — on their own or combined — in Porto and Vila Nova de Gaia.",
