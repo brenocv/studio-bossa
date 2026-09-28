@@ -23,8 +23,8 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b border-linho-cru/10 bg-jacaranda transition-[padding,box-shadow] duration-500 ${
-        scrolled ? "py-3 shadow-[0_8px_30px_-18px_rgb(0_0_0/0.6)]" : "py-4 lg:py-5"
+      className={`fixed inset-x-0 top-0 z-50 bg-jacaranda transition-[padding] duration-500 ${
+        scrolled ? "py-3" : "py-4 lg:py-5"
       }`}
     >
       <nav className="relative flex w-full items-center justify-between gap-6 px-4 sm:px-6 lg:px-10">
@@ -74,7 +74,7 @@ export function Header() {
           open ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="mx-4 mt-3 border border-linho-cru/10 bg-jacaranda-deep p-4">
+        <div className="mx-4 mt-3 bg-jacaranda p-4">
           <ul className="flex flex-col gap-1">
             {links.map((l) => (
               <li key={l.href}>
