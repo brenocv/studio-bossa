@@ -11,9 +11,9 @@ export function Process() {
     <section id="processo" className="bg-linho-cru py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="reveal mb-14 max-w-3xl lg:mb-16">
-          <span className="eyebrow text-couro-cognac">{c.eyebrow}</span>
+          <span className="eyebrow text-jacaranda">{c.eyebrow}</span>
           <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
-            {c.titleA} <span className="text-couro-cognac">{c.titleAccent}</span>
+            {c.titleA} {c.titleAccent}
             <br />
             {c.titleB}
           </h2>

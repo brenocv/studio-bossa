@@ -27,12 +27,12 @@ export function Header() {
         scrolled ? "py-3 shadow-[0_8px_30px_-18px_rgb(0_0_0/0.6)]" : "py-4 lg:py-5"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6">
+      <nav className="relative flex w-full items-center justify-between gap-6 px-4 sm:px-6 lg:px-10">
         <Link href={home} className="flex items-center" aria-label="Studio Bossa">
-          <Logo variant="white" height={32} />
+          <Logo variant="white" height={48} className="h-10 w-auto lg:h-12" />
         </Link>
 
-        <ul className="hidden items-center gap-8 text-linho-cru/85 lg:flex">
+        <ul className="hidden items-center gap-8 text-white/85 lg:flex xl:absolute xl:left-1/2 xl:-translate-x-1/2">
           {links.map((l) => (
             <li key={l.href}>
               <Link
@@ -45,21 +45,21 @@ export function Header() {
           ))}
         </ul>
 
-        <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden items-center gap-5 lg:flex">
           <LanguageSwitcher tone="light" />
           <Link
             href={home + "#contato"}
-            className="btn-lift inline-flex items-center rounded-full bg-linho-cru px-5 py-2.5 text-sm font-medium tracking-wide text-jacaranda hover:bg-couro-cognac hover:text-linho-cru"
+            className="btn-lift inline-flex items-center rounded-full bg-linho-cru px-5 py-2.5 text-sm font-medium tracking-wide text-jacaranda hover:bg-couro-cognac hover:text-white"
           >
             {t.nav.cta}
           </Link>
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="-mr-2 flex items-center gap-2 lg:hidden">
           <LanguageSwitcher tone="light" />
           <button
             onClick={() => setOpen(!open)}
-            className="flex h-10 w-10 items-center justify-center text-linho-cru"
+            className="flex h-10 w-10 items-center justify-center text-white"
             aria-label={t.nav.menu}
             aria-expanded={open}
           >
@@ -81,7 +81,7 @@ export function Header() {
                 <Link
                   href={l.href.startsWith("/") ? l.href : home + l.href}
                   onClick={() => setOpen(false)}
-                  className="block px-4 py-3 text-base font-medium text-linho-cru/85 transition-colors hover:bg-linho-cru/10 hover:text-couro-cognac-light"
+                  className="block px-4 py-3 text-base font-medium text-white/85 transition-colors hover:bg-linho-cru/10 hover:text-couro-cognac-light"
                 >
                   {l.label}
                 </Link>

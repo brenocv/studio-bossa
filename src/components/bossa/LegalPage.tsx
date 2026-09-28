@@ -63,7 +63,7 @@ function Body({ kind, locale }: { kind: LegalKind; locale: Locale }) {
     <main className="flex-1 pt-[76px] lg:pt-[84px]">
       <article className="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:py-28">
         <header className="reveal mb-12 border-b border-jacaranda/15 pb-10">
-          <p className="eyebrow text-couro-cognac">{doc.eyebrow}</p>
+          <p className="eyebrow text-jacaranda">{doc.eyebrow}</p>
           <h1 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl">
             {doc.title}
           </h1>

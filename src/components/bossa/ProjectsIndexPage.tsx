@@ -34,7 +34,7 @@ function IndexBody() {
       <section className="mx-auto max-w-7xl px-4 pb-12 pt-12 sm:px-6 lg:pb-16 lg:pt-16">
         <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-end lg:gap-16">
           <div>
-            <p className="eyebrow text-couro-cognac">{c.eyebrow}</p>
+            <p className="eyebrow text-jacaranda">{c.eyebrow}</p>
             <h1 className="mt-5 font-italiana text-[clamp(2.8rem,6vw,5.25rem)] font-normal leading-none text-jacaranda">
               {c.title}
             </h1>

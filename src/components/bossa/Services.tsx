@@ -12,11 +12,11 @@ export function Services() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="reveal mb-12 grid gap-6 lg:mb-16 lg:grid-cols-2 lg:items-end lg:gap-16">
           <div>
-            <span className="eyebrow text-couro-cognac">{c.eyebrow}</span>
+            <span className="eyebrow text-jacaranda">{c.eyebrow}</span>
             <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
               {c.titleA}
               <br />
-              <span className="text-verde-oliva">{c.titleB}</span>
+              <span>{c.titleB}</span>
             </h2>
           </div>
           <p className="max-w-lg text-base leading-relaxed text-jacaranda-soft sm:text-lg lg:justify-self-end">

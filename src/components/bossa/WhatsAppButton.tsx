@@ -50,7 +50,7 @@ export function WhatsAppButton() {
       </span>
 
       {/* Botão */}
-      <span className={`peer relative flex h-14 w-14 items-center justify-center rounded-full bg-verde-oliva text-linho-cru shadow-xl shadow-jacaranda/30 ring-2 ring-linho-cru transition-all duration-300 hover:-translate-y-0.5 ${visible ? "pointer-events-auto" : ""}`}>
+      <span className={`peer relative flex h-14 w-14 items-center justify-center rounded-full bg-verde-oliva text-white shadow-xl shadow-jacaranda/30 ring-2 ring-linho-cru transition-all duration-300 hover:-translate-y-0.5 ${visible ? "pointer-events-auto" : ""}`}>
         <span className="wa-ping absolute inset-0 rounded-full bg-verde-oliva" aria-hidden />
         {/* Balão de conversa com telefone */}
         <svg

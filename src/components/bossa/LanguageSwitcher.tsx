@@ -68,10 +68,10 @@ export function LanguageSwitcher({ tone = "light" }: { tone?: "light" | "dark" }
             className={`flex items-center gap-1.5 px-1 py-1.5 text-[11px] font-medium tracking-[0.14em] transition-all duration-300 ${
               active
                 ? tone === "light"
-                  ? "text-linho-cru opacity-100"
+                  ? "text-white opacity-100"
                   : "text-jacaranda opacity-100"
                 : tone === "light"
-                ? "text-linho-cru/55 opacity-60 hover:text-linho-cru hover:opacity-90"
+                ? "text-white/55 opacity-60 hover:text-white hover:opacity-90"
                 : "text-jacaranda/50 opacity-60 hover:text-jacaranda hover:opacity-90"
             }`}
           >

@@ -11,7 +11,7 @@ export function Testimonials() {
     <section id="depoimentos" className="bg-linho-cru py-16 lg:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="reveal flex flex-col items-start gap-3">
-          <span className="eyebrow text-couro-cognac">{c.eyebrow}</span>
+          <span className="eyebrow text-jacaranda">{c.eyebrow}</span>
           <h2 className="font-italiana text-3xl font-normal leading-tight text-jacaranda sm:text-4xl">
             {c.titleA} {c.titleB}
           </h2>

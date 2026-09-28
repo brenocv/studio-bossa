@@ -6,16 +6,16 @@ export default function NotFound() {
       <p className="font-italiana text-7xl text-couro-cognac-light sm:text-9xl">
         404
       </p>
-      <h1 className="mt-6 font-italiana text-3xl text-linho-cru sm:text-4xl">
+      <h1 className="mt-6 font-italiana text-3xl text-white sm:text-4xl">
         Página não encontrada
       </h1>
-      <p className="mt-4 max-w-md text-base text-linho-cru/70">
+      <p className="mt-4 max-w-md text-base text-white/70">
         A página que procura pode ter sido movida ou não existe mais. Volte ao
         início do Studio Bossa.
       </p>
       <Link
         href="/"
-        className="btn-lift mt-8 inline-flex items-center gap-2 bg-couro-cognac px-7 py-3.5 text-base font-semibold text-linho-cru hover:bg-couro-cognac-light hover:shadow-xl hover:shadow-couro-cognac/30"
+        className="btn-lift mt-8 inline-flex items-center gap-2 bg-couro-cognac px-7 py-3.5 text-base font-semibold text-white hover:bg-couro-cognac-light hover:shadow-xl hover:shadow-couro-cognac/30"
       >
         Voltar ao início
       </Link>

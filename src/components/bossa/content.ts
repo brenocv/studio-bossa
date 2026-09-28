@@ -350,6 +350,7 @@ const pt = {
     addressLabel: "Morada",
     address: "Rua Engenheiro Ferreira Dias, 161, Sala 204 — Porto",
     hoursLabel: "Horário",
+    followLabel: "Siga-nos",
     hours: "Seg–Sex 9h–18h · Sáb 9h–13h",
     form: {
       name: "Nome completo",
@@ -781,6 +782,7 @@ const en: Dict = {
     addressLabel: "Address",
     address: "Rua Engenheiro Ferreira Dias, 161, Sala 204 — Porto",
     hoursLabel: "Opening hours",
+    followLabel: "Follow us",
     hours: "Mon–Fri 9am–6pm · Sat 9am–1pm",
     form: {
       name: "Full name",

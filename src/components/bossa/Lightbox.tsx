@@ -59,14 +59,14 @@ export function Lightbox({
         touchX.current = null;
       }}
     >
-      <div className="flex items-center justify-between px-5 py-4 text-linho-cru/80" onClick={(e) => e.stopPropagation()}>
+      <div className="flex items-center justify-between px-5 py-4 text-white/80" onClick={(e) => e.stopPropagation()}>
         <span className="text-[11px] uppercase tracking-[0.24em]">
           {title} · {index + 1} / {n}
         </span>
         <button
           ref={closeRef}
           onClick={onClose}
-          className="flex h-10 w-10 items-center justify-center border border-linho-cru/25 text-linho-cru transition-colors hover:bg-linho-cru/10"
+          className="flex h-10 w-10 items-center justify-center border border-linho-cru/25 text-white transition-colors hover:bg-linho-cru/10"
           aria-label={p.close}
         >
           <X className="h-5 w-5" />
@@ -86,14 +86,14 @@ export function Lightbox({
           <>
             <button
               onClick={(e) => { e.stopPropagation(); go(-1); }}
-              className="absolute left-3 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center border border-linho-cru/25 text-linho-cru transition-colors hover:bg-linho-cru/10 sm:flex"
+              className="absolute left-3 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center border border-linho-cru/25 text-white transition-colors hover:bg-linho-cru/10 sm:flex"
               aria-label={p.prevPhoto}
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); go(1); }}
-              className="absolute right-3 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center border border-linho-cru/25 text-linho-cru transition-colors hover:bg-linho-cru/10 sm:flex"
+              className="absolute right-3 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center border border-linho-cru/25 text-white transition-colors hover:bg-linho-cru/10 sm:flex"
               aria-label={p.nextPhoto}
             >
               <ChevronRight className="h-5 w-5" />

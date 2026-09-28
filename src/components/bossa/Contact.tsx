@@ -72,13 +72,13 @@ export function Contact() {
           <div
             className="reveal lg:col-span-2"
           >
-            <span className="eyebrow text-couro-cognac">
+            <span className="eyebrow text-jacaranda">
               {c.eyebrow}
             </span>
             <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
               {c.titleA}
               <br />
-              <span className="text-couro-cognac">{c.titleB}</span>
+              <span>{c.titleB}</span>
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-jacaranda-soft">
               {c.intro}
@@ -137,22 +137,25 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="mt-8 flex gap-3">
+            <p className="mt-8 text-[11px] font-medium uppercase tracking-[0.24em] text-jacaranda">
+              {c.followLabel}
+            </p>
+            <div className="mt-3 flex gap-3">
               <a
                 href="#"
-                className="magnetic flex h-10 w-10 items-center justify-center border border-jacaranda/15 text-jacaranda transition-colors hover:bg-jacaranda hover:text-linho-cru"
+                className="magnetic flex h-10 w-10 items-center justify-center border border-jacaranda/15 text-jacaranda transition-colors hover:bg-jacaranda hover:text-white"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="magnetic flex h-10 w-10 items-center justify-center border border-jacaranda/15 text-jacaranda transition-colors hover:bg-jacaranda hover:text-linho-cru"
+                className="magnetic flex h-10 w-10 items-center justify-center border border-jacaranda/15 text-jacaranda transition-colors hover:bg-jacaranda hover:text-white"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="magnetic flex h-10 w-10 items-center justify-center border border-jacaranda/15 text-jacaranda transition-colors hover:bg-jacaranda hover:text-linho-cru"
+                className="magnetic flex h-10 w-10 items-center justify-center border border-jacaranda/15 text-jacaranda transition-colors hover:bg-jacaranda hover:text-white"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -216,7 +219,7 @@ export function Contact() {
                         value={form.service}
                         onChange={(e) => update("service", e.target.value)}
                         required
-                        className="w-full border border-linho-cru-deep bg-linho-cru px-4 py-3 text-jacaranda outline-none transition-colors focus:border-verde-oliva"
+                        className="w-full border border-linho-cru-deep bg-linho-cru px-4 py-3 text-jacaranda outline-none"
                       >
                         <option value="">{f.select}</option>
                         {f.services.map((s) => (
@@ -237,7 +240,7 @@ export function Contact() {
                       placeholder={f.messagePh}
                       required
                       rows={4}
-                      className="min-h-[7.5rem] w-full flex-1 resize-none border border-linho-cru-deep bg-linho-cru px-4 py-3 text-jacaranda outline-none transition-colors focus:border-verde-oliva"
+                      className="min-h-[7.5rem] w-full flex-1 resize-none border border-linho-cru-deep bg-linho-cru px-4 py-3 text-jacaranda outline-none"
                     />
                   </div>
 
@@ -250,7 +253,7 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="btn-lift group inline-flex w-full items-center justify-center gap-2 bg-couro-cognac px-7 py-4 text-base font-semibold text-linho-cru hover:bg-couro-cognac-light hover:shadow-xl hover:shadow-couro-cognac/30 disabled:opacity-60"
+                    className="btn-lift group inline-flex w-full items-center justify-center gap-2 bg-couro-cognac px-7 py-4 text-base font-semibold text-white hover:bg-couro-cognac-light hover:shadow-xl hover:shadow-couro-cognac/30 disabled:opacity-60"
                   >
                     {loading ? (
                       <span className="flex items-center gap-1">
@@ -301,7 +304,7 @@ function Field({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         required={required}
-        className="w-full border border-linho-cru-deep bg-linho-cru px-4 py-3 text-jacaranda outline-none transition-colors focus:border-verde-oliva"
+        className="w-full border border-linho-cru-deep bg-linho-cru px-4 py-3 text-jacaranda outline-none"
       />
     </div>
   );

@@ -20,7 +20,7 @@ export function RecentProjects({ all = false }: { all?: boolean }) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {!all && (
         <div className="reveal mb-10 flex flex-col items-start gap-3 sm:mb-14">
-            <p className="eyebrow text-couro-cognac">{c.eyebrow}</p>
+            <p className="eyebrow text-jacaranda">{c.eyebrow}</p>
             <h2 className="font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl">
               {c.title}
             </h2>
@@ -48,14 +48,14 @@ export function RecentProjects({ all = false }: { all?: boolean }) {
                   <div className="project-tile-veil absolute inset-0 bg-gradient-to-t from-jacaranda-deep/85 via-jacaranda-deep/25 to-transparent" />
                   <div className="project-tile-label absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 sm:p-6">
                     <div>
-                      <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-linho-cru/75">
+                      <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-white/75">
                         {p.type[locale]}
                       </p>
-                      <h3 className="mt-2 font-italiana text-[1.75rem] leading-tight text-linho-cru">
+                      <h3 className="mt-2 font-italiana text-[1.75rem] leading-tight text-white">
                         {p.name[locale]}
                       </h3>
                     </div>
-                    <span className="mb-1 flex h-10 w-10 shrink-0 items-center justify-center border border-linho-cru/40 text-linho-cru">
+                    <span className="mb-1 flex h-10 w-10 shrink-0 items-center justify-center border border-linho-cru/40 text-white">
                       <ArrowUpRight className="h-4 w-4" />
                     </span>
                   </div>
@@ -67,7 +67,7 @@ export function RecentProjects({ all = false }: { all?: boolean }) {
           {/* Cartão final — convite (só na página de todos os projetos) */}
           {all && (
           <li className="reveal" data-reveal-delay="180">
-            <div className="flex aspect-[5/4] sm:aspect-[4/5] flex-col justify-between bg-jacaranda p-7 text-linho-cru sm:p-8">
+            <div className="flex aspect-[5/4] sm:aspect-[4/5] flex-col justify-between bg-jacaranda p-7 text-white sm:p-8">
               <span className="block h-px w-10 bg-couro-cognac-light" aria-hidden />
               <div>
                 <p className="font-italiana text-[2.1rem] leading-[1.08]">{c.tileTitle}</p>
@@ -88,7 +88,7 @@ export function RecentProjects({ all = false }: { all?: boolean }) {
           <div className="reveal mt-12 flex justify-center">
             <Link
               href={PROJECTS_INDEX[locale]}
-              className="btn-lift btn-arrow group inline-flex items-center gap-3 border border-jacaranda px-8 py-4 text-sm font-medium uppercase tracking-[0.2em] text-jacaranda transition-colors hover:bg-jacaranda hover:text-linho-cru"
+              className="btn-lift btn-arrow group inline-flex items-center gap-3 border border-jacaranda px-8 py-4 text-sm font-medium uppercase tracking-[0.2em] text-jacaranda transition-colors hover:bg-jacaranda hover:text-white"
             >
               {c.more}
               <ArrowRight className="h-4 w-4" />

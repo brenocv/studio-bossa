@@ -144,7 +144,7 @@ export function Hero() {
 
         {/* Slogan — uma só linha */}
         <div className="px-4 py-8 text-center sm:py-10 lg:py-12">
-          <h1 className="animate-fade-up whitespace-nowrap font-italiana text-[clamp(1.25rem,6vw,2.6rem)] font-normal leading-none text-linho-cru">
+          <h1 className="animate-fade-up whitespace-nowrap font-italiana text-[clamp(1.25rem,6vw,2.6rem)] font-normal leading-none text-white">
             {h.taglineA} {h.taglineB}
           </h1>
         </div>

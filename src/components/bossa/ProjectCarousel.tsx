@@ -54,7 +54,7 @@ export function ProjectCarousel() {
     <section id="projetos" className="overflow-hidden bg-linho-cru pb-24 pt-20 lg:pb-32 lg:pt-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="reveal mb-10 flex flex-col items-start gap-3 sm:mb-14">
-          <p className="eyebrow text-couro-cognac">{c.eyebrow}</p>
+          <p className="eyebrow text-jacaranda">{c.eyebrow}</p>
           <h2 className="font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl">
             {c.title}
           </h2>
@@ -128,7 +128,7 @@ export function ProjectCarousel() {
                     className="absolute inset-0"
                     aria-label={`${p.name[locale]} — ${c.view}`}
                   >
-                    <span className="absolute inset-x-0 bottom-0 flex translate-y-full items-center justify-between bg-jacaranda/85 px-5 py-3 text-[11px] font-medium uppercase tracking-[0.22em] text-linho-cru transition-transform duration-500 group-hover:translate-y-0">
+                    <span className="absolute inset-x-0 bottom-0 flex translate-y-full items-center justify-between bg-jacaranda/85 px-5 py-3 text-[11px] font-medium uppercase tracking-[0.22em] text-white transition-transform duration-500 group-hover:translate-y-0">
                       {c.view}
                       <ArrowRight className="h-4 w-4" />
                     </span>
@@ -150,7 +150,7 @@ export function ProjectCarousel() {
           <button
             type="button"
             onClick={() => go(-1)}
-            className="absolute left-0 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center border border-jacaranda/20 bg-linho-cru/90 text-jacaranda backdrop-blur-sm transition-colors hover:bg-jacaranda hover:text-linho-cru sm:h-14 sm:w-14"
+            className="absolute left-0 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center border border-jacaranda/20 bg-linho-cru/90 text-jacaranda backdrop-blur-sm transition-colors hover:bg-jacaranda hover:text-white sm:h-14 sm:w-14"
             aria-label={c.prev}
           >
             <ArrowLeft className="h-5 w-5" />
@@ -158,7 +158,7 @@ export function ProjectCarousel() {
           <button
             type="button"
             onClick={() => go(1)}
-            className="absolute right-0 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center border border-jacaranda/20 bg-linho-cru/90 text-jacaranda backdrop-blur-sm transition-colors hover:bg-jacaranda hover:text-linho-cru sm:h-14 sm:w-14"
+            className="absolute right-0 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center border border-jacaranda/20 bg-linho-cru/90 text-jacaranda backdrop-blur-sm transition-colors hover:bg-jacaranda hover:text-white sm:h-14 sm:w-14"
             aria-label={c.next}
           >
             <ArrowRight className="h-5 w-5" />
@@ -191,7 +191,7 @@ export function ProjectCarousel() {
         <div className="mt-12 flex justify-center">
           <Link
             href={PROJECTS_INDEX[locale]}
-            className="btn-lift btn-arrow group inline-flex items-center gap-3 border border-jacaranda px-8 py-4 text-sm font-medium uppercase tracking-[0.2em] text-jacaranda transition-colors hover:bg-jacaranda hover:text-linho-cru"
+            className="btn-lift btn-arrow group inline-flex items-center gap-3 border border-jacaranda px-8 py-4 text-sm font-medium uppercase tracking-[0.2em] text-jacaranda transition-colors hover:bg-jacaranda hover:text-white"
           >
             {c.more}
             <ArrowRight className="h-4 w-4" />

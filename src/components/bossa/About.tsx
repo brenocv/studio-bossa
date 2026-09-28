@@ -49,7 +49,7 @@ export function About() {
               />
             </div>
             {/* Floating badge — verde oliva */}
-            <div className="absolute -left-4 top-8 border-l-2 border-verde-oliva bg-jacaranda px-6 py-4 text-linho-cru shadow-xl lg:-left-8">
+            <div className="absolute -left-4 top-8 border-l-2 border-verde-oliva bg-jacaranda px-6 py-4 text-white shadow-xl lg:-left-8">
               <div className="font-italiana text-3xl font-normal leading-none">
                 15
               </div>
@@ -63,13 +63,13 @@ export function About() {
           <div
             className="reveal"
           >
-            <span className="eyebrow text-couro-cognac">
+            <span className="eyebrow text-jacaranda">
               {c.eyebrow}
             </span>
             <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
               {c.titleA}
               <br />
-              <span className="text-verde-oliva">{c.titleB}</span>
+              <span>{c.titleB}</span>
             </h2>
 
             <div className="mt-6 space-y-5 text-base leading-relaxed text-jacaranda-soft sm:text-[1.05rem]">

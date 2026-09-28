@@ -19,12 +19,12 @@ export function Faq() {
 
       <div className="relative mx-auto max-w-3xl px-6">
         <div className="reveal mb-14 text-center">
-          <span className="eyebrow text-couro-cognac">
+          <span className="eyebrow text-jacaranda">
             {c.eyebrow}
           </span>
           <h1 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-jacaranda sm:text-5xl lg:text-6xl text-balance">
             {c.titleA}{" "}
-            <span className="text-couro-cognac">{c.titleB}</span>
+            <span>{c.titleB}</span>
           </h1>
         </div>
 
@@ -87,7 +87,7 @@ export function Faq() {
           <p className="mt-3 text-base text-jacaranda-soft">{c.moreText}</p>
           <Link
             href={home + "#contato"}
-            className="btn-lift btn-arrow mt-7 inline-flex items-center gap-3 bg-jacaranda px-8 py-4 text-sm font-medium uppercase tracking-[0.2em] text-linho-cru transition-colors hover:bg-couro-cognac"
+            className="btn-lift btn-arrow mt-7 inline-flex items-center gap-3 bg-jacaranda px-8 py-4 text-sm font-medium uppercase tracking-[0.2em] text-white transition-colors hover:bg-couro-cognac"
           >
             {c.moreButton}
             <ArrowRight className="h-4 w-4" />

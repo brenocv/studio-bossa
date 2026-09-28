@@ -35,10 +35,10 @@ export function HomePage({ locale, jsonLd }: { locale: Locale; jsonLd: object[] 
           <ProjectCarousel />
           <Marquee />
           <Services />
+          <Cta />
           <Process />
           <About />
           <Testimonials />
-          <Cta />
           <Contact />
           <Brands />
         </main>

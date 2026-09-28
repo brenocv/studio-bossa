@@ -57,7 +57,6 @@ function ProjectBody({ slug }: { slug: string }) {
   const toList = (imgs: Img[], label: string) =>
     imgs.map((im, i) => ({ src: photo(slug, im), alt: `${name} — ${label} ${i + 1}` }));
   const gallery = toList(m.gallery, p.photo);
-  const survey = toList(m.survey, p.surveyTitle);
 
   const idx = PROJECTS.findIndex((x) => x.slug === slug);
   const next = PROJECTS[(idx + 1) % PROJECTS.length];
@@ -78,7 +77,7 @@ function ProjectBody({ slug }: { slug: string }) {
 
         <div className="mt-8 grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-end lg:gap-16">
           <div>
-            <p className="eyebrow text-couro-cognac">{project.type[locale]}</p>
+            <p className="eyebrow text-jacaranda">{project.type[locale]}</p>
             <h1 className="mt-5 font-italiana text-[clamp(2.6rem,6vw,5.25rem)] font-normal leading-[1] text-jacaranda">
               {name}
             </h1>
@@ -140,98 +139,12 @@ function ProjectBody({ slug }: { slug: string }) {
         </div>
       </section>
 
-      {/* Processo */}
-      <section className="bg-linho-cru py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="reveal mb-14 max-w-2xl">
-            <p className="eyebrow text-couro-cognac">{t.process.eyebrow}</p>
-            <h2 className="mt-4 font-italiana text-4xl font-normal leading-none text-jacaranda sm:text-5xl">
-              {p.process}
-            </h2>
-            <p className="mt-6 text-base leading-relaxed text-jacaranda-soft sm:text-lg">{p.processIntro}</p>
-          </div>
-
-          <ol className="relative space-y-14 border-l border-jacaranda/15 pl-8 sm:pl-12">
-            {t.process.steps.map((s, i) => (
-              <li key={s.step} className="reveal relative">
-                <span className="absolute -left-[41px] top-1 flex h-4 w-4 items-center justify-center border border-couro-cognac bg-linho-cru sm:-left-[57px]" aria-hidden>
-                  <span className="h-1.5 w-1.5 bg-couro-cognac" />
-                </span>
-                <p className="font-italiana text-2xl text-couro-cognac">{s.step}</p>
-                <h3 className="mt-1 font-italiana italiana-sm text-2xl text-jacaranda sm:text-3xl">{s.title}</h3>
-                <p className="mt-3 max-w-2xl text-base leading-relaxed text-jacaranda-soft">{s.description}</p>
-
-                {/* 01 — fotografias do levantamento (quando existem) */}
-                {i === 0 && m.survey.length > 0 && (
-                  <div className="mt-7">
-                    <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.24em] text-jacaranda-soft/80">
-                      {p.surveyTitle}
-                    </p>
-                    <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3 lg:grid-cols-8">
-                      {m.survey.map((im, k) => (
-                        <button
-                          key={im.f}
-                          type="button"
-                          onClick={() => setBox({ list: survey, index: k, title: `${name} · ${p.surveyTitle}` })}
-                          className="group aspect-[3/4] overflow-hidden bg-linho-cru-deep"
-                          aria-label={survey[k].alt}
-                        >
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={photo(slug, im, "sm")} alt={survey[k].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* 02 — estudos e versões (quando existem) */}
-                {i === 1 && m.studies.length > 0 && (
-                  <div className="mt-7">
-                    <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.24em] text-jacaranda-soft/80">
-                      {p.studiesTitle}
-                    </p>
-                    <div className="grid gap-6 lg:grid-cols-2">
-                      {m.studies.map((pair, k) => {
-                        const list = pair.map((im, j) => ({
-                          src: photo(slug, im),
-                          alt: `${name} — ${j === 0 ? p.before : p.after}`,
-                        }));
-                        return (
-                          <div key={k} className="grid grid-cols-2 gap-2 sm:gap-3">
-                            {pair.map((im, j) => (
-                              <figure key={im.f}>
-                                <button
-                                  type="button"
-                                  onClick={() => setBox({ list, index: j, title: `${name} · ${p.studiesTitle}` })}
-                                  className="group block aspect-[4/5] w-full overflow-hidden bg-linho-cru-deep"
-                                  aria-label={list[j].alt}
-                                >
-                                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                                  <img src={photo(slug, im, "sm")} alt={list[j].alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                                </button>
-                                <figcaption className={`mt-2 text-[11px] uppercase tracking-[0.2em] ${j === 1 ? "text-couro-cognac" : "text-jacaranda-soft/70"}`}>
-                                  {j === 0 ? p.before : p.after}
-                                </figcaption>
-                              </figure>
-                            ))}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
       {/* Convite */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:py-24">
-        <div className="reveal grid gap-8 bg-jacaranda px-7 py-12 text-linho-cru sm:px-12 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+        <div className="reveal grid gap-8 bg-jacaranda px-7 py-12 text-white sm:px-12 lg:grid-cols-[1.4fr_1fr] lg:items-center">
           <div>
             <h2 className="font-italiana text-4xl font-normal leading-[1.05] sm:text-5xl">{p.ctaTitle}</h2>
-            <p className="mt-4 max-w-lg text-base leading-relaxed text-linho-cru/80">{p.ctaText}</p>
+            <p className="mt-4 max-w-lg text-base leading-relaxed text-white/80">{p.ctaText}</p>
           </div>
           <div className="lg:text-right">
             <Link
