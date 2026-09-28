@@ -396,7 +396,7 @@ const pt = {
   },
 
   recent: {
-    eyebrow: "Remodelação, arquitetura e interiores · Porto e Gaia",
+    eyebrow: "Remodelação, arquitetura e interiores",
     title: "Projetos recentes",
     view: "Ver projeto",
     tileTitle: "O próximo projeto pode ser o seu",
@@ -827,7 +827,7 @@ const en: Dict = {
   },
 
   recent: {
-    eyebrow: "Renovation, architecture & interiors · Porto and Gaia",
+    eyebrow: "Renovation, architecture & interiors",
     title: "Recent projects",
     view: "View project",
     tileTitle: "Your home could be our next project",

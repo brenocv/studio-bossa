@@ -21,7 +21,7 @@ export function Cta() {
           <p className="mt-5 max-w-md text-lg leading-relaxed text-linho-cru/85">{c.text}</p>
           <a
             href="#contato"
-            className="btn-lift btn-arrow group mt-8 inline-flex items-center gap-3 bg-linho-cru px-8 py-4 text-sm font-medium uppercase tracking-[0.2em] text-jacaranda transition-colors hover:bg-jacaranda hover:text-linho-cru"
+            className="btn-lift btn-arrow group mt-8 inline-flex items-center gap-2.5 whitespace-nowrap bg-linho-cru px-5 py-4 text-[11px] font-medium uppercase tracking-[0.12em] sm:gap-3 sm:px-8 sm:text-sm sm:tracking-[0.2em] text-jacaranda transition-colors hover:bg-jacaranda hover:text-linho-cru"
           >
             {c.button}
             <ArrowRight className="h-4 w-4" />

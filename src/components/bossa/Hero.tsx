@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Pause, Play } from "lucide-react";
 import { img } from "./imagePath";
 import { useLocale } from "./i18n";
 
@@ -95,9 +94,17 @@ export function Hero() {
       <div className="px-3 pt-3 sm:px-4 sm:pt-4 lg:px-5 lg:pt-5">
         {/* Vídeo panorâmico, quase de ponta a ponta */}
           <div
-            className="relative mx-auto aspect-[4/3] overflow-hidden bg-jacaranda-deep sm:aspect-[16/9] lg:aspect-[16/7] lg:w-3/4"
-            aria-label={h.videoLabel}
-            role="img"
+            className="relative mx-auto aspect-[4/3] cursor-pointer overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-linho-cru/60 bg-jacaranda-deep sm:aspect-[16/9] lg:aspect-[16/7] lg:w-3/4"
+            aria-label={`${h.videoLabel} — ${playing ? h.pauseLabel : h.playLabel}`}
+            role="button"
+            tabIndex={0}
+            onClick={toggle}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                toggle();
+              }
+            }}
           >
             {[0, 1].map((i) => (
               <video
@@ -133,15 +140,6 @@ export function Hero() {
               ))}
             </div>
 
-            <button
-              type="button"
-              onClick={toggle}
-              className="absolute bottom-3 right-3 flex items-center gap-2 bg-jacaranda-deep/40 px-3.5 py-2 text-[11px] font-medium uppercase tracking-[0.22em] text-linho-cru backdrop-blur-md transition-colors hover:bg-jacaranda-deep/60 sm:bottom-4 sm:right-4"
-              aria-label={playing ? h.pauseLabel : h.playLabel}
-            >
-              {playing ? <Pause className="h-3 w-3" /> : <Play className="h-3 w-3" />}
-              {playing ? h.pause : h.play}
-            </button>
           </div>
 
         {/* Slogan — uma só linha */}
