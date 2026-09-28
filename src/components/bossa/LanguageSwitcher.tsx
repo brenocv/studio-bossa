@@ -65,20 +65,20 @@ export function LanguageSwitcher({ tone = "light" }: { tone?: "light" | "dark" }
             aria-current={active ? "true" : undefined}
             aria-label={name}
             title={name}
-            className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-medium tracking-[0.14em] transition-all duration-300 ${
+            className={`flex items-center gap-1.5 px-1 py-1.5 text-[11px] font-medium tracking-[0.14em] transition-all duration-300 ${
               active
                 ? tone === "light"
-                  ? "bg-linho-cru/15 text-linho-cru"
-                  : "bg-jacaranda/8 text-jacaranda"
+                  ? "text-linho-cru opacity-100"
+                  : "text-jacaranda opacity-100"
                 : tone === "light"
-                ? "text-linho-cru/60 opacity-75 hover:text-linho-cru hover:opacity-100"
-                : "text-jacaranda/55 opacity-75 hover:text-jacaranda hover:opacity-100"
+                ? "text-linho-cru/55 opacity-60 hover:text-linho-cru hover:opacity-90"
+                : "text-jacaranda/50 opacity-60 hover:text-jacaranda hover:opacity-90"
             }`}
           >
             <span
-              className={`block h-[14px] w-[14px] overflow-hidden rounded-full ring-1 ${
+              className={`block h-[14px] w-[14px] overflow-hidden rounded-full ring-1 transition-all duration-300 ${
                 tone === "light" ? "ring-linho-cru/40" : "ring-jacaranda/15"
-              } ${active ? "" : "saturate-[.6]"}`}
+              } ${active ? "saturate-100" : "saturate-[.4] opacity-70"}`}
             >
               <Flag />
             </span>

@@ -13,9 +13,9 @@ const N = PROJECTS.length;
 type Layout = { w: number; x: number[]; s: number[]; o: number[] };
 const LAYOUTS: Record<"lg" | "sm" | "xs", Layout> = {
   //            centro, ±1,   ±2,   fora
-  lg: { w: 32, x: [0, 28, 45, 60], s: [1, 0.78, 0.6, 0.5], o: [1, 0.9, 0.6, 0] },
-  sm: { w: 46, x: [0, 42, 70, 90], s: [1, 0.8, 0.6, 0.5], o: [1, 0.8, 0, 0] },
-  xs: { w: 74, x: [0, 66, 100, 120], s: [1, 0.84, 0.6, 0.5], o: [1, 0.6, 0, 0] },
+  lg: { w: 32, x: [0, 28, 45, 60], s: [1, 0.78, 0.6, 0.5], o: [1, 0.9, 0.45, 0.12] },
+  sm: { w: 46, x: [0, 42, 70, 90], s: [1, 0.8, 0.6, 0.5], o: [1, 0.8, 0.2, 0] },
+  xs: { w: 74, x: [0, 66, 100, 120], s: [1, 0.84, 0.6, 0.5], o: [1, 0.6, 0.1, 0] },
 };
 
 export function ProjectCarousel() {
@@ -93,16 +93,21 @@ export function ProjectCarousel() {
             const sign = Math.sign(d);
             const isCenter = d === 0;
             const m = media(p.slug);
+            const shadow = isCenter
+              ? "0 32px 64px -18px rgba(62,39,35,0.4), 0 12px 24px -10px rgba(62,39,35,0.22)"
+              : `0 ${18 - a * 4}px ${34 - a * 6}px -12px rgba(62,39,35,${0.28 - a * 0.06})`;
             const common = {
               className:
-                "absolute left-1/2 top-0 aspect-[4/5] overflow-hidden bg-linho-cru-deep transition-[transform,opacity,filter] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
+                "absolute left-1/2 top-0 aspect-[4/5] overflow-hidden bg-linho-cru-deep transition-[transform,opacity,filter,box-shadow] duration-[1100ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform",
               style: {
                 width: `${L.w}%`,
                 transform: `translateX(calc(-50% + ${sign * L.x[a]}%*${100 / L.w})) scale(${L.s[a]})`,
                 opacity: L.o[a],
                 zIndex: 10 - a,
                 filter: isCenter ? "none" : "saturate(0.75) brightness(0.92)",
-                pointerEvents: (L.o[a] === 0 ? "none" : "auto") as "none" | "auto",
+                boxShadow: shadow,
+                transitionDelay: `${a * 40}ms`,
+                pointerEvents: (a <= 2 ? "auto" : "none") as "none" | "auto",
               },
             };
             const image = (

@@ -161,7 +161,7 @@ export function Contact() {
 
           {/* Right — form */}
           <div className="reveal lg:col-span-3">
-            <div className="border border-jacaranda/15 p-8 lg:p-10">
+            <div className="flex h-full flex-col justify-center border border-jacaranda/15 p-8 lg:p-10">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center">
                   <CheckCircle
