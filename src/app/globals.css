@@ -578,3 +578,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
 @supports (overflow: clip) {
   html, body { overflow-x: clip; }
 }
+
+/* Faixa de ecrãs do app: desliza sem mostrar a barra de rolagem */
+.app-strip { scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.app-strip::-webkit-scrollbar { display: none; }

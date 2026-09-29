@@ -8,6 +8,7 @@ import { Hero } from "./Hero";
 import { Marquee } from "./Marquee";
 import { Services } from "./Services";
 import { Process } from "./Process";
+import { AppShowcase } from "./AppShowcase";
 import { ProjectCarousel } from "./ProjectCarousel";
 import { Preloader } from "./Preloader";
 import { About } from "./About";
@@ -37,6 +38,7 @@ export function HomePage({ locale, jsonLd }: { locale: Locale; jsonLd: object[] 
           <Services />
           <Cta />
           <Process />
+          <AppShowcase />
           <About />
           <Testimonials />
           <Contact />

@@ -32,7 +32,7 @@ export function Header() {
           <Logo variant="white" height={48} className="h-10 w-auto lg:h-12" />
         </Link>
 
-        <ul className="ml-auto mr-4 hidden items-center gap-7 text-white lg:flex xl:absolute xl:left-1/2 xl:mr-0 xl:ml-0 xl:-translate-x-1/2 xl:gap-8">
+        <ul className="ml-auto mr-4 hidden items-center gap-7 text-white lg:flex xl:absolute xl:left-1/2 xl:mr-0 xl:ml-0 xl:-translate-x-1/2 xl:gap-5 2xl:gap-8">
           {links.map((l) => (
             <li key={l.href}>
               <Link
