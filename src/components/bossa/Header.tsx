@@ -27,8 +27,8 @@ export function Header() {
         scrolled ? "py-3" : "py-4 lg:py-5"
       }`}
     >
-      <nav className="relative flex w-full items-center justify-between gap-6 px-4 sm:px-6 lg:px-10">
-        <Link href={home} className="flex items-center" aria-label="Studio Bossa">
+      <nav className="relative flex w-full items-center justify-between gap-6 px-4 sm:px-6 lg:px-10 xl:px-[5vw] 2xl:px-[8vw]">
+        <Link href={home} className="flex shrink-0 items-center" aria-label="Studio Bossa">
           <Logo variant="white" height={48} className="h-10 w-auto lg:h-12" />
         </Link>
 
