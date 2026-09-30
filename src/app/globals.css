@@ -377,30 +377,30 @@ html {
   scroll-behavior: smooth;
 }
 @supports not selector(::-webkit-scrollbar) {
-  html { scrollbar-color: #A65E2E #efe9da; } /* Firefox (não permite setas) */
+  html { scrollbar-color: #A65E2E #3E2723; } /* Firefox (não permite setas) */
 }
 ::-webkit-scrollbar {
   width: 14px;
   height: 14px;
 }
 ::-webkit-scrollbar-track {
-  background: #efe9da;
+  background: #3E2723;
 }
 ::-webkit-scrollbar-thumb {
   background: #A65E2E;
-  border: 3px solid #efe9da;
+  border: 3px solid #3E2723;
   border-radius: 0;
   min-height: 40px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8a4d24;
+  background: #c07a45;
 }
 /* Setas em cima e em baixo (Chrome, Edge, Safari, Opera) */
 ::-webkit-scrollbar-button:single-button {
   display: block;
   width: 14px;
   height: 16px;
-  background-color: #3E2723;
+  background-color: #2e1d1a;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 8px;
