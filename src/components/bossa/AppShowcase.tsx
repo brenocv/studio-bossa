@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Download, Pause, Play } from "lucide-react";
+import { Download } from "lucide-react";
 import { useLocale } from "./i18n";
 import { img } from "./imagePath";
 
@@ -105,19 +105,19 @@ export function AppShowcase() {
   };
 
   return (
-    <section id="app" className="overflow-hidden bg-jacaranda py-24 lg:py-32">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+    <section id="app" className="scroll-mt-20 overflow-hidden bg-jacaranda py-14 lg:flex lg:min-h-[calc(100svh-5rem)] lg:items-center lg:py-8">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
         {/* Texto + funções */}
         <div className="reveal">
           <span className="eyebrow text-white">{c.eyebrow}</span>
-          <h2 className="mt-4 font-italiana text-4xl font-normal leading-[1.04] text-white sm:text-5xl lg:text-6xl text-balance">
+          <h2 className="mt-3 font-italiana text-3xl font-normal leading-[1.05] text-white sm:text-4xl lg:text-[2.5rem] lg:[@media(max-height:760px)]:text-[2rem] text-balance">
             {c.titleA}
             <br />
             <span className="text-couro-cognac-light">{c.titleB}</span>
           </h2>
-          <p className="mt-6 max-w-lg text-base leading-relaxed text-white sm:text-lg">{c.intro}</p>
+          <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-white">{c.intro}</p>
 
-          <ol className="mt-10 max-w-lg border-t border-white/15">
+          <ol className="mt-5 max-w-md border-t border-white/15">
             {c.features.map(([title, text], i) => {
               const on = i === active;
               return (
@@ -126,22 +126,22 @@ export function AppShowcase() {
                     type="button"
                     onClick={() => jump(i)}
                     aria-current={on ? "step" : undefined}
-                    className="group relative flex w-full items-baseline gap-5 py-4 text-left"
+                    className="group relative flex w-full items-baseline gap-4 py-2 text-left lg:[@media(max-height:760px)]:py-1.5"
                   >
                     {/* barra de progresso da parte que está a passar */}
                     <span
                       aria-hidden
                       className={`absolute -bottom-px left-0 h-px bg-couro-cognac-light transition-[width] duration-700 ease-out ${on ? "w-full" : "w-0"}`}
                     />
-                    <span className={`w-6 shrink-0 font-italiana text-lg transition-colors duration-500 ${on ? "text-couro-cognac-light" : "text-white/40"}`}>
+                    <span className={`w-6 shrink-0 font-italiana text-base transition-colors duration-500 ${on ? "text-couro-cognac-light" : "text-white/40"}`}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span>
-                      <span className={`block font-italiana text-2xl transition-colors duration-500 ${on ? "text-white" : "text-white/55 group-hover:text-white/85"}`}>
+                      <span className={`block font-italiana text-lg lg:text-xl transition-colors duration-500 ${on ? "text-white" : "text-white/55 group-hover:text-white/85"}`}>
                         {title}
                       </span>
                       <span
-                        className={`grid text-[15px] leading-relaxed text-white/80 transition-[grid-template-rows,opacity,margin] duration-500 ease-out ${on ? "mt-1 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+                        className={`grid text-[13.5px] leading-relaxed text-white/80 transition-[grid-template-rows,opacity,margin] duration-500 ease-out ${on ? "mt-1 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
                       >
                         <span className="overflow-hidden">{text}</span>
                       </span>
@@ -154,22 +154,30 @@ export function AppShowcase() {
 
           <a
             href={APP_URL}
-            className="btn-lift mt-10 inline-flex items-center gap-3 whitespace-nowrap bg-white px-7 py-4 text-[12px] font-medium uppercase tracking-[0.18em] text-jacaranda transition-colors hover:bg-couro-cognac hover:text-white sm:text-sm"
+            className="btn-lift mt-6 lg:[@media(max-height:760px)]:mt-4 inline-flex items-center gap-3 whitespace-nowrap bg-white px-6 py-3.5 text-[12px] font-medium uppercase tracking-[0.18em] text-jacaranda transition-colors hover:bg-couro-cognac hover:text-white "
           >
             <Download className="h-4 w-4" strokeWidth={2} />
             {c.install}
           </a>
-          <p className="mt-4 max-w-md text-[13px] leading-relaxed text-white/75">{c.installNote}</p>
+          <p className="mt-3 max-w-md text-[12.5px] lg:[@media(max-height:820px)]:hidden leading-relaxed text-white/75">{c.installNote}</p>
         </div>
 
         {/* Telemóvel com o vídeo */}
-        <div ref={box} className="reveal relative mx-auto w-full max-w-[340px] lg:max-w-[360px]" data-reveal-delay="120">
+        <div ref={box} className="reveal relative mx-auto w-full max-w-[250px] lg:max-w-[min(270px,calc((100svh-9rem)*0.43))]" data-reveal-delay="120">
           {/* blocos de cor da paleta, por trás */}
-          <span aria-hidden className="absolute -right-10 top-16 h-[62%] w-[70%] bg-couro-cognac sm:-right-16" />
-          <span aria-hidden className="absolute -left-8 bottom-10 h-[38%] w-[55%] bg-verde-oliva sm:-left-14" />
+          <span aria-hidden className="absolute -right-8 top-12 h-[62%] w-[70%] bg-couro-cognac sm:-right-12" />
+          <span aria-hidden className="absolute -left-6 bottom-8 h-[38%] w-[55%] bg-verde-oliva sm:-left-10" />
 
-          <div className="relative rounded-[46px] bg-[#1b110f] p-[11px] shadow-[0_50px_90px_-35px_rgba(0,0,0,0.75)]">
-            <div className="relative overflow-hidden rounded-[36px] bg-linho-cru" style={{ aspectRatio: "780 / 1688" }}>
+          <div className="relative rounded-[36px] bg-[#1b110f] p-[8px] shadow-[0_50px_90px_-35px_rgba(0,0,0,0.75)]">
+            <div
+              className="relative cursor-pointer overflow-hidden rounded-[29px] bg-linho-cru outline-offset-4 focus-visible:outline-2 focus-visible:outline-white"
+              style={{ aspectRatio: "780 / 1688" }}
+              role="button"
+              tabIndex={0}
+              aria-label={playing ? c.pause : c.play}
+              onClick={toggle}
+              onKeyDown={(e) => { if (e.key === " " || e.key === "Enter") { e.preventDefault(); toggle(); } }}
+            >
               <video
                 ref={video}
                 className="absolute inset-0 h-full w-full object-cover"
@@ -184,17 +192,8 @@ export function AppShowcase() {
                 <source src={img("/app/app-demo.webm")} type="video/webm" />
                 <source src={img("/app/app-demo.mp4")} type="video/mp4" />
               </video>
-              <span aria-hidden className="absolute left-1/2 top-[10px] h-[26px] w-[92px] -translate-x-1/2 rounded-full bg-[#1b110f]" />
+              <span aria-hidden className="absolute left-1/2 top-[8px] h-[20px] w-[70px] -translate-x-1/2 rounded-full bg-[#1b110f]" />
             </div>
-            <button
-              type="button"
-              onClick={toggle}
-              className="absolute -bottom-5 left-1/2 flex h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full bg-white text-jacaranda shadow-lg transition-colors hover:bg-couro-cognac hover:text-white"
-              aria-label={playing ? c.pause : c.play}
-              style={{ borderRadius: 999 }}
-            >
-              {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4 translate-x-[1px]" />}
-            </button>
           </div>
         </div>
       </div>
