@@ -114,6 +114,41 @@ export function AppShowcase() {
     v.play().then(() => setPlaying(true)).catch(() => {});
   };
 
+  /* Pairar 1 s sobre o telemóvel: vai para o centro do ecrã e aumenta */
+  const frame = useRef<HTMLDivElement>(null);
+  const hoverTimer = useRef<number | undefined>(undefined);
+  const [zoom, setZoom] = useState<{ x: number; y: number; s: number } | null>(null);
+  const openZoom = () => {
+    const el = frame.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const s = Math.min((window.innerHeight * 0.97) / r.height, (window.innerWidth * 0.9) / r.width, 2.2);
+    if (s < 1.03) return; // já está grande o suficiente
+    setZoom({ x: window.innerWidth / 2 - (r.left + r.width / 2), y: window.innerHeight / 2 - (r.top + r.height / 2), s });
+  };
+  const onEnter = () => {
+    if (!window.matchMedia("(hover: hover) and (min-width: 1024px)").matches) return;
+    window.clearTimeout(hoverTimer.current);
+    hoverTimer.current = window.setTimeout(openZoom, 1000);
+  };
+  // Ampliado: fecha quando o rato sai do telemóvel (depois de lá ter entrado), com clique fora, Esc ou ao rolar
+  const insideZoom = useRef(false);
+  const onLeave = () => {
+    window.clearTimeout(hoverTimer.current);
+    if (!zoom || insideZoom.current) { insideZoom.current = false; setZoom(null); }
+  };
+  const onMoveInside = () => { if (zoom) insideZoom.current = true; };
+  useEffect(() => {
+    if (!zoom) return;
+    const close = () => { insideZoom.current = false; setZoom(null); };
+    const key = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };
+    window.addEventListener("scroll", close, { passive: true });
+    window.addEventListener("resize", close);
+    window.addEventListener("keydown", key);
+    return () => { window.removeEventListener("scroll", close); window.removeEventListener("resize", close); window.removeEventListener("keydown", key); };
+  }, [zoom]);
+  useEffect(() => () => window.clearTimeout(hoverTimer.current), []);
+
   const toggle = () => {
     const v = video.current;
     if (!v) return;
@@ -122,19 +157,28 @@ export function AppShowcase() {
   };
 
   return (
-    <section id="app" className="scroll-mt-20 overflow-hidden bg-jacaranda py-14 lg:flex lg:min-h-[calc(100svh-5rem)] lg:items-center lg:py-4">
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+    <section id="app" className={`relative scroll-mt-20 bg-jacaranda py-14 lg:flex lg:min-h-[calc(100svh-5rem)] lg:items-center lg:py-3 ${zoom ? "overflow-visible" : "overflow-hidden"}`}>
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch lg:gap-14">
+        {/* fundo escuro enquanto o telemóvel está ampliado */}
+        <div
+          aria-hidden
+          style={{ zIndex: 65 }}
+          onClick={() => { insideZoom.current = false; setZoom(null); }}
+          className={`fixed inset-0 bg-[#1b110f]/80 backdrop-blur-sm transition-opacity duration-500 ${zoom ? "opacity-100" : "pointer-events-none opacity-0"}`}
+        />
         {/* Texto + funções */}
-        <div className="reveal">
+        <div className="reveal lg:flex lg:flex-col lg:justify-between lg:py-[6px]">
+          <div>
           <span className="eyebrow text-white">{c.eyebrow}</span>
-          <h2 className="mt-3 font-italiana text-3xl font-normal leading-[1.05] text-white sm:text-4xl lg:text-[2.75rem] lg:[@media(max-height:760px)]:text-[2.25rem] text-balance">
+          <h2 className="mt-3 font-italiana text-3xl font-normal leading-[1.05] text-white sm:text-4xl lg:text-[3.25rem] lg:[@media(max-height:760px)]:text-[2.6rem] text-balance">
             {c.titleA}
             <br />
             <span className="text-couro-cognac-light">{c.titleB}</span>
           </h2>
-          <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-white">{c.intro}</p>
+          <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white lg:text-[17px]">{c.intro}</p>
+          </div>
 
-          <ol className="mt-5 max-w-md border-t border-white/15">
+          <ol className="mt-6 max-w-lg border-t lg:my-5 border-white/15">
             {c.features.map(([title, text], i) => {
               const on = i === active;
               return (
@@ -143,22 +187,22 @@ export function AppShowcase() {
                     type="button"
                     onClick={() => jump(i)}
                     aria-current={on ? "step" : undefined}
-                    className="group relative flex w-full items-baseline gap-4 py-2 text-left lg:[@media(max-height:760px)]:py-[7px]"
+                    className="group relative flex w-full items-baseline gap-4 py-2 text-left lg:py-2 lg:[@media(max-height:760px)]:py-[6px]"
                   >
                     {/* barra de progresso da parte que está a passar */}
                     <span
                       aria-hidden
                       className={`absolute -bottom-px left-0 h-px bg-couro-cognac-light transition-[width] duration-700 ease-out ${on ? "w-full" : "w-0"}`}
                     />
-                    <span className={`w-6 shrink-0 font-italiana text-base transition-colors duration-500 ${on ? "text-couro-cognac-light" : "text-white/40"}`}>
+                    <span className={`w-7 shrink-0 font-italiana text-base lg:text-lg transition-colors duration-500 ${on ? "text-couro-cognac-light" : "text-white/40"}`}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span>
-                      <span className={`block font-italiana text-lg lg:text-xl transition-colors duration-500 ${on ? "text-white" : "text-white/55 group-hover:text-white/85"}`}>
+                      <span className={`block font-italiana text-lg lg:text-2xl transition-colors duration-500 ${on ? "text-white" : "text-white/55 group-hover:text-white/85"}`}>
                         {title}
                       </span>
                       <span
-                        className={`grid text-[13.5px] leading-relaxed text-white/80 transition-[grid-template-rows,opacity,margin] duration-500 ease-out ${on ? "mt-1 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+                        className={`grid text-[13.5px] leading-relaxed lg:text-[15px] text-white/80 transition-[grid-template-rows,opacity,margin] duration-500 ease-out ${on ? "mt-1 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
                       >
                         <span className="overflow-hidden">{text}</span>
                       </span>
@@ -169,6 +213,7 @@ export function AppShowcase() {
             })}
           </ol>
 
+          <div>
           <a
             href={APP_URL}
             className="btn-lift mt-6 lg:[@media(max-height:760px)]:mt-4 inline-flex items-center gap-3 whitespace-nowrap bg-white px-6 py-3.5 text-[12px] font-medium uppercase tracking-[0.18em] text-jacaranda transition-colors hover:bg-couro-cognac hover:text-white "
@@ -177,18 +222,26 @@ export function AppShowcase() {
             {c.install}
           </a>
           <p className="mt-3 max-w-md text-[12.5px] lg:[@media(max-height:820px)]:hidden leading-relaxed text-white/75">{c.installNote}</p>
+          </div>
         </div>
 
         {/* Telemóvel com o vídeo */}
-        <div ref={box} className="reveal relative mx-auto w-full max-w-[290px] lg:max-w-[min(340px,calc((100svh-6.5rem)*0.415))]" data-reveal-delay="120">
+        <div ref={box} className={`reveal relative mx-auto w-full max-w-[290px] lg:max-w-[min(380px,calc((100svh-6.5rem)*0.46))] lg:self-center`} style={zoom ? { zIndex: 70 } : undefined} data-reveal-delay="120">
           {/* blocos de cor da paleta, por trás */}
-          <span aria-hidden className="absolute -right-8 top-12 h-[62%] w-[70%] bg-couro-cognac sm:-right-12" />
-          <span aria-hidden className="absolute -left-6 bottom-8 h-[38%] w-[55%] bg-verde-oliva sm:-left-10" />
+          <span aria-hidden className={`absolute -right-8 top-12 h-[62%] w-[70%] bg-couro-cognac transition-opacity duration-500 sm:-right-12 ${zoom ? "opacity-0" : ""}`} />
+          <span aria-hidden className={`absolute -left-6 bottom-8 h-[38%] w-[55%] bg-verde-oliva transition-opacity duration-500 sm:-left-10 ${zoom ? "opacity-0" : ""}`} />
 
-          <div className="relative rounded-[40px] bg-[#1b110f] p-[8px] shadow-[0_50px_90px_-35px_rgba(0,0,0,0.75)]">
+          <div
+            ref={frame}
+            onMouseEnter={onEnter}
+            onMouseLeave={onLeave}
+            onMouseMove={onMoveInside}
+            className="relative rounded-[15%/7%] bg-[#1b110f] p-[2.6%] shadow-[0_50px_90px_-35px_rgba(0,0,0,0.75)] transition-transform duration-500 ease-[cubic-bezier(.2,.7,.2,1)] motion-reduce:transition-none"
+            style={zoom ? { transform: `translate(${zoom.x}px, ${zoom.y}px) scale(${zoom.s})` } : undefined}
+          >
             <div
-              className="relative flex cursor-pointer flex-col overflow-hidden rounded-[33px] outline-offset-4 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-white [container-type:inline-size]"
-              style={{ aspectRatio: "780 / 1828", backgroundColor: bar.bg }}
+              className="relative flex cursor-pointer flex-col overflow-hidden rounded-[13%/6%] outline-offset-4 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-white [container-type:inline-size]"
+              style={{ aspectRatio: "1179 / 2556", backgroundColor: bar.bg }}
               role="button"
               tabIndex={0}
               aria-label={playing ? c.pause : c.play}
@@ -199,7 +252,7 @@ export function AppShowcase() {
               <div
                 aria-hidden
                 className="relative flex shrink-0 items-center justify-between px-[8%] font-semibold transition-colors duration-300"
-                style={{ height: "7.66%", color: bar.dark ? "#1b110f" : "#fff", fontSize: "4.6cqw" }}
+                style={{ height: "6.4%", color: bar.dark ? "#1b110f" : "#fff", fontSize: "4.6cqw" }}
               >
                 <span className="tabular-nums">9:41</span>
                 <span className="absolute left-1/2 top-[22%] h-[56%] w-[31%] -translate-x-1/2 rounded-full bg-[#1b110f]" />
@@ -212,7 +265,7 @@ export function AppShowcase() {
               <div className="relative grow">
                 <video
                   ref={video}
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className="absolute inset-0 h-full w-full object-cover object-bottom"
                   poster={img("/app/app-demo-poster.jpg")}
                   muted
                   loop
