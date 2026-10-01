@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Download } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Download, Lock } from "lucide-react";
+import { AppLoginModal } from "./AppLoginModal";
 import { useLocale } from "./i18n";
 import { img } from "./imagePath";
 
@@ -34,7 +35,9 @@ const T = {
       ["Fale com a Bossa", "Escreva à sua arquiteta sempre que precisar."],
     ],
     install: "Instalar a app",
-    installNote: "Funciona no telemóvel e no computador, sem passar por lojas de aplicações. No iPhone: abra no Safari e toque em Partilhar → Adicionar ao ecrã principal.",
+    restricted: "Área restrita a clientes.",
+    restrictedText: "Só os clientes da Studio Bossa podem instalar a app, com o utilizador e a palavra-passe que lhes enviamos.",
+    installNote: "Funciona no telemóvel e no computador, sem lojas de aplicações. Depois de instalar, entre com os mesmos dados.",
     video: "Vídeo: o app da Studio Bossa a ser usado",
     pause: "Pausar vídeo",
     play: "Reproduzir vídeo",
@@ -53,7 +56,9 @@ const T = {
       ["Talk to Bossa", "Write to your architect whenever you need."],
     ],
     install: "Install the app",
-    installNote: "Works on your phone and computer, no app store needed. On iPhone: open it in Safari and tap Share → Add to Home Screen.",
+    restricted: "Clients only.",
+    restrictedText: "Only Studio Bossa clients can install the app, using the username and password we send them.",
+    installNote: "Works on your phone and computer, no app store needed. Once installed, sign in with the same details.",
     video: "Video: the Studio Bossa app in use",
     pause: "Pause video",
     play: "Play video",
@@ -74,6 +79,8 @@ export function AppShowcase() {
   const box = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const [playing, setPlaying] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false);
+  const closeLogin = useCallback(() => setLoginOpen(false), []);
   // cor da barra de estado = cor do topo do ecrã do app naquele momento
   const [bar, setBar] = useState({ bg: "#3E2723", dark: false });
   const canvas = useRef<HTMLCanvasElement | null>(null);
@@ -170,7 +177,7 @@ export function AppShowcase() {
         <div className="reveal lg:flex lg:flex-col lg:justify-between lg:py-[6px]">
           <div>
           <span className="eyebrow text-white">{c.eyebrow}</span>
-          <h2 className="mt-3 font-italiana text-3xl font-normal leading-[1.05] text-white sm:text-4xl lg:text-[3.25rem] lg:[@media(max-height:760px)]:text-[2.6rem] text-balance">
+          <h2 className="mt-3 font-italiana text-3xl font-normal leading-[1.05] text-white sm:text-4xl lg:text-[3.25rem] lg:[@media(max-height:760px)]:text-[2.4rem] text-balance">
             {c.titleA}
             <br />
             <span className="text-couro-cognac-light">{c.titleB}</span>
@@ -178,7 +185,7 @@ export function AppShowcase() {
           <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white lg:text-[17px]">{c.intro}</p>
           </div>
 
-          <ol className="mt-6 max-w-lg border-t lg:my-5 border-white/15">
+          <ol className="mt-6 max-w-lg border-t lg:my-5 lg:[@media(max-height:760px)]:my-3 border-white/15">
             {c.features.map(([title, text], i) => {
               const on = i === active;
               return (
@@ -187,7 +194,7 @@ export function AppShowcase() {
                     type="button"
                     onClick={() => jump(i)}
                     aria-current={on ? "step" : undefined}
-                    className="group relative flex w-full items-baseline gap-4 py-2 text-left lg:py-2 lg:[@media(max-height:760px)]:py-[6px]"
+                    className="group relative flex w-full items-baseline gap-4 py-2 text-left lg:py-2 lg:[@media(max-height:760px)]:py-[3px]"
                   >
                     {/* barra de progresso da parte que está a passar */}
                     <span
@@ -214,14 +221,20 @@ export function AppShowcase() {
           </ol>
 
           <div>
-          <a
-            href={APP_URL}
-            className="btn-lift mt-6 lg:[@media(max-height:760px)]:mt-4 inline-flex items-center gap-3 whitespace-nowrap bg-white px-6 py-3.5 text-[12px] font-medium uppercase tracking-[0.18em] text-jacaranda transition-colors hover:bg-couro-cognac hover:text-white "
+          <p className="mt-6 flex max-w-md items-start gap-2.5 text-[13.5px] leading-snug text-white/85 lg:[@media(max-height:760px)]:mt-2">
+            <Lock className="mt-[2px] h-4 w-4 shrink-0 text-couro-cognac-light" strokeWidth={1.8} aria-hidden />
+            <span><strong className="font-medium text-white">{c.restricted}</strong> {c.restrictedText}</span>
+          </p>
+          <button
+            type="button"
+            onClick={() => setLoginOpen(true)}
+            aria-haspopup="dialog"
+            className="btn-lift mt-4 lg:[@media(max-height:760px)]:mt-3 inline-flex items-center gap-3 whitespace-nowrap bg-white px-6 py-3.5 text-[12px] font-medium uppercase tracking-[0.18em] text-jacaranda transition-colors hover:bg-couro-cognac hover:text-white "
           >
             <Download className="h-4 w-4" strokeWidth={2} />
             {c.install}
-          </a>
-          <p className="mt-3 max-w-md text-[12.5px] lg:[@media(max-height:820px)]:hidden leading-relaxed text-white/75">{c.installNote}</p>
+          </button>
+          <p className="mt-3 max-w-md text-[12.5px] lg:hidden leading-relaxed text-white/75">{c.installNote}</p>
           </div>
         </div>
 
@@ -282,6 +295,7 @@ export function AppShowcase() {
           </div>
         </div>
       </div>
+      <AppLoginModal open={loginOpen} onClose={closeLogin} appUrl={APP_URL} locale={locale} />
     </section>
   );
 }

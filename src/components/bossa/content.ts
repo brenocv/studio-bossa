@@ -21,6 +21,7 @@ const pt = {
   langName: "Português",
   nav: {
     links: [
+      { href: "#topo", label: "Início" },
       { href: "/projetos/", label: "Projetos" },
       { href: "#servicos", label: "Serviços" },
       { href: "#processo", label: "Processo" },
@@ -456,6 +457,7 @@ const en: Dict = {
   langName: "English",
   nav: {
     links: [
+      { href: "#topo", label: "Home" },
       { href: "/en/projects/", label: "Projects" },
       { href: "#servicos", label: "Services" },
       { href: "#processo", label: "Process" },

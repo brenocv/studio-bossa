@@ -36,8 +36,8 @@ export function HomePage({ locale, jsonLd }: { locale: Locale; jsonLd: object[] 
           <ProjectCarousel />
           <Marquee />
           <Services />
-          <Cta />
           <Process />
+          <Cta />
           <AppShowcase />
           <About />
           <Testimonials />
