@@ -7,8 +7,8 @@
    STUDIO BOSSA — Identidade Visual
    Paleta de 4 cores oficiais (manual de marca)
    - Jacarandá   #3E2723  (marrom escuro — texto principal / fundos escuros)
-   - Couro Cognac #A65E2E (terracota — acento / CTA / destaques)
-   - Verde Oliva  #4C5F45 (verde musgo — equilíbrio / secundário)
+   - Couro Cognac #AB673A (terracota — acento / CTA / destaques)
+   - Verde Oliva  #52644B (verde musgo — equilíbrio / secundário)
    - Linho Cru    #F5F2E8 (off-white — fundo principal / negativo)
    Tipografia:
    - Italiana (serifada itálica) — títulos
@@ -20,12 +20,12 @@
   --color-jacaranda: #3E2723;
   --color-jacaranda-soft: #4d342c;
   --color-jacaranda-deep: #2a1a16;
-  --color-couro-cognac: #A65E2E;
-  --color-couro-cognac-light: #c0753f;
-  --color-couro-cognac-deep: #8a4d24;
-  --color-verde-oliva: #4C5F45;
-  --color-verde-oliva-light: #5e7355;
-  --color-verde-oliva-deep: #3a4a35;
+  --color-couro-cognac: #AB673A;
+  --color-couro-cognac-light: #c3804c;
+  --color-couro-cognac-deep: #8f5530;
+  --color-verde-oliva: #52644B;
+  --color-verde-oliva-light: #64785b;
+  --color-verde-oliva-deep: #41513b;
   --color-linho-cru: #F5F2E8;
   --color-linho-cru-warm: #efe9da;
   --color-linho-cru-deep: #e3dcc9;
@@ -83,16 +83,16 @@
   --popover-foreground: #3E2723;
   --primary: #3E2723;
   --primary-foreground: #F5F2E8;
-  --secondary: #4C5F45;
+  --secondary: #52644B;
   --secondary-foreground: #F5F2E8;
   --muted: #efe9da;
   --muted-foreground: #6b6358;
-  --accent: #A65E2E;
+  --accent: #AB673A;
   --accent-foreground: #F5F2E8;
   --destructive: oklch(0.577 0.245 27.325);
   --border: #e3dcc9;
   --input: #e3dcc9;
-  --ring: #A65E2E;
+  --ring: #AB673A;
   --sidebar: #F5F2E8;
   --sidebar-foreground: #3E2723;
   --sidebar-primary: #3E2723;
@@ -100,7 +100,7 @@
   --sidebar-accent: #efe9da;
   --sidebar-accent-foreground: #3E2723;
   --sidebar-border: #e3dcc9;
-  --sidebar-ring: #4C5F45;
+  --sidebar-ring: #52644B;
 }
 
 @layer base {
@@ -377,7 +377,7 @@ html {
   scroll-behavior: smooth;
 }
 @supports not selector(::-webkit-scrollbar) {
-  html { scrollbar-color: #A65E2E #3E2723; } /* Firefox (não permite setas) */
+  html { scrollbar-color: #AB673A #3E2723; } /* Firefox (não permite setas) */
 }
 ::-webkit-scrollbar {
   width: 14px;
@@ -387,13 +387,13 @@ html {
   background: #3E2723;
 }
 ::-webkit-scrollbar-thumb {
-  background: #A65E2E;
+  background: #AB673A;
   border: 3px solid #3E2723;
   border-radius: 0;
   min-height: 40px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c07a45;
+  background: #c3804c;
 }
 /* Setas em cima e em baixo (Chrome, Edge, Safari, Opera) */
 ::-webkit-scrollbar-button:single-button {
@@ -406,7 +406,7 @@ html {
   background-size: 8px;
 }
 ::-webkit-scrollbar-button:single-button:hover {
-  background-color: #A65E2E;
+  background-color: #AB673A;
 }
 ::-webkit-scrollbar-button:single-button:vertical:decrement {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M0 6 5 0l5 6z' fill='%23F5F2E8'/%3E%3C/svg%3E");
@@ -471,7 +471,7 @@ html {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--color-couro-cognac-light, #c0753f);
+  background: var(--color-couro-cognac-light, #c3804c);
   transform: translateX(-100%);
   animation: scrollLine 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
@@ -483,7 +483,7 @@ html {
 
 /* Foco visível e consistente */
 :where(a, button):focus-visible {
-  outline: 2px solid var(--color-couro-cognac-light, #c0753f);
+  outline: 2px solid var(--color-couro-cognac-light, #c3804c);
   outline-offset: 3px;
 }
 /* Campos de formulário: sem moldura, só uma sombra delicada ao escrever */
@@ -576,7 +576,7 @@ section[id] { scroll-margin-top: 88px; }
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--color-couro-cognac, #A65E2E);
+  background: var(--color-couro-cognac, #AB673A);
   transform: scaleX(0);
   transform-origin: left;
   animation: lineGrow 1.7s cubic-bezier(0.65, 0, 0.35, 1) 0.2s forwards;

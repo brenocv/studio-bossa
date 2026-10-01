@@ -262,7 +262,7 @@ export const PALETTE = [
   },
   {
     name: "Couro Cognac",
-    hex: "#A65E2E",
+    hex: "#AB673A",
     rgb: "166, 94, 46",
     description:
       "Um tom quente que traz acolhimento, aconchego e uma sofisticação natural para a nossa marca.",
@@ -270,7 +270,7 @@ export const PALETTE = [
   },
   {
     name: "Verde Oliva",
-    hex: "#4C5F45",
+    hex: "#52644B",
     rgb: "76, 95, 69",
     description:
       "Traz a elegância e a presença da natureza, funcionando como ponto de equilíbrio entre os nossos tons.",
