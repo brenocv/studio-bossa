@@ -86,7 +86,7 @@ export function Contact() {
 
             <div className="mt-10 space-y-5">
               <a
-                href="tel:+351220000000"
+                href="tel:+351928258604"
                 className="group flex items-center gap-4 text-jacaranda-soft transition-colors hover:text-jacaranda"
               >
                 <span className="flex h-11 w-11 items-center justify-center border border-jacaranda/15 text-jacaranda transition-colors group-hover:border-couro-cognac">
@@ -95,12 +95,12 @@ export function Contact() {
                 <div>
                   <div className="text-sm text-jacaranda-soft/70">{c.phoneLabel}</div>
                   <div className="font-medium text-jacaranda">
-                    +351 220 000 000
+                    +351 928 258 604
                   </div>
                 </div>
               </a>
               <a
-                href="mailto:hello@studiobossa.pt"
+                href="mailto:studiobossa.interiores@gmail.com"
                 className="group flex items-center gap-4 text-jacaranda-soft transition-colors hover:text-jacaranda"
               >
                 <span className="flex h-11 w-11 items-center justify-center border border-jacaranda/15 text-jacaranda transition-colors group-hover:border-couro-cognac">
@@ -109,7 +109,7 @@ export function Contact() {
                 <div>
                   <div className="text-sm text-jacaranda-soft/70">{c.emailLabel}</div>
                   <div className="font-medium text-jacaranda">
-                    hello@studiobossa.pt
+                    studiobossa.interiores@gmail.com
                   </div>
                 </div>
               </a>

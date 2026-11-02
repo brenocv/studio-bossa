@@ -17,8 +17,8 @@ import { img } from "./imagePath";
 const APP_URL = "#";
 
 /** Início (em segundos) de cada parte do vídeo public/app/app-demo.mp4 */
-const CHAPTERS = [0, 6.6, 11.1, 15.35, 19.0, 22.45];
-const LOOP_HOME = 30.2; // no fim o vídeo volta ao Início
+const CHAPTERS = [0, 5.5, 9.55, 13.8, 17.85, 21.2];
+const LOOP_HOME = 27.8; // no fim o vídeo volta ao Início
 
 const T = {
   pt: {

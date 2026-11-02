@@ -27,7 +27,7 @@ export function Cta() {
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>
-        <div className="reveal relative aspect-[4/3] overflow-hidden bg-verde-oliva-deep" data-reveal-delay="120">
+        <div className="reveal relative aspect-[16/9] overflow-hidden bg-verde-oliva-deep" data-reveal-delay="120">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={photo("casa-entre-serras", "01")}

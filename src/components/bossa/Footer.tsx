@@ -71,8 +71,8 @@ export function Footer() {
               {c.contactTitle}
             </h4>
             <ul className="mt-4 space-y-3 text-sm text-white">
-              <li>+351 220 000 000</li>
-              <li>hello@studiobossa.pt</li>
+              <li>+351 928 258 604</li>
+              <li>studiobossa.interiores@gmail.com</li>
               <li>
                 Rua Engenheiro Ferreira Dias, 161
                 <br />

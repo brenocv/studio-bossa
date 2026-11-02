@@ -384,7 +384,7 @@ const pt = {
 
   footer: {
     about:
-      "Studio Bossa — atelier de arquitetura, design de interiores e remodelação de casas no Porto e em Vila Nova de Gaia. Há 15 anos a transformar casas em experiências.",
+      "Studio Bossa — atelier de arquitetura, design de interiores e remodelação de casas em Portugal. Há 15 anos a transformar casas em experiências.",
     navTitle: "Navegação",
     nav: [
       { href: "#servicos", label: "Serviços" },
@@ -819,7 +819,7 @@ const en: Dict = {
 
   footer: {
     about:
-      "Studio Bossa — architecture, interior design and home renovation studio in Porto and Vila Nova de Gaia. Transforming homes into experiences for 15 years.",
+      "Studio Bossa — architecture, interior design and home renovation studio in Portugal. Transforming homes into experiences for 15 years.",
     navTitle: "Navigation",
     nav: [
       { href: "#servicos", label: "Services" },

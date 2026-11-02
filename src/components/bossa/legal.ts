@@ -8,8 +8,8 @@ export const COMPANY = {
   legalName: "Studio Bossa", // ⚠️ trocar pela denominação social, ex.: "Studio Bossa, Lda."
   nif: "", // ⚠️ preencher com o NIF (enquanto vazio, não aparece no site)
   address: "Rua Engenheiro Ferreira Dias, 161, Sala 204, Porto — Portugal",
-  email: "hello@studiobossa.pt",
-  phone: "+351 220 000 000",
+  email: "studiobossa.interiores@gmail.com",
+  phone: "+351 928 258 604",
 };
 
 export const LEGAL_UPDATED = { pt: "28 de setembro de 2026", en: "28 September 2026" };
