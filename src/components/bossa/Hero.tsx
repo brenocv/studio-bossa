@@ -14,6 +14,7 @@ import { useLocale } from "./i18n";
  */
 const VIDEOS = [
   { src: img("/videos/hero.mp4"), poster: img("/videos/hero-poster.jpg") },
+  { src: img("/videos/hero-2.mp4"), poster: img("/videos/hero-2-poster.jpg") }, // "1102", em câmara lenta (2×)
 ];
 const FADE_S = 1.8; // duração do esmaecer entre vídeos (segundos)
 const PLAYBACK_RATE = 1; // 1 = velocidade do ficheiro (já em câmara lenta)
