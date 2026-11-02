@@ -7,15 +7,14 @@ import { useLocale } from "./i18n";
 /**
  * Hero: vídeo emoldurado + slogan por baixo.
  *
- * Os vídeos passam em sequência (1 → 2 → 3 → 4 → 1 …). Perto do fim de cada um,
+ * Os vídeos passam em sequência (com um só vídeo, repete-se em ciclo). Perto do fim de cada um,
  * o seguinte começa num segundo leitor por baixo e os dois cruzam-se (esmaecer).
  * Os vídeos já estão codificados em câmara lenta (metade da velocidade,
  * com frames interpolados). Para abrandar ainda mais, reduza PLAYBACK_RATE.
  */
-const VIDEOS = [1, 2, 3, 4].map((n) => ({
-  src: img(`/videos/hero-${n}.mp4`),
-  poster: img(`/videos/hero-${n}-poster.jpg`),
-}));
+const VIDEOS = [
+  { src: img("/videos/hero.mp4"), poster: img("/videos/hero-poster.jpg") },
+];
 const FADE_S = 1.8; // duração do esmaecer entre vídeos (segundos)
 const PLAYBACK_RATE = 1; // 1 = velocidade do ficheiro (já em câmara lenta)
 
@@ -27,7 +26,7 @@ export function Hero() {
   const b = useRef<HTMLVideoElement>(null);
   const els = [a, b];
   const front = useRef(0); // leitor visível (0 ou 1)
-  const loaded = useRef([0, 1]); // índice do vídeo carregado em cada leitor
+  const loaded = useRef([0, 1 % VIDEOS.length]); // índice do vídeo carregado em cada leitor
   const switching = useRef(false);
   const [frontState, setFrontState] = useState(0);
   const [current, setCurrent] = useState(0);
@@ -114,8 +113,8 @@ export function Hero() {
                   frontState === i ? "opacity-100" : "opacity-0"
                 }`}
                 style={{ transitionDuration: `${FADE_S}s` }}
-                src={VIDEOS[i].src}
-                poster={VIDEOS[i].poster}
+                src={VIDEOS[i % VIDEOS.length].src}
+                poster={VIDEOS[i % VIDEOS.length].poster}
                 muted
                 playsInline
                 preload={i === 0 ? "auto" : "metadata"}
@@ -129,7 +128,7 @@ export function Hero() {
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-jacaranda-deep/55 to-transparent" />
 
             {/* Indicador do vídeo atual */}
-            <div className="absolute bottom-4 left-4 flex gap-1.5 sm:bottom-5 sm:left-5" aria-hidden>
+            <div className={`absolute bottom-4 left-4 gap-1.5 sm:bottom-5 sm:left-5 ${VIDEOS.length > 1 ? "flex" : "hidden"}`} aria-hidden>
               {VIDEOS.map((_, i) => (
                 <span
                   key={i}
