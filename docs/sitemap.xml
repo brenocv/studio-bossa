@@ -43,6 +43,20 @@
 <priority>0.5</priority>
 </url>
 <url>
+<loc>https://studiobossa.pt/projetos/loft-instinto/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/loft-instinto/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/loft-instinto/" />
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/projects/loft-instinto/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/loft-instinto/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/loft-instinto/" />
+<changefreq>yearly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
 <loc>https://studiobossa.pt/projetos/escritorio-adv/</loc>
 <xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/escritorio-adv/" />
 <xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/escritorio-adv/" />
@@ -53,6 +67,20 @@
 <loc>https://studiobossa.pt/en/projects/escritorio-adv/</loc>
 <xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/escritorio-adv/" />
 <xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/escritorio-adv/" />
+<changefreq>yearly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/projetos/projeto-oliva/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/projeto-oliva/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/projeto-oliva/" />
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://studiobossa.pt/en/projects/projeto-oliva/</loc>
+<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/projeto-oliva/" />
+<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/projeto-oliva/" />
 <changefreq>yearly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -99,20 +127,6 @@
 <priority>0.5</priority>
 </url>
 <url>
-<loc>https://studiobossa.pt/projetos/loft-instinto/</loc>
-<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/loft-instinto/" />
-<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/loft-instinto/" />
-<changefreq>yearly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://studiobossa.pt/en/projects/loft-instinto/</loc>
-<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/loft-instinto/" />
-<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/loft-instinto/" />
-<changefreq>yearly</changefreq>
-<priority>0.5</priority>
-</url>
-<url>
 <loc>https://studiobossa.pt/projetos/casa-dos-arcos/</loc>
 <xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/casa-dos-arcos/" />
 <xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/casa-dos-arcos/" />
@@ -137,20 +151,6 @@
 <loc>https://studiobossa.pt/en/projects/projeto-trindade/</loc>
 <xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/projeto-trindade/" />
 <xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/projeto-trindade/" />
-<changefreq>yearly</changefreq>
-<priority>0.5</priority>
-</url>
-<url>
-<loc>https://studiobossa.pt/projetos/projeto-oliva/</loc>
-<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/projeto-oliva/" />
-<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/projeto-oliva/" />
-<changefreq>yearly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://studiobossa.pt/en/projects/projeto-oliva/</loc>
-<xhtml:link rel="alternate" hreflang="pt-PT" href="https://studiobossa.pt/projetos/projeto-oliva/" />
-<xhtml:link rel="alternate" hreflang="en-GB" href="https://studiobossa.pt/en/projects/projeto-oliva/" />
 <changefreq>yearly</changefreq>
 <priority>0.5</priority>
 </url>

@@ -1,7 +1,9 @@
 // Gerado automaticamente a partir das pastas em "imagens projetos" — não editar à mão.
 // f = nome do ficheiro em public/projetos/<slug>/ (sem .jpg); w/h = dimensões da versão grande.
 export type Img = { f: string; w: number; h: number };
-export type Media = { cover: string; gallery: Img[]; survey: Img[]; studies: [Img, Img][] };
+/** pairs: [foto antes (levantamento), render correspondente] */
+export type Media = { cover: string; gallery: Img[]; survey: Img[]; studies: [Img, Img][]; pairs: [string, string][]; card: string };
+// card = foto vertical usada no carrossel e na grelha de projetos
 export const MEDIA: Record<string, Media> = {
  "escritorio-adv": {
   "gallery": [
@@ -198,7 +200,38 @@ export const MEDIA: Record<string, Media> = {
     }
    ]
   ],
-  "cover": "03"
+  "cover": "03",
+  "pairs": [
+   [
+    "levantamento-01",
+    "08"
+   ],
+   [
+    "levantamento-03",
+    "02"
+   ],
+   [
+    "levantamento-02",
+    "06"
+   ],
+   [
+    "levantamento-04",
+    "04"
+   ],
+   [
+    "levantamento-05",
+    "05"
+   ],
+   [
+    "levantamento-07",
+    "16"
+   ],
+   [
+    "levantamento-08",
+    "13"
+   ]
+  ],
+  "card": "02"
  },
  "atelier": {
   "gallery": [
@@ -248,7 +281,9 @@ export const MEDIA: Record<string, Media> = {
     }
    ]
   ],
-  "cover": "05"
+  "cover": "05",
+  "pairs": [],
+  "card": "05"
  },
  "lavandaria": {
   "gallery": [
@@ -270,7 +305,9 @@ export const MEDIA: Record<string, Media> = {
   ],
   "survey": [],
   "studies": [],
-  "cover": "01"
+  "cover": "01",
+  "pairs": [],
+  "card": "01"
  },
  "doce-partilha": {
   "cover": "01",
@@ -353,7 +390,26 @@ export const MEDIA: Record<string, Media> = {
     "h": 960
    }
   ],
-  "studies": []
+  "studies": [],
+  "pairs": [
+   [
+    "levantamento-08",
+    "01"
+   ],
+   [
+    "levantamento-09",
+    "02"
+   ],
+   [
+    "levantamento-04",
+    "04"
+   ],
+   [
+    "levantamento-02",
+    "05"
+   ]
+  ],
+  "card": "01"
  },
  "casa-entre-serras": {
   "cover": "01",
@@ -385,7 +441,9 @@ export const MEDIA: Record<string, Media> = {
    }
   ],
   "survey": [],
-  "studies": []
+  "studies": [],
+  "pairs": [],
+  "card": "card"
  },
  "loft-instinto": {
   "cover": "01",
@@ -598,7 +656,46 @@ export const MEDIA: Record<string, Media> = {
     "h": 1280
    }
   ],
-  "studies": []
+  "studies": [],
+  "pairs": [
+   [
+    "levantamento-21",
+    "01"
+   ],
+   [
+    "levantamento-05",
+    "02"
+   ],
+   [
+    "levantamento-09",
+    "10"
+   ],
+   [
+    "levantamento-04",
+    "07"
+   ],
+   [
+    "levantamento-17",
+    "06"
+   ],
+   [
+    "levantamento-16",
+    "08"
+   ],
+   [
+    "levantamento-11",
+    "09"
+   ],
+   [
+    "levantamento-26",
+    "12"
+   ],
+   [
+    "levantamento-24",
+    "14"
+   ]
+  ],
+  "card": "07"
  },
  "casa-dos-arcos": {
   "cover": "01",
@@ -726,7 +823,38 @@ export const MEDIA: Record<string, Media> = {
     "h": 961
    }
   ],
-  "studies": []
+  "studies": [],
+  "pairs": [
+   [
+    "levantamento-04",
+    "03"
+   ],
+   [
+    "levantamento-14",
+    "01"
+   ],
+   [
+    "levantamento-15",
+    "07"
+   ],
+   [
+    "levantamento-07",
+    "05"
+   ],
+   [
+    "levantamento-09",
+    "06"
+   ],
+   [
+    "levantamento-12",
+    "08"
+   ],
+   [
+    "levantamento-11",
+    "09"
+   ]
+  ],
+  "card": "01"
  },
  "projeto-oliva": {
   "cover": "01",
@@ -763,7 +891,9 @@ export const MEDIA: Record<string, Media> = {
    }
   ],
   "survey": [],
-  "studies": []
+  "studies": [],
+  "pairs": [],
+  "card": "04"
  },
  "ninho-de-vovo": {
   "cover": "01",
@@ -785,7 +915,9 @@ export const MEDIA: Record<string, Media> = {
    }
   ],
   "survey": [],
-  "studies": []
+  "studies": [],
+  "pairs": [],
+  "card": "card"
  },
  "projeto-trindade": {
   "cover": "01",
@@ -908,6 +1040,37 @@ export const MEDIA: Record<string, Media> = {
     "h": 1280
    }
   ],
-  "studies": []
+  "studies": [],
+  "pairs": [
+   [
+    "levantamento-08",
+    "01"
+   ],
+   [
+    "levantamento-11",
+    "02"
+   ],
+   [
+    "levantamento-07",
+    "03"
+   ],
+   [
+    "levantamento-03",
+    "04"
+   ],
+   [
+    "levantamento-02",
+    "07"
+   ],
+   [
+    "levantamento-04",
+    "06"
+   ],
+   [
+    "levantamento-05",
+    "10"
+   ]
+  ],
+  "card": "01"
  }
 };

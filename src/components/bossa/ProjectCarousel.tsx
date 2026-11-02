@@ -114,8 +114,8 @@ export function ProjectCarousel() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={photo(p.slug, m.cover, "sm")}
-                  srcSet={`${photo(p.slug, m.cover, "sm")} 900w, ${photo(p.slug, m.cover)} 1800w`}
+                  src={photo(p.slug, m.card, "sm")}
+                  srcSet={`${photo(p.slug, m.card, "sm")} 900w, ${photo(p.slug, m.card)} 1800w`}
                   sizes="(min-width: 1024px) 440px, 74vw"
                   alt={`${p.name[locale]} — ${p.type[locale]}`}
                   loading={a <= 2 ? "eager" : "lazy"}

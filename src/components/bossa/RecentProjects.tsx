@@ -39,7 +39,7 @@ export function RecentProjects({ all = false }: { all?: boolean }) {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={photo(p.slug, m.cover, "sm")}
+                    src={photo(p.slug, m.card, "sm")}
                     alt={`${p.name[locale]} — ${p.type[locale]}`}
                     loading={i < 3 ? "eager" : "lazy"}
                     decoding="async"

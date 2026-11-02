@@ -10,6 +10,7 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { Lightbox } from "./Lightbox";
+import { BeforeAfter } from "./BeforeAfter";
 import { useReveal } from "./useReveal";
 import { PROJECTS, PROJECTS_INDEX, PROJECT_PATH, getProject, media, photo } from "./projects";
 import type { Img } from "./projects-media";
@@ -61,7 +62,6 @@ function ProjectBody({ slug }: { slug: string }) {
   const toList = (imgs: Img[], label: string) =>
     imgs.map((im, i) => ({ src: photo(slug, im), alt: `${name} — ${label} ${i + 1}` }));
   const gallery = toList(m.gallery, p.photo);
-  const survey = toList(m.survey, locale === "pt" ? "antes da obra" : "before the works");
 
   const idx = PROJECTS.findIndex((x) => x.slug === slug);
   const next = PROJECTS[(idx + 1) % PROJECTS.length];
@@ -186,42 +186,30 @@ function ProjectBody({ slug }: { slug: string }) {
         </div>
       </section>
 
-      {/* O espaço antes (levantamento) */}
-      {m.survey.length > 0 && (
+      {/* Antes e depois: foto do levantamento + render correspondente */}
+      {m.pairs.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:pb-28">
-          <div className="reveal mb-8 flex items-end justify-between gap-6 border-t border-jacaranda/10 pt-14">
-            <div>
-              <h2 className="font-italiana text-3xl font-normal leading-none text-jacaranda sm:text-4xl">
-                {locale === "pt" ? "O espaço antes" : "The space before"}
-              </h2>
-              <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-jacaranda-soft">
-                {locale === "pt"
-                  ? "Fotografias do levantamento, tiradas antes da intervenção."
-                  : "Survey photos, taken before the works began."}
-              </p>
-            </div>
-            <span className="text-[11px] uppercase tracking-[0.24em] text-jacaranda-soft/70">
-              {m.survey.length} {p.photos}
-            </span>
+          <div className="reveal mb-8 border-t border-jacaranda/10 pt-14">
+            <h2 className="font-italiana text-4xl font-normal leading-none text-jacaranda sm:text-5xl">
+              {locale === "pt" ? "Antes e depois" : "Before and after"}
+            </h2>
+            <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-jacaranda-soft">
+              {locale === "pt"
+                ? "Arraste a barra para comparar o espaço antes da obra com o projeto."
+                : "Drag the bar to compare the space before the works with the design."}
+            </p>
           </div>
-          <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 lg:grid-cols-6">
-            {m.survey.map((im, i) => (
-              <button
-                key={im.f}
-                type="button"
-                onClick={() => setBox({ list: survey, index: i, title: name })}
-                className="group block aspect-square overflow-hidden bg-linho-cru-deep"
-                aria-label={`${locale === "pt" ? "Antes" : "Before"} ${i + 1}`}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={photo(slug, im, "sm")}
-                  alt={survey[i].alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover grayscale-[30%] transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
-                />
-              </button>
+          <div className="grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {m.pairs.map(([before, after]) => (
+              <BeforeAfter
+                key={before + after}
+                before={photo(slug, before, "sm")}
+                after={photo(slug, after, "sm")}
+                beforeLabel={locale === "pt" ? "Antes" : "Before"}
+                afterLabel={locale === "pt" ? "Depois" : "After"}
+                alt={name}
+                ratio={(() => { const g = m.gallery.find((x) => x.f === after); return g && g.w > g.h ? "4 / 3" : "4 / 5"; })()}
+              />
             ))}
           </div>
         </section>
@@ -252,7 +240,7 @@ function ProjectBody({ slug }: { slug: string }) {
         >
           <span className="relative h-24 w-24 shrink-0 overflow-hidden sm:h-28 sm:w-40">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={photo(next.slug, nextMedia.cover, "sm")} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <img src={photo(next.slug, nextMedia.card, "sm")} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
           </span>
           <span className="flex-1">
             <span className="block text-[11px] uppercase tracking-[0.24em] text-jacaranda-soft/70">{p.next}</span>

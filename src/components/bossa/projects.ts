@@ -22,6 +22,27 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    slug: "loft-instinto",
+    name: { pt: "Loft Instinto | Fontinha, Porto", en: "Loft Instinto | Fontinha, Porto" },
+    type: { pt: "Remodelação de T0 · Projeto 3D", en: "Studio flat renovation · 3D design" },
+    summary: {
+      pt: "A remodelação deste T0, localizado na Baixa do Porto, foi pensada para um jovem casal e os seus gatos, procurando transformar uma área reduzida num espaço funcional, integrado e cheio de personalidade.",
+      en: "This studio flat in downtown Porto was renovated for a young couple and their cats, turning a small area into a functional, open space full of personality.",
+    },
+    body: {
+      pt: `A proposta privilegiou a demolição de paredes e a reorganização dos ambientes, permitindo incorporar na área útil um corredor anteriormente sobredimensionado e pouco aproveitado. Esta intervenção possibilitou a criação de uma zona de refeições, uma nova cozinha com mobiliário contemporâneo e uma área de trabalho partilhada pelo casal.
+
+O projeto integra ainda soluções de mobiliário adaptadas aos gatos, conciliando as necessidades dos animais com a estética do espaço.
+
+A combinação de cores, materiais e mobiliário desenhado à medida conferiu identidade ao apartamento, demonstrando como um espaço compacto pode acomodar diferentes funções sem comprometer o conforto e a fluidez.`,
+      en: `The design removed walls and reorganised the spaces, bringing an oversized, underused corridor into the living area. This made room for a dining area, a new kitchen with contemporary units and a workspace shared by the couple.
+
+The project also includes furniture designed for the cats, balancing their needs with the look of the home.
+
+Colour, materials and bespoke furniture give the flat its identity, showing how a compact space can take on several functions without losing comfort or flow.`,
+    },
+  },
+  {
     slug: "escritorio-adv",
     name: { pt: "Projeto Advogados", en: "Law Office Project" },
     type: { pt: "Escritório de advocacia · Projeto 3D", en: "Law office · 3D design" },
@@ -36,6 +57,23 @@ A escolha de madeira clara e tons neutros conferiu ao espaço uma identidade só
       en: `The main challenge was to make the most of the available area, creating functional, harmonious spaces with an easy flow. Glazed partitions define the offices while keeping natural light coming in and spreading through the space.
 
 Light timber and neutral tones give the office a sober, contemporary identity, combining function and comfort with a welcoming atmosphere.`,
+    },
+  },
+  {
+    slug: "projeto-oliva",
+    name: { pt: "Projeto Oliva | Remodelação Bistrot", en: "Oliva Project | Bistro Renovation" },
+    type: { pt: "Café · Remodelação e decoração", en: "Café · Renovation & interiors" },
+    summary: {
+      pt: "O projeto de remodelação e decoração deste café teve como foco a valorização da zona de atendimento e da sala de refeições, criando um ambiente contemporâneo, acolhedor e com uma identidade própria.",
+      en: "The renovation and interior design of this café focused on the counter and the dining room, creating a contemporary, welcoming space with its own identity.",
+    },
+    body: {
+      pt: `A combinação de tons terrosos e verdes estabelece uma ligação com os materiais naturais, destacando-se a utilização da palhinha, que introduz textura e leveza ao espaço. O teto em cimento queimado e o pavimento em granilite acrescentam um carácter contemporâneo, equilibrando a rusticidade dos materiais com uma linguagem mais sofisticada.
+
+O resultado é um espaço harmonioso e convidativo, onde a diversidade de texturas e materiais contribui para uma atmosfera descontraída, sem perder a elegância.`,
+      en: `Earthy tones and greens connect the space to natural materials, with rattan cane adding texture and lightness. A polished concrete ceiling and terrazzo floor bring a contemporary edge, balancing the rustic materials with a more refined feel.
+
+The result is a harmonious, inviting space where a variety of textures and materials creates a relaxed atmosphere without losing elegance.`,
     },
   },
   {
@@ -98,27 +136,6 @@ Natural materials, soft textures and light tones create a calm, welcoming atmosp
     },
   },
   {
-    slug: "loft-instinto",
-    name: { pt: "Loft Instinto | Fontinha, Porto", en: "Loft Instinto | Fontinha, Porto" },
-    type: { pt: "Remodelação de T0 · Projeto 3D", en: "Studio flat renovation · 3D design" },
-    summary: {
-      pt: "A remodelação deste T0, localizado na Baixa do Porto, foi pensada para um jovem casal e os seus gatos, procurando transformar uma área reduzida num espaço funcional, integrado e cheio de personalidade.",
-      en: "This studio flat in downtown Porto was renovated for a young couple and their cats, turning a small area into a functional, open space full of personality.",
-    },
-    body: {
-      pt: `A proposta privilegiou a demolição de paredes e a reorganização dos ambientes, permitindo incorporar na área útil um corredor anteriormente sobredimensionado e pouco aproveitado. Esta intervenção possibilitou a criação de uma zona de refeições, uma nova cozinha com mobiliário contemporâneo e uma área de trabalho partilhada pelo casal.
-
-O projeto integra ainda soluções de mobiliário adaptadas aos gatos, conciliando as necessidades dos animais com a estética do espaço.
-
-A combinação de cores, materiais e mobiliário desenhado à medida conferiu identidade ao apartamento, demonstrando como um espaço compacto pode acomodar diferentes funções sem comprometer o conforto e a fluidez.`,
-      en: `The design removed walls and reorganised the spaces, bringing an oversized, underused corridor into the living area. This made room for a dining area, a new kitchen with contemporary units and a workspace shared by the couple.
-
-The project also includes furniture designed for the cats, balancing their needs with the look of the home.
-
-Colour, materials and bespoke furniture give the flat its identity, showing how a compact space can take on several functions without losing comfort or flow.`,
-    },
-  },
-  {
     slug: "casa-dos-arcos",
     name: { pt: "Casa dos Arcos | Paranhos", en: "Casa dos Arcos | Paranhos" },
     type: { pt: "Remodelação de moradia · Projeto 3D", en: "House renovation · 3D design" },
@@ -170,23 +187,6 @@ In the guest room, bespoke furniture makes the most of the long, narrow layout, 
 In the studio, the aim was to make the most of the available area, adding comfort, organisation and function.
 
 The result is a private area where each room has its own identity without losing the coherence of the whole.`,
-    },
-  },
-  {
-    slug: "projeto-oliva",
-    name: { pt: "Projeto Oliva | Remodelação Bistrot", en: "Oliva Project | Bistro Renovation" },
-    type: { pt: "Café · Remodelação e decoração", en: "Café · Renovation & interiors" },
-    summary: {
-      pt: "O projeto de remodelação e decoração deste café teve como foco a valorização da zona de atendimento e da sala de refeições, criando um ambiente contemporâneo, acolhedor e com uma identidade própria.",
-      en: "The renovation and interior design of this café focused on the counter and the dining room, creating a contemporary, welcoming space with its own identity.",
-    },
-    body: {
-      pt: `A combinação de tons terrosos e verdes estabelece uma ligação com os materiais naturais, destacando-se a utilização da palhinha, que introduz textura e leveza ao espaço. O teto em cimento queimado e o pavimento em granilite acrescentam um carácter contemporâneo, equilibrando a rusticidade dos materiais com uma linguagem mais sofisticada.
-
-O resultado é um espaço harmonioso e convidativo, onde a diversidade de texturas e materiais contribui para uma atmosfera descontraída, sem perder a elegância.`,
-      en: `Earthy tones and greens connect the space to natural materials, with rattan cane adding texture and lightness. A polished concrete ceiling and terrazzo floor bring a contemporary edge, balancing the rustic materials with a more refined feel.
-
-The result is a harmonious, inviting space where a variety of textures and materials creates a relaxed atmosphere without losing elegance.`,
     },
   },
   {
