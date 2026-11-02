@@ -13,6 +13,7 @@ import { Lightbox } from "./Lightbox";
 import { useReveal } from "./useReveal";
 import { PROJECTS, PROJECTS_INDEX, PROJECT_PATH, getProject, media, photo } from "./projects";
 import type { Img } from "./projects-media";
+import { img } from "./imagePath";
 
 export function ProjectPage({
   slug,
@@ -43,6 +44,9 @@ export function ProjectPage({
   );
 }
 
+/** Projetos com vídeo em public/projetos/<slug>/video.(mp4|webm) */
+const VIDEO: Record<string, boolean> = { "projeto-oliva": true };
+
 type Box = { list: { src: string; alt: string }[]; index: number; title: string } | null;
 
 function ProjectBody({ slug }: { slug: string }) {
@@ -57,6 +61,7 @@ function ProjectBody({ slug }: { slug: string }) {
   const toList = (imgs: Img[], label: string) =>
     imgs.map((im, i) => ({ src: photo(slug, im), alt: `${name} — ${label} ${i + 1}` }));
   const gallery = toList(m.gallery, p.photo);
+  const survey = toList(m.survey, locale === "pt" ? "antes da obra" : "before the works");
 
   const idx = PROJECTS.findIndex((x) => x.slug === slug);
   const next = PROJECTS[(idx + 1) % PROJECTS.length];
@@ -79,7 +84,12 @@ function ProjectBody({ slug }: { slug: string }) {
           <div>
             <p className="eyebrow text-jacaranda">{project.type[locale]}</p>
             <h1 className="mt-5 font-italiana text-[clamp(2.6rem,6vw,5.25rem)] font-normal leading-[1] text-jacaranda">
-              {name}
+              {name.split(" | ")[0]}
+              {name.includes(" | ") && (
+                <span className="mt-3 block text-[clamp(1.5rem,2.6vw,2.25rem)] leading-tight text-couro-cognac">
+                  {name.split(" | ").slice(1).join(" | ")}
+                </span>
+              )}
             </h1>
           </div>
           <p className="max-w-xl text-base leading-relaxed text-jacaranda-soft sm:text-lg">
@@ -104,6 +114,43 @@ function ProjectBody({ slug }: { slug: string }) {
           />
         </button>
       </section>
+
+      {/* Sobre o projeto */}
+      {project.body[locale] && (
+        <section className="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:pt-28">
+          <div className="reveal grid gap-8 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
+            <h2 className="font-italiana text-4xl font-normal leading-none text-jacaranda sm:text-5xl">
+              {locale === "pt" ? "Sobre o projeto" : "About the project"}
+            </h2>
+            <div className="max-w-2xl space-y-5 text-base leading-relaxed text-jacaranda-soft sm:text-[17px]">
+              {project.body[locale].split(/\n\s*\n/).map((par, i) => (
+                <p key={i}>{par.trim()}</p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Vídeo do projeto (quando existe) */}
+      {VIDEO[slug] && (
+        <section className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:pt-24">
+          <div className="reveal mx-auto w-full max-w-[380px] overflow-hidden bg-jacaranda shadow-[0_40px_80px_-40px_rgba(0,0,0,0.5)]">
+            <video
+              className="block h-auto w-full"
+              poster={img(`/projetos/${slug}/video-poster.jpg`)}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label={locale === "pt" ? `Vídeo do ${name}` : `Video of ${name}`}
+            >
+              <source src={img(`/projetos/${slug}/video.webm`)} type="video/webm" />
+              <source src={img(`/projetos/${slug}/video.mp4`)} type="video/mp4" />
+            </video>
+          </div>
+        </section>
+      )}
 
       {/* Galeria */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:py-28">
@@ -138,6 +185,47 @@ function ProjectBody({ slug }: { slug: string }) {
           ))}
         </div>
       </section>
+
+      {/* O espaço antes (levantamento) */}
+      {m.survey.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:pb-28">
+          <div className="reveal mb-8 flex items-end justify-between gap-6 border-t border-jacaranda/10 pt-14">
+            <div>
+              <h2 className="font-italiana text-3xl font-normal leading-none text-jacaranda sm:text-4xl">
+                {locale === "pt" ? "O espaço antes" : "The space before"}
+              </h2>
+              <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-jacaranda-soft">
+                {locale === "pt"
+                  ? "Fotografias do levantamento, tiradas antes da intervenção."
+                  : "Survey photos, taken before the works began."}
+              </p>
+            </div>
+            <span className="text-[11px] uppercase tracking-[0.24em] text-jacaranda-soft/70">
+              {m.survey.length} {p.photos}
+            </span>
+          </div>
+          <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 lg:grid-cols-6">
+            {m.survey.map((im, i) => (
+              <button
+                key={im.f}
+                type="button"
+                onClick={() => setBox({ list: survey, index: i, title: name })}
+                className="group block aspect-square overflow-hidden bg-linho-cru-deep"
+                aria-label={`${locale === "pt" ? "Antes" : "Before"} ${i + 1}`}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={photo(slug, im, "sm")}
+                  alt={survey[i].alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover grayscale-[30%] transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                />
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Convite */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:py-24">

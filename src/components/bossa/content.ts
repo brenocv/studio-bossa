@@ -84,8 +84,8 @@ const pt = {
         tagline: "",
         description:
           "Projetos de interiores por medida, com imagens 3D fotorrealistas para ver tudo antes de começar.",
-        image: img("/projetos/quarto-casal/06-sm.jpg"),
-        alt: "Quarto de casal em tons de areia — design de interiores no Porto",
+        image: img("/projetos/projeto-trindade/01-sm.jpg"),
+        alt: "Quarto de casal em nogueira, bege e azul — design de interiores no Porto",
         features: [] as string[],
       },
       {
@@ -94,8 +94,8 @@ const pt = {
         tagline: "",
         description:
           "Remodelação de apartamentos e moradias chave na mão, da demolição à entrega das chaves.",
-        image: img("/projetos/ana-e-cesar/07-sm.jpg"),
-        alt: "Cozinha remodelada em verde-oliva e madeira — remodelação no Porto e Gaia",
+        image: img("/projetos/casa-dos-arcos/01-sm.jpg"),
+        alt: "Cozinha aberta com arco numa moradia centenária — remodelação no Porto",
         features: [] as string[],
       },
       {
@@ -519,8 +519,8 @@ const en: Dict = {
         tagline: "",
         description:
           "Bespoke interior design, with photorealistic 3D visuals so you can see everything before work begins.",
-        image: img("/projetos/quarto-casal/06-sm.jpg"),
-        alt: "Master bedroom in sand tones — interior design in Porto",
+        image: img("/projetos/projeto-trindade/01-sm.jpg"),
+        alt: "Master bedroom in walnut, beige and blue — interior design in Porto",
         features: [] as string[],
       },
       {
@@ -529,8 +529,8 @@ const en: Dict = {
         tagline: "",
         description:
           "Turnkey renovation of flats and houses, from strip-out to handing over the keys.",
-        image: img("/projetos/ana-e-cesar/07-sm.jpg"),
-        alt: "Olive-green kitchen with timber — renovation in Porto and Gaia",
+        image: img("/projetos/casa-dos-arcos/01-sm.jpg"),
+        alt: "Open kitchen with an arch in a century-old house — renovation in Porto",
         features: [] as string[],
       },
       {

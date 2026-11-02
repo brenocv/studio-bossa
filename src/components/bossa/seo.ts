@@ -236,7 +236,7 @@ export function buildIndexMetadata(locale: Locale): Metadata {
       type: "website",
       url: PROJECTS_INDEX[locale],
       locale: locale === "en" ? "en_GB" : "pt_PT",
-      images: [{ url: "/projetos/ana-e-cesar/07.jpg" }],
+      images: [{ url: "/projetos/casa-entre-serras/01.jpg" }],
     },
     robots: { index: true, follow: true },
   };

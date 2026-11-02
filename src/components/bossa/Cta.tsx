@@ -30,7 +30,7 @@ export function Cta() {
         <div className="reveal relative aspect-[4/3] overflow-hidden bg-verde-oliva-deep" data-reveal-delay="120">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={photo("ana-e-cesar", "03")}
+            src={photo("casa-entre-serras", "01")}
             alt={c.imgAlt}
             loading="lazy"
             decoding="async"
