@@ -1,8 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import { Download, Lock } from "lucide-react";
-import { AppLoginModal } from "./AppLoginModal";
+import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight, Lock } from "lucide-react";
 import { useLocale } from "./i18n";
 import { img } from "./imagePath";
 
@@ -14,7 +13,7 @@ import { img } from "./imagePath";
  * O app é um PWA: o botão leva ao endereço do app, onde o navegador oferece
  * a instalação. ⚠️ Trocar APP_URL pelo endereço real quando estiver publicado.
  */
-const APP_URL = "https://brenocv.github.io/studio-bossa/";
+const APP_URL = "https://studiobossa.up.railway.app/";
 
 /** Início (em segundos) de cada parte do vídeo public/app/app-demo.mp4 */
 const CHAPTERS = [0, 5.5, 9.55, 13.8, 17.85, 21.2];
@@ -34,7 +33,7 @@ const T = {
       ["Documentos", "Plantas, renders, orçamentos e faturas guardados em segurança."],
       ["Fale com a Bossa", "Escreva à sua arquiteta sempre que precisar."],
     ],
-    install: "Instalar a app",
+    install: "Abrir a app",
     restricted: "Área restrita a clientes.",
     restrictedText: "Instale a app, com o utilizador e a palavra-passe que lhes enviamos.",
     installNote: "Funciona no telemóvel e no computador, sem lojas de aplicações. Depois de instalar, entre com os mesmos dados.",
@@ -55,7 +54,7 @@ const T = {
       ["Documents", "Plans, renders, quotes and invoices, stored securely."],
       ["Talk to Bossa", "Write to your architect whenever you need."],
     ],
-    install: "Install the app",
+    install: "Open the app",
     restricted: "Clients only.",
     restrictedText: "Install the app with the username and password we sent you.",
     installNote: "Works on your phone and computer, no app store needed. Once installed, sign in with the same details.",
@@ -79,8 +78,6 @@ export function AppShowcase() {
   const box = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const [playing, setPlaying] = useState(false);
-  const [loginOpen, setLoginOpen] = useState(false);
-  const closeLogin = useCallback(() => setLoginOpen(false), []);
   // cor da barra de estado = cor do topo do ecrã do app naquele momento
   const [bar, setBar] = useState({ bg: "#3E2723", dark: false });
   const canvas = useRef<HTMLCanvasElement | null>(null);
@@ -225,15 +222,15 @@ export function AppShowcase() {
             <Lock className="mt-[2px] h-4 w-4 shrink-0 text-couro-cognac-light" strokeWidth={1.8} aria-hidden />
             <span><strong className="font-medium text-white">{c.restricted}</strong> {c.restrictedText}</span>
           </p>
-          <button
-            type="button"
-            onClick={() => setLoginOpen(true)}
-            aria-haspopup="dialog"
+          <a
+            href={APP_URL}
+            target="_blank"
+            rel="noopener"
             className="btn-lift mt-4 lg:[@media(max-height:760px)]:mt-3 inline-flex items-center gap-3 whitespace-nowrap bg-white px-6 py-3.5 text-[12px] font-medium uppercase tracking-[0.18em] text-jacaranda transition-colors hover:bg-couro-cognac hover:text-white "
           >
-            <Download className="h-4 w-4" strokeWidth={2} />
+            <ArrowUpRight className="h-4 w-4" strokeWidth={2} />
             {c.install}
-          </button>
+          </a>
           <p className="mt-3 max-w-md text-[12.5px] lg:hidden leading-relaxed text-white/75">{c.installNote}</p>
           </div>
         </div>
@@ -295,7 +292,6 @@ export function AppShowcase() {
           </div>
         </div>
       </div>
-      <AppLoginModal open={loginOpen} onClose={closeLogin} appUrl={APP_URL} locale={locale} />
     </section>
   );
 }
