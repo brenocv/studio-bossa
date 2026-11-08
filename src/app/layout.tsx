@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { img } from "@/components/bossa/imagePath";
 
 // Fontes auto-hospedadas (não dependem do Google Fonts no build)
 const inter = localFont({
@@ -19,6 +20,17 @@ const italiana = localFont({
 // Os metadados de SEO (título, descrição, idiomas) estão em components/bossa/seo.ts
 export const metadata: Metadata = {
   title: "Studio Bossa",
+  // Ícone do separador do navegador: logo "bossa" em branco sobre jacarandá
+  icons: {
+    icon: [
+      { url: img("/favicon.ico"), sizes: "any" },
+      { url: img("/favicon-32.png"), type: "image/png", sizes: "32x32" },
+      { url: img("/favicon-48.png"), type: "image/png", sizes: "48x48" },
+      { url: img("/icon-192.png"), type: "image/png", sizes: "192x192" },
+      { url: img("/icon-512.png"), type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: img("/apple-touch-icon.png"), sizes: "180x180" }],
+  },
 };
 
 export default function RootLayout({
