@@ -5,111 +5,117 @@ import { img } from "./imagePath";
 import { useLocale } from "./i18n";
 
 /**
- * Hero: vídeo emoldurado + slogan por baixo.
+ * Hero: vídeos e imagens dos projetos em sequência + slogan por baixo.
  *
- * Os vídeos passam em sequência (com um só vídeo, repete-se em ciclo). Perto do fim de cada um,
- * o seguinte começa num segundo leitor por baixo e os dois cruzam-se (esmaecer).
- * Os vídeos já estão codificados em câmara lenta (metade da velocidade,
- * com frames interpolados). Para abrandar ainda mais, reduza PLAYBACK_RATE.
+ * Os vídeos passam do princípio ao fim; as imagens ficam IMAGE_S segundos
+ * com um zoom lento e um ligeiro movimento (efeito "Ken Burns").
+ * Entre cada um, esmaecer cruzado. Clicar pausa/retoma; os traços no canto
+ * inferior esquerdo saltam para qualquer um.
  */
-const VIDEOS = [
-  { src: img("/videos/hero.mp4"), poster: img("/videos/hero-poster.jpg") },
-  { src: img("/videos/hero-2.mp4"), poster: img("/videos/hero-2-poster.jpg") }, // "1102", em câmara lenta (2×)
+type Slide =
+  | { kind: "video"; src: string; poster: string }
+  | { kind: "image"; src: string; alt: string };
+
+const v = (n: string): Slide => ({ kind: "video", src: img(`/videos/${n}.mp4`), poster: img(`/videos/${n}-poster.jpg`) });
+const p = (path: string, alt: string): Slide => ({ kind: "image", src: img(`/projetos/${path}.jpg`), alt });
+
+const SLIDES: Slide[] = [
+  v("hero"),
+  p("loft-instinto/01", "Loft Instinto, Fontinha, Porto"),
+  p("projeto-oliva/01", "Projeto Oliva, bistrot"),
+  p("escritorio-adv/20", "Projeto Advogados"),
+  v("hero-2"), // "1102", em câmara lenta (2×)
+  p("casa-entre-serras/05", "Casa Entre Serras"),
+  p("doce-partilha/05", "Doce Partilha, quarto de avó e neta"),
+  p("projeto-trindade/07", "Projeto Trindade, Ramalde"),
+  p("loft-instinto/11", "Loft Instinto, sala"),
 ];
-const FADE_S = 1.8; // duração do esmaecer entre vídeos (segundos)
-const PLAYBACK_RATE = 1; // 1 = velocidade do ficheiro (já em câmara lenta)
+const FADE_S = 1.6; // esmaecer entre slides (segundos)
+const IMAGE_S = 6; // tempo de cada imagem (segundos)
+
+// Movimentos do zoom das imagens (vão alternando)
+const MOVES = ["kb-a", "kb-b", "kb-c", "kb-d"];
 
 export function Hero() {
   const { t } = useLocale();
   const h = t.hero;
 
-  const a = useRef<HTMLVideoElement>(null);
-  const b = useRef<HTMLVideoElement>(null);
-  const els = [a, b];
-  const front = useRef(0); // leitor visível (0 ou 1)
-  const loaded = useRef([0, 1 % VIDEOS.length]); // índice do vídeo carregado em cada leitor
-  const switching = useRef(false);
-  const [frontState, setFrontState] = useState(0);
+  const vids = useRef<(HTMLVideoElement | null)[]>([]);
   const [current, setCurrent] = useState(0);
+  const [round, setRound] = useState(0); // reinicia a animação da imagem
   const [playing, setPlaying] = useState(true);
+  const cur = useRef(0);
+  const timer = useRef<number | undefined>(undefined);
+  const advancing = useRef(false);
+  const act = useRef<number[]>(SLIDES.map(() => 0)); // quantas vezes cada slide já entrou
 
-  useEffect(() => {
-    const [va, vb] = [a.current!, b.current!];
-    for (const v of [va, vb]) {
-      v.muted = true;
-      v.playbackRate = PLAYBACK_RATE;
+  const go = useCallback((i: number) => {
+    const n = (i + SLIDES.length) % SLIDES.length;
+    advancing.current = true;
+    const prev = cur.current;
+    cur.current = n;
+    act.current[n] += 1;
+    setCurrent(n);
+    setRound((r) => r + 1);
+    const nv = vids.current[n];
+    if (nv) {
+      nv.currentTime = 0;
+      nv.play().catch(() => {});
     }
+    // o vídeo que saiu pára depois do esmaecer
+    window.setTimeout(() => {
+      const pv = vids.current[prev];
+      if (pv && prev !== cur.current) pv.pause();
+      advancing.current = false;
+    }, FADE_S * 1000 + 100);
+  }, []);
+
+  // arranque
+  useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setPlaying(false);
       return;
     }
-    va.play().catch(() => setPlaying(false));
+    vids.current[0]?.play().catch(() => setPlaying(false));
   }, []);
 
-  const crossfade = useCallback(() => {
-    if (switching.current) return;
-    switching.current = true;
-    const from = front.current;
-    const to = 1 - from;
-    const incoming = els[to].current!;
-    incoming.currentTime = 0;
-    incoming.playbackRate = PLAYBACK_RATE;
-    incoming.play().catch(() => {});
-    front.current = to;
-    setFrontState(to);
-    setCurrent(loaded.current[to]);
-
-    window.setTimeout(() => {
-      // o leitor que saiu fica a preparar o vídeo seguinte
-      const outgoing = els[from].current!;
-      outgoing.pause();
-      const next = (loaded.current[to] + 1) % VIDEOS.length;
-      loaded.current[from] = next;
-      outgoing.src = VIDEOS[next].src;
-      outgoing.poster = VIDEOS[next].poster;
-      outgoing.load();
-      switching.current = false;
-    }, FADE_S * 1000 + 150);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // Passar para um vídeo escolhido (clique no traço)
-  const goTo = (i: number) => {
-    if (switching.current || i === loaded.current[front.current]) return;
-    const back = 1 - front.current;
-    const v = els[back].current!;
-    if (loaded.current[back] !== i) {
-      loaded.current[back] = i;
-      v.src = VIDEOS[i].src;
-      v.poster = VIDEOS[i].poster;
-      v.load();
-    }
-    setPlaying(true);
-    crossfade();
-  };
+  // imagens: avançar depois de IMAGE_S (só enquanto está a tocar)
+  useEffect(() => {
+    window.clearTimeout(timer.current);
+    if (!playing || SLIDES[current].kind !== "image") return;
+    timer.current = window.setTimeout(() => go(current + 1), (IMAGE_S - FADE_S / 2) * 1000);
+    return () => window.clearTimeout(timer.current);
+  }, [current, playing, round, go]);
 
   const onTime = (i: number) => {
-    if (i !== front.current) return;
-    const v = els[i].current!;
-    if (v.duration && v.duration - v.currentTime <= FADE_S) crossfade();
+    if (i !== cur.current || advancing.current) return;
+    const el = vids.current[i]!;
+    if (el.duration && el.duration - el.currentTime <= FADE_S) go(i + 1);
   };
 
   const toggle = () => {
-    const v = els[front.current].current!;
-    if (v.paused) {
-      v.play().then(() => setPlaying(true)).catch(() => {});
-    } else {
-      v.pause();
+    const el = vids.current[cur.current];
+    if (playing) {
+      el?.pause();
       setPlaying(false);
+    } else {
+      el?.play().catch(() => {});
+      setPlaying(true);
     }
+  };
+
+  const goTo = (i: number) => {
+    if (i === cur.current) return;
+    setPlaying(true);
+    go(i);
   };
 
   return (
     <section id="topo" className="bg-jacaranda pt-[76px] lg:pt-[84px]">
-      <div className="px-3 pt-3 sm:px-4 sm:pt-4 lg:px-5 lg:pt-5">
-        {/* Vídeo largo, com uma pequena margem nas laterais */}
+      <div className="px-6 pt-6 sm:px-8 sm:pt-8 lg:px-10 lg:pt-10">
+        {/* Vídeos e imagens, com uma margem castanha à volta */}
           <div
-            className="relative mx-auto aspect-[4/3] cursor-pointer overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-linho-cru/60 bg-jacaranda-deep sm:aspect-[16/9] lg:aspect-auto lg:h-[calc(100svh-84px-1.25rem)] lg:min-h-[520px] w-full"
+            className="relative mx-auto aspect-[4/3] cursor-pointer overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-linho-cru/60 bg-jacaranda-deep sm:aspect-[16/9] lg:aspect-auto lg:h-[calc(100svh-84px-2.5rem)] lg:min-h-[520px] w-full"
             aria-label={`${h.videoLabel} — ${playing ? h.pauseLabel : h.playLabel}`}
             role="button"
             tabIndex={0}
@@ -121,46 +127,64 @@ export function Hero() {
               }
             }}
           >
-            {[0, 1].map((i) => (
-              <video
-                key={i}
-                ref={els[i]}
-                className={`absolute inset-0 h-full w-full object-cover transition-opacity ease-in-out ${
-                  frontState === i ? "opacity-100" : "opacity-0"
-                }`}
-                style={{ transitionDuration: `${FADE_S}s` }}
-                src={VIDEOS[i % VIDEOS.length].src}
-                poster={VIDEOS[i % VIDEOS.length].poster}
-                muted
-                playsInline
-                preload={i === 0 ? "auto" : "metadata"}
-                onTimeUpdate={() => onTime(i)}
-                onEnded={() => i === front.current && crossfade()}
-                aria-hidden
-              />
-            ))}
+            {SLIDES.map((sl, i) => {
+              const on = i === current;
+              const common = `absolute inset-0 h-full w-full object-cover transition-opacity ease-in-out ${on ? "opacity-100" : "opacity-0"}`;
+              if (sl.kind === "video")
+                return (
+                  <video
+                    key={i}
+                    ref={(el) => { vids.current[i] = el; }}
+                    className={common}
+                    style={{ transitionDuration: `${FADE_S}s` }}
+                    src={sl.src}
+                    poster={sl.poster}
+                    muted
+                    playsInline
+                    preload={i === 0 ? "auto" : "metadata"}
+                    onTimeUpdate={() => onTime(i)}
+                    onEnded={() => i === cur.current && go(i + 1)}
+                    aria-hidden
+                  />
+                );
+              const near = Math.abs(i - current) <= 1 || (current === SLIDES.length - 1 && i === 0);
+              return (
+                <div key={i} className={common} style={{ transitionDuration: `${FADE_S}s` }} aria-hidden>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    key={`a${act.current[i]}`}
+                    src={sl.src}
+                    alt=""
+                    loading={near ? "eager" : "lazy"}
+                    decoding="async"
+                    className={`h-full w-full object-cover ${MOVES[i % MOVES.length]}`}
+                    style={{ animationDuration: `${IMAGE_S + FADE_S}s`, animationPlayState: playing || !on ? "running" : "paused" }}
+                  />
+                </div>
+              );
+            })}
 
             {/* Vinheta suave só para os controlos */}
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-jacaranda-deep/55 to-transparent" />
 
             {/* Indicador do vídeo atual — clicar num traço passa para esse vídeo */}
             <div
-              className={`absolute bottom-2 left-2 sm:bottom-3 sm:left-3 ${VIDEOS.length > 1 ? "flex" : "hidden"}`}
+              className={`absolute bottom-2 left-2 sm:bottom-3 sm:left-3 flex`}
               onClick={(e) => e.stopPropagation()}
               onKeyDown={(e) => e.stopPropagation()}
             >
-              {VIDEOS.map((_, i) => (
+              {SLIDES.map((_, i) => (
                 <button
                   key={i}
                   type="button"
                   onClick={() => goTo(i)}
                   aria-label={`${h.videoLabel} ${i + 1}`}
                   aria-current={i === current ? "true" : undefined}
-                  className="group flex h-8 items-center px-1.5"
+                  className="group flex h-8 items-center px-1"
                 >
                   <span
                     className={`block h-[2px] transition-all duration-700 group-hover:bg-linho-cru ${
-                      i === current ? "w-8 bg-linho-cru" : "w-5 bg-linho-cru/45"
+                      i === current ? "w-7 bg-linho-cru" : "w-3.5 bg-linho-cru/45"
                     }`}
                   />
                 </button>

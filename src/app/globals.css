@@ -616,3 +616,12 @@ html, body { max-width: 100%; overflow-x: hidden; }
 /* Faixa de ecrãs do app: desliza sem mostrar a barra de rolagem */
 .app-strip { scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .app-strip::-webkit-scrollbar { display: none; }
+
+/* Hero: zoom lento das imagens (efeito Ken Burns) */
+@keyframes kb-a { from { transform: scale(1.02) translate(0, 0); } to { transform: scale(1.14) translate(-2%, -1.5%); } }
+@keyframes kb-b { from { transform: scale(1.14) translate(2%, 1%); } to { transform: scale(1.03) translate(0, 0); } }
+@keyframes kb-c { from { transform: scale(1.03) translate(1.5%, -1%); } to { transform: scale(1.15) translate(-1.5%, 1%); } }
+@keyframes kb-d { from { transform: scale(1.15) translate(-2%, 0); } to { transform: scale(1.04) translate(1.5%, -1%); } }
+.kb-a, .kb-b, .kb-c, .kb-d { animation-timing-function: linear; animation-fill-mode: both; will-change: transform; }
+.kb-a { animation-name: kb-a; } .kb-b { animation-name: kb-b; } .kb-c { animation-name: kb-c; } .kb-d { animation-name: kb-d; }
+@media (prefers-reduced-motion: reduce) { .kb-a, .kb-b, .kb-c, .kb-d { animation: none; } }
