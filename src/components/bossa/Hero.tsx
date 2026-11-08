@@ -73,6 +73,21 @@ export function Hero() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Passar para um vídeo escolhido (clique no traço)
+  const goTo = (i: number) => {
+    if (switching.current || i === loaded.current[front.current]) return;
+    const back = 1 - front.current;
+    const v = els[back].current!;
+    if (loaded.current[back] !== i) {
+      loaded.current[back] = i;
+      v.src = VIDEOS[i].src;
+      v.poster = VIDEOS[i].poster;
+      v.load();
+    }
+    setPlaying(true);
+    crossfade();
+  };
+
   const onTime = (i: number) => {
     if (i !== front.current) return;
     const v = els[i].current!;
@@ -128,15 +143,27 @@ export function Hero() {
             {/* Vinheta suave só para os controlos */}
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-jacaranda-deep/55 to-transparent" />
 
-            {/* Indicador do vídeo atual */}
-            <div className={`absolute bottom-4 left-4 gap-1.5 sm:bottom-5 sm:left-5 ${VIDEOS.length > 1 ? "flex" : "hidden"}`} aria-hidden>
+            {/* Indicador do vídeo atual — clicar num traço passa para esse vídeo */}
+            <div
+              className={`absolute bottom-2 left-2 sm:bottom-3 sm:left-3 ${VIDEOS.length > 1 ? "flex" : "hidden"}`}
+              onClick={(e) => e.stopPropagation()}
+              onKeyDown={(e) => e.stopPropagation()}
+            >
               {VIDEOS.map((_, i) => (
-                <span
+                <button
                   key={i}
-                  className={`h-[2px] transition-all duration-700 ${
-                    i === current ? "w-8 bg-linho-cru" : "w-4 bg-linho-cru/40"
-                  }`}
-                />
+                  type="button"
+                  onClick={() => goTo(i)}
+                  aria-label={`${h.videoLabel} ${i + 1}`}
+                  aria-current={i === current ? "true" : undefined}
+                  className="group flex h-8 items-center px-1.5"
+                >
+                  <span
+                    className={`block h-[2px] transition-all duration-700 group-hover:bg-linho-cru ${
+                      i === current ? "w-8 bg-linho-cru" : "w-5 bg-linho-cru/45"
+                    }`}
+                  />
+                </button>
               ))}
             </div>
 

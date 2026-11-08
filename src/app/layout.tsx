@@ -23,7 +23,8 @@ export const metadata: Metadata = {
   // Ícone do separador do navegador: logo "bossa" em branco sobre jacarandá
   icons: {
     icon: [
-      { url: img("/favicon.ico"), sizes: "any" },
+      { url: img("/icon.svg"), type: "image/svg+xml" },
+      { url: img("/favicon.ico"), sizes: "48x48" },
       { url: img("/favicon-32.png"), type: "image/png", sizes: "32x32" },
       { url: img("/favicon-48.png"), type: "image/png", sizes: "48x48" },
       { url: img("/icon-192.png"), type: "image/png", sizes: "192x192" },
