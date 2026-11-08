@@ -91,10 +91,10 @@ export function Hero() {
 
   return (
     <section id="topo" className="bg-jacaranda pt-[76px] lg:pt-[84px]">
-      <div className="px-3 pt-3 sm:px-4 sm:pt-4 lg:px-5 lg:pt-5">
-        {/* Vídeo panorâmico, quase de ponta a ponta */}
+      <div>
+        {/* Vídeo de ponta a ponta, na largura toda do ecrã */}
           <div
-            className="relative mx-auto aspect-[4/3] cursor-pointer overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-linho-cru/60 bg-jacaranda-deep sm:aspect-[16/9] lg:aspect-[16/7] lg:w-3/4"
+            className="relative mx-auto aspect-[4/3] cursor-pointer overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-linho-cru/60 bg-jacaranda-deep sm:aspect-[16/9] lg:aspect-auto lg:h-[calc(100svh-84px)] lg:min-h-[520px] w-full"
             aria-label={`${h.videoLabel} — ${playing ? h.pauseLabel : h.playLabel}`}
             role="button"
             tabIndex={0}

@@ -10,7 +10,8 @@ import { useLocale } from "./i18n";
  * ⚠️ TROCAR O NÚMERO AQUI (formato internacional, só dígitos, sem + nem espaços)
  *    Ex.: +351 912 345 678  →  "351912345678"
  */
-export const WHATSAPP_NUMBER = "351928258604";
+// Comercial: Natasha Lima — +351 930 544 872
+export const WHATSAPP_NUMBER = "351930544872";
 
 export function WhatsAppButton() {
   const { t } = useLocale();

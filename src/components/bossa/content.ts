@@ -64,10 +64,10 @@ const pt = {
   ],
 
   stats: [
-    { value: "180+", label: "Projetos entregues" },
+    { value: "90+", label: "Projetos" },
+    { value: "8+", label: "Países (projetos internacionais)" },
     { value: "15", label: "Anos de experiência" },
-    { value: "97%", label: "Clientes satisfeitos" },
-    { value: "12", label: "Prémios de design" },
+    { value: "100%", label: "Clientes satisfeitos" },
   ],
 
   services: {
@@ -445,9 +445,9 @@ const pt = {
   loader: "A carregar",
 
   whatsapp: {
-    label: "Fale conosco no Whatsapp",
+    label: "Fale com a Natasha no WhatsApp",
     aria: "Falar com o Studio Bossa pelo WhatsApp",
-    message: "Olá, Studio Bossa! Vim pelo site e gostaria de saber mais sobre um projeto.",
+    message: "Olá, Natasha! Vim pelo site da Studio Bossa e gostaria de saber mais sobre um projeto.",
   },
 };
 
@@ -499,10 +499,10 @@ const en: Dict = {
   ],
 
   stats: [
-    { value: "180+", label: "Projects delivered" },
+    { value: "90+", label: "Projects" },
+    { value: "8+", label: "Countries (international projects)" },
     { value: "15", label: "Years of experience" },
-    { value: "97%", label: "Satisfied clients" },
-    { value: "12", label: "Design awards" },
+    { value: "100%", label: "Satisfied clients" },
   ],
 
   services: {
@@ -880,9 +880,9 @@ const en: Dict = {
   loader: "Loading",
 
   whatsapp: {
-    label: "Chat with us on WhatsApp",
+    label: "Chat with Natasha on WhatsApp",
     aria: "Chat with Studio Bossa on WhatsApp",
-    message: "Hello Studio Bossa! I found you through your website and would like to know more about a project.",
+    message: "Hello Natasha! I found Studio Bossa through the website and would like to know more about a project.",
   },
 };
 

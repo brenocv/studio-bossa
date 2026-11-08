@@ -14,7 +14,7 @@ import { img } from "./imagePath";
  * O app é um PWA: o botão leva ao endereço do app, onde o navegador oferece
  * a instalação. ⚠️ Trocar APP_URL pelo endereço real quando estiver publicado.
  */
-const APP_URL = "#";
+const APP_URL = "https://brenocv.github.io/studio-bossa/";
 
 /** Início (em segundos) de cada parte do vídeo public/app/app-demo.mp4 */
 const CHAPTERS = [0, 5.5, 9.55, 13.8, 17.85, 21.2];
