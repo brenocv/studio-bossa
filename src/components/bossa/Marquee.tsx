@@ -32,7 +32,7 @@ export function Marquee() {
             <div className="font-italiana text-5xl font-normal text-couro-cognac-light sm:text-6xl">
               {s.value}
             </div>
-            <div className="mt-3 text-[11px] uppercase tracking-[0.28em] text-white/70">
+            <div className="mt-3 whitespace-pre-line text-[11px] uppercase leading-relaxed tracking-[0.28em] text-white/70">
               {s.label}
             </div>
           </div>

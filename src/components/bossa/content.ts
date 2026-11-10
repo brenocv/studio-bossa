@@ -65,7 +65,7 @@ const pt = {
 
   stats: [
     { value: "90+", label: "Projetos" },
-    { value: "8+", label: "Países (projetos internacionais)" },
+    { value: "8+", label: "Países\nProjetos internacionais" },
     { value: "15", label: "Anos de experiência" },
     { value: "100%", label: "Clientes satisfeitos" },
   ],
@@ -76,7 +76,7 @@ const pt = {
     titleAccent: "transformar",
     titleB: "a sua casa",
     intro:
-      "Quatro formas de trabalharmos consigo — separadas ou em conjunto — no Porto e em Vila Nova de Gaia.",
+      "Quatro formas de trabalharmos consigo — separadas ou em conjunto — em Portugal e em toda a Europa.",
     items: [
       {
         id: "interiores",
@@ -85,6 +85,7 @@ const pt = {
         description:
           "Projetos de interiores por medida, com imagens 3D fotorrealistas para ver tudo antes de começar.",
         image: img("/projetos/projeto-trindade/01-sm.jpg"),
+        before: img("/projetos/projeto-trindade/levantamento-08-sm.jpg"), // antes e depois (arrastar)
         alt: "Quarto de casal em nogueira, bege e azul — design de interiores no Porto",
         features: [] as string[],
       },
@@ -260,26 +261,27 @@ const pt = {
     eyebrow: "Testemunhos",
     titleA: "O que dizem",
     titleB: "os nossos clientes",
+    // Depoimentos autorizados pelos clientes (primeiro nome + projeto real)
     items: [
       {
-        name: "Mariana Costa",
-        role: "Apartamento — Cedofeita",
+        name: "Marcello",
+        role: "Casa dos Arcos — Paranhos, Porto",
         quote:
-          "O Studio Bossa transformou o meu apartamento para lá do que eu imaginava. O projeto 3D deu-me total segurança e a obra foi entregue dentro do prazo. Cada material escolhido tem uma história.",
+          "A abertura da cozinha com o arco mudou a casa por completo, sem lhe tirar o carácter. Ver tudo em 3D antes da obra deu-me muita segurança, e o resultado ficou igual ao projeto.",
         rating: 5,
       },
       {
-        name: "Roberto e Helena Martins",
-        role: "Moradia — Aldoar",
+        name: "Luís",
+        role: "Loft Instinto — Fontinha, Porto",
         quote:
-          "Profissionalismo do início ao fim. A equipa foi organizada, limpa e atenta a cada pormenor. Recomendamos de olhos fechados — voltámos a contratá-los para a casa de praia.",
+          "Tínhamos um T0 pequeno e um corredor que não servia para nada. Hoje temos cozinha, zona de refeições, um canto de trabalho para os dois e espaço para os gatos. Parece outra casa.",
         rating: 5,
       },
       {
-        name: "Fernanda Lobo",
-        role: "Penthouse — Boavista",
+        name: "Fernanda",
+        role: "Lavandaria Céu — Gulpilhares",
         quote:
-          "O design de interiores superou todas as expetativas. Cada divisão reflete exatamente o estilo que eu queria. A paleta terrosa criou uma atmosfera única.",
+          "Queríamos fugir dos armários brancos e a equipa acertou em cheio com o azul e a nogueira. Cada arrumação foi pensada para as nossas rotinas.",
         rating: 5,
       },
     ],
@@ -300,7 +302,7 @@ const pt = {
 
   faq: {
     moreTitle: "Ainda tem dúvidas?",
-    moreText: "Fale connosco — respondemos no prazo de 24 horas.",
+    moreText: "Fale connosco — teremos todo o gosto em ajudar.",
     moreButton: "Falar connosco",
     metaTitle: "Perguntas frequentes sobre remodelação no Porto | Studio Bossa",
     metaDescription:
@@ -347,7 +349,7 @@ const pt = {
     titleA: "Peça o seu",
     titleB: "orçamento",
     intro:
-      "Fale-nos do seu projeto de remodelação, arquitetura ou interiores. Respondemos no prazo de 24 horas com uma proposta inicial personalizada — e agendamos a primeira visita técnica, sem compromisso.",
+      "Fale-nos do seu projeto de remodelação, arquitetura ou interiores. Respondemos com uma proposta inicial personalizada — e agendamos a primeira visita técnica, sem compromisso.",
     phoneLabel: "Telefone",
     emailLabel: "E-mail",
     addressLabel: "Morada",
@@ -384,7 +386,7 @@ const pt = {
 
   footer: {
     about:
-      "Studio Bossa — atelier de arquitetura, design de interiores e remodelação de casas em Portugal. Há 15 anos a transformar casas em experiências.",
+      "Studio Bossa — atelier de arquitetura, design de interiores e remodelação de casas em Portugal.\nHá 15 anos a transformar casas em experiências.",
     navTitle: "Navegação",
     nav: [
       { href: "#servicos", label: "Serviços" },
@@ -500,7 +502,7 @@ const en: Dict = {
 
   stats: [
     { value: "90+", label: "Projects" },
-    { value: "8+", label: "Countries (international projects)" },
+    { value: "8+", label: "Countries\nInternational projects" },
     { value: "15", label: "Years of experience" },
     { value: "100%", label: "Satisfied clients" },
   ],
@@ -511,7 +513,7 @@ const en: Dict = {
     titleAccent: "transform",
     titleB: "your home",
     intro:
-      "Four ways to work with us — on their own or combined — in Porto and Vila Nova de Gaia.",
+      "Four ways to work with us — on their own or combined — in Portugal and across Europe.",
     items: [
       {
         id: "interiores",
@@ -520,6 +522,7 @@ const en: Dict = {
         description:
           "Bespoke interior design, with photorealistic 3D visuals so you can see everything before work begins.",
         image: img("/projetos/projeto-trindade/01-sm.jpg"),
+        before: img("/projetos/projeto-trindade/levantamento-08-sm.jpg"), // antes e depois (arrastar)
         alt: "Master bedroom in walnut, beige and blue — interior design in Porto",
         features: [] as string[],
       },
@@ -695,26 +698,27 @@ const en: Dict = {
     eyebrow: "Testimonials",
     titleA: "What our",
     titleB: "clients say",
+    // Testimonials authorised by the clients (first name + real project)
     items: [
       {
-        name: "Mariana Costa",
-        role: "Flat — Cedofeita",
+        name: "Marcello",
+        role: "Casa dos Arcos — Paranhos, Porto",
         quote:
-          "Studio Bossa transformed my flat beyond anything I had imagined. The 3D design gave me complete confidence and the work was finished on time. Every material has a story.",
+          "Opening up the kitchen with the arch transformed the whole house without taking away its character. Seeing everything in 3D before the works gave me real confidence, and the result matches the design.",
         rating: 5,
       },
       {
-        name: "Roberto & Helena Martins",
-        role: "House — Aldoar",
+        name: "Luís",
+        role: "Loft Instinto — Fontinha, Porto",
         quote:
-          "Professional from start to finish. The team was organised, tidy and attentive to every detail. We recommend them without hesitation — we hired them again for our beach house.",
+          "We had a tiny studio flat and a corridor that served no purpose. Now we have a kitchen, a dining area, a workspace for both of us and room for the cats. It feels like a different home.",
         rating: 5,
       },
       {
-        name: "Fernanda Lobo",
-        role: "Penthouse — Boavista",
+        name: "Fernanda",
+        role: "Lavandaria Céu — Gulpilhares",
         quote:
-          "The interior design exceeded every expectation. Each room reflects exactly the style I wanted. The earthy palette created a truly unique atmosphere.",
+          "We wanted to move away from white cabinets and the team got it just right with the blue and walnut. Every bit of storage was designed around our routines.",
         rating: 5,
       },
     ],
@@ -735,7 +739,7 @@ const en: Dict = {
 
   faq: {
     moreTitle: "Still have questions?",
-    moreText: "Get in touch — we reply within 24 hours.",
+    moreText: "Get in touch — we would be glad to help.",
     moreButton: "Contact us",
     metaTitle: "Frequently asked questions about renovation in Porto | Studio Bossa",
     metaDescription:
@@ -782,7 +786,7 @@ const en: Dict = {
     titleA: "Request your",
     titleB: "quote",
     intro:
-      "Tell us about your renovation, architecture or interior design project. We reply within 24 hours with a tailored initial proposal — and arrange your first site visit, with no obligation.",
+      "Tell us about your renovation, architecture or interior design project. We will reply with a tailored initial proposal — and arrange your first site visit, with no obligation.",
     phoneLabel: "Phone",
     emailLabel: "Email",
     addressLabel: "Address",
@@ -819,7 +823,7 @@ const en: Dict = {
 
   footer: {
     about:
-      "Studio Bossa — architecture, interior design and home renovation studio in Portugal. Transforming homes into experiences for 15 years.",
+      "Studio Bossa — architecture, interior design and home renovation studio in Portugal.\nTransforming homes into experiences for 15 years.",
     navTitle: "Navigation",
     nav: [
       { href: "#servicos", label: "Services" },

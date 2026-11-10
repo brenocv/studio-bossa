@@ -1,10 +1,11 @@
 "use client";
 
 import { useLocale } from "./i18n";
+import { BeforeAfter } from "./BeforeAfter";
 
 /** Serviços: quatro imagens lado a lado, cada uma com título e uma frase. */
 export function Services() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const c = t.services;
 
   return (
@@ -27,6 +28,16 @@ export function Services() {
         <ul className="grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4 lg:gap-x-5">
           {c.items.map((s, i) => (
             <li key={s.id} id={s.id} className="reveal group" data-reveal-delay={`${i * 90}`}>
+              {"before" in s && s.before ? (
+                <BeforeAfter
+                  before={s.before}
+                  after={s.image}
+                  beforeLabel={locale === "pt" ? "Antes" : "Before"}
+                  afterLabel={locale === "pt" ? "Depois" : "After"}
+                  alt={s.alt}
+                  ratio="3 / 4"
+                />
+              ) : (
               <div className="relative aspect-[3/4] overflow-hidden bg-linho-cru-deep">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -37,6 +48,7 @@ export function Services() {
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]"
                 />
               </div>
+              )}
               <h3 className="mt-5 font-italiana italiana-sm text-2xl text-jacaranda lg:text-[1.6rem]">
                 {s.title}
               </h3>

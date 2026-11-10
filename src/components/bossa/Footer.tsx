@@ -20,7 +20,7 @@ export function Footer() {
             <Link href={home} className="flex items-center" aria-label="Studio Bossa">
               <Logo variant="white" height={60} className="h-14 w-auto lg:h-[60px]" />
             </Link>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-white">
+            <p className="mt-4 max-w-sm whitespace-pre-line text-sm leading-relaxed text-white">
               {c.about}
             </p>
             <p className="mt-6 text-[11px] font-medium uppercase tracking-[0.24em] text-white">
