@@ -24,11 +24,12 @@ const SLIDES: Slide[] = [
   p("loft-instinto/01", "Loft Instinto, Fontinha, Porto"),
   p("projeto-oliva/01", "Projeto Oliva, bistrot"),
   p("escritorio-adv/20", "Projeto Advogados"),
-  v("hero-2"), // "1102", em câmara lenta (2×)
+  v("fontinha-cozinha"), // Loft Instinto — cozinha (vídeo enviado pela cliente)
+  v("sala-fontinha"), // Loft Instinto — sala (renders em movimento)
   p("casa-entre-serras/05", "Casa Entre Serras"),
   p("doce-partilha/05", "Doce Partilha, quarto de avó e neta"),
   p("projeto-trindade/07", "Projeto Trindade, Ramalde"),
-  p("loft-instinto/11", "Loft Instinto, sala"),
+  v("sala-fabi"), // Casa dos Arcos — sala (renders em movimento)
 ];
 const FADE_S = 1.6; // esmaecer entre slides (segundos)
 const IMAGE_S = 6; // tempo de cada imagem (segundos)
