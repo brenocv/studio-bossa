@@ -1,8 +1,8 @@
 // Gerado automaticamente a partir das pastas em "imagens projetos" — não editar à mão.
 // f = nome do ficheiro em public/projetos/<slug>/ (sem .jpg); w/h = dimensões da versão grande.
 export type Img = { f: string; w: number; h: number };
-/** pairs: [foto antes (levantamento), render correspondente] */
-export type Media = { cover: string; gallery: Img[]; survey: Img[]; studies: [Img, Img][]; pairs: [string, string][]; card: string };
+/** pairs: [foto antes, render correspondente, proporção largura/altura do quadro] */
+export type Media = { cover: string; gallery: Img[]; survey: Img[]; studies: [Img, Img][]; pairs: [string, string, number?][]; card: string };
 // card = foto vertical usada no carrossel e na grelha de projetos
 export const MEDIA: Record<string, Media> = {
  "escritorio-adv": {
@@ -659,40 +659,74 @@ export const MEDIA: Record<string, Media> = {
   "studies": [],
   "pairs": [
    [
-    "levantamento-21",
-    "01"
+    "ba-01-antes",
+    "ba-01-depois",
+    1.6
    ],
    [
-    "levantamento-05",
-    "02"
+    "ba-02-antes",
+    "ba-02-depois",
+    0.8
    ],
    [
-    "levantamento-09",
-    "10"
+    "ba-03-antes",
+    "ba-03-depois",
+    0.8
    ],
    [
-    "levantamento-04",
-    "07"
+    "ba-04-antes",
+    "ba-04-depois",
+    0.8
    ],
    [
-    "levantamento-17",
-    "06"
+    "ba-05-antes",
+    "ba-05-depois",
+    0.8
    ],
    [
-    "levantamento-16",
-    "08"
+    "ba-06-antes",
+    "ba-06-depois",
+    0.8
    ],
    [
-    "levantamento-11",
-    "09"
+    "ba-09-antes",
+    "ba-09-depois",
+    0.8
    ],
    [
-    "levantamento-26",
-    "12"
+    "ba-10-antes",
+    "ba-10-depois",
+    0.8
    ],
    [
-    "levantamento-24",
-    "14"
+    "ba-07-antes",
+    "ba-07-depois",
+    1.6
+   ],
+   [
+    "ba-08-antes",
+    "ba-08-depois",
+    1.6
+   ],
+   [
+    "ba-11-antes",
+    "ba-11-depois",
+    1.6
+   ],
+   [
+    "ba-12-antes",
+    "ba-12-depois",
+    0.8
+   ],
+   [
+    "ba-13-antes",
+    "ba-13-depois",
+    0.8
+   ],
+   [
+    "ba-14-antes",
+    "ba-14-depois",
+    0.8
    ]
   ],
   "card": "07"
@@ -826,32 +860,44 @@ export const MEDIA: Record<string, Media> = {
   "studies": [],
   "pairs": [
    [
-    "levantamento-04",
-    "03"
+    "ba-01-antes",
+    "ba-01-depois",
+    0.8
    ],
    [
-    "levantamento-14",
-    "01"
+    "ba-02-antes",
+    "ba-02-depois",
+    0.8
    ],
    [
-    "levantamento-15",
-    "07"
+    "ba-03-antes",
+    "ba-03-depois",
+    0.8
    ],
    [
-    "levantamento-07",
-    "05"
+    "ba-04-antes",
+    "ba-04-depois",
+    0.8
    ],
    [
-    "levantamento-09",
-    "06"
+    "ba-05-antes",
+    "ba-05-depois",
+    0.8
    ],
    [
-    "levantamento-12",
-    "08"
+    "ba-06-antes",
+    "ba-06-depois",
+    0.8
    ],
    [
-    "levantamento-11",
-    "09"
+    "ba-07-antes",
+    "ba-07-depois",
+    0.8
+   ],
+   [
+    "ba-08-antes",
+    "ba-08-depois",
+    0.8
    ]
   ],
   "card": "01"
@@ -1043,32 +1089,54 @@ export const MEDIA: Record<string, Media> = {
   "studies": [],
   "pairs": [
    [
-    "levantamento-08",
-    "01"
+    "ba-01-antes",
+    "ba-01-depois",
+    0.8
    ],
    [
-    "levantamento-11",
-    "02"
+    "ba-02-antes",
+    "ba-02-depois",
+    0.8
    ],
    [
-    "levantamento-07",
-    "03"
+    "ba-03-antes",
+    "ba-03-depois",
+    0.8
    ],
    [
-    "levantamento-03",
-    "04"
+    "ba-04-antes",
+    "ba-04-depois",
+    0.8
    ],
    [
-    "levantamento-02",
-    "07"
+    "ba-05-antes",
+    "ba-05-depois",
+    0.8
    ],
    [
-    "levantamento-04",
-    "06"
+    "ba-06-antes",
+    "ba-06-depois",
+    0.8
    ],
    [
-    "levantamento-05",
-    "10"
+    "ba-07-antes",
+    "ba-07-depois",
+    0.79
+   ],
+   [
+    "ba-08-antes",
+    "ba-08-depois",
+    0.8
+   ],
+   [
+    "ba-09-antes",
+    "ba-09-depois",
+    0.8
+   ],
+   [
+    "ba-10-antes",
+    "ba-10-depois",
+    1.6
    ]
   ],
   "card": "01"

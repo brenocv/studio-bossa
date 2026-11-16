@@ -38,8 +38,8 @@ const pt = {
   hero: {
     // H1 da página (texto principal para o Google)
     h1: "Remodelação, arquitetura e design de interiores no Porto e Gaia",
-    taglineA: "O luxo de",
-    taglineB: "sentir-se em casa",
+    taglineA: "Há 15 anos a criar espaços onde o verdadeiro luxo",
+    taglineB: "é sentir-se em casa.",
     intro:
       "Atelier de arquitetura e design de interiores no Porto. Projetamos e executamos remodelações de apartamentos e moradias — do projeto 3D à entrega das chaves — com marcenaria nobre, couro, pedra natural e linho.",
     ctaPrimary: "Pedir orçamento",
@@ -475,8 +475,8 @@ const en: Dict = {
 
   hero: {
     h1: "Home renovation, architecture and interior design in Porto and Gaia",
-    taglineA: "The luxury of",
-    taglineB: "feeling at home",
+    taglineA: "For 15 years, creating spaces where true luxury",
+    taglineB: "is feeling at home.",
     intro:
       "An architecture and interior design studio in Porto. We design and deliver renovations of flats and houses — from 3D visualisation to handing over the keys — with fine joinery, leather, natural stone and linen.",
     ctaPrimary: "Get a quote",

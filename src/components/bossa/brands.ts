@@ -6,7 +6,7 @@
  * automaticamente no lugar do nome. Enquanto não houver ficheiro
  * (logo: null), mostra-se o nome da marca em texto.
  */
-export type Brand = { name: string; logo: string | null };
+export type Brand = { name: string; logo: string | null; tall?: boolean }; // tall: logótipo mais alto que largo
 
 export const BRANDS: Brand[] = [
   { name: "Pedroso & Osório", logo: "pedroso-osorio.svg" },
@@ -17,4 +17,5 @@ export const BRANDS: Brand[] = [
   { name: "GoHome", logo: "gohome.png" },
   { name: "Aromas del Campo", logo: "aromas-del-campo.svg" },
   { name: "Fenabel", logo: "fenabel.svg" },
+  { name: "Duarte & Silva Construções", logo: "duarte-silva.png", tall: true },
 ];

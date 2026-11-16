@@ -34,7 +34,7 @@ export function Brands() {
                   src={img(`/marcas/${b.logo}`)}
                   alt={b.name}
                   loading="lazy"
-                  className="max-h-12 max-w-[150px] object-contain opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0"
+                  className={`${b.tall ? "max-h-[72px]" : "max-h-12"} max-w-[150px] object-contain opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0`}
                 />
               ) : (
                 <span className="text-center text-[13px] font-medium uppercase leading-snug tracking-[0.22em] text-jacaranda/60 transition-colors duration-500 hover:text-jacaranda">

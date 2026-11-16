@@ -200,7 +200,7 @@ function ProjectBody({ slug }: { slug: string }) {
             </p>
           </div>
           <div className="grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {m.pairs.map(([before, after]) => (
+            {m.pairs.map(([before, after, r]) => (
               <BeforeAfter
                 key={before + after}
                 before={photo(slug, before, "sm")}
@@ -208,7 +208,7 @@ function ProjectBody({ slug }: { slug: string }) {
                 beforeLabel={locale === "pt" ? "Antes" : "Before"}
                 afterLabel={locale === "pt" ? "Depois" : "After"}
                 alt={name}
-                ratio={(() => { const g = m.gallery.find((x) => x.f === after); return g && g.w > g.h ? "4 / 3" : "4 / 5"; })()}
+                ratio={r ? String(r) : (() => { const g = m.gallery.find((x) => x.f === after); return g && g.w > g.h ? "4 / 3" : "4 / 5"; })()}
               />
             ))}
           </div>
