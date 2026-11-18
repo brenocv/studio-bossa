@@ -14,19 +14,23 @@ import { useLocale } from "./i18n";
  */
 type Slide =
   | { kind: "video"; src: string; poster: string }
-  | { kind: "image"; src: string; alt: string };
+  | { kind: "image"; src: string; alt: string }
+  | { kind: "pair"; src: string; src2: string; alt: string }; // duas fotos verticais lado a lado
 
 const v = (n: string): Slide => ({ kind: "video", src: img(`/videos/${n}.mp4`), poster: img(`/videos/${n}-poster.jpg`) });
 const p = (path: string, alt: string): Slide => ({ kind: "image", src: img(`/projetos/${path}.jpg`), alt });
+const pp = (a: string, b: string, alt: string): Slide => ({ kind: "pair", src: img(`/projetos/${a}.jpg`), src2: img(`/projetos/${b}.jpg`), alt });
 
 const SLIDES: Slide[] = [
   v("hero"),
   p("projeto-oliva/01", "Projeto Oliva, bistrot"),
   v("fontinha-cozinha"), // Loft Instinto — cozinha ("video fontinha 2")
   v("fontinha-3"), // Loft Instinto — sala ("video fontinha 3")
+  pp("loft-instinto/01", "loft-instinto/05", "Loft Instinto, Fontinha, Porto"), // galeria 1 + 5
   p("casa-entre-serras/05", "Casa Entre Serras"),
   v("quarto"), // Projeto Trindade — quarto de hóspedes ("bedroom_cinematic_pushin_5s")
-  v("sala-fabi"), // Casa dos Arcos — sala (renders em movimento)
+  pp("loft-instinto/08", "loft-instinto/09", "Loft Instinto, Fontinha, Porto"), // galeria 8 + 9
+  pp("projeto-trindade/01", "projeto-trindade/02", "Projeto Trindade, Ramalde"), // galeria 1 + 2
 ];
 const FADE_S = 1.6; // esmaecer entre slides (segundos)
 const IMAGE_S = 6; // tempo de cada imagem (segundos)
@@ -80,7 +84,7 @@ export function Hero() {
   // imagens: avançar depois de IMAGE_S (só enquanto está a tocar)
   useEffect(() => {
     window.clearTimeout(timer.current);
-    if (!playing || SLIDES[current].kind !== "image") return;
+    if (!playing || SLIDES[current].kind === "video") return;
     timer.current = window.setTimeout(() => go(current + 1), (IMAGE_S - FADE_S / 2) * 1000);
     return () => window.clearTimeout(timer.current);
   }, [current, playing, round, go]);
@@ -146,6 +150,26 @@ export function Hero() {
                   />
                 );
               const near = Math.abs(i - current) <= 1 || (current === SLIDES.length - 1 && i === 0);
+              const anim = { animationDuration: `${IMAGE_S + FADE_S}s`, animationPlayState: playing || !on ? "running" : "paused" } as const;
+              if (sl.kind === "pair")
+                return (
+                  <div key={i} className={`${common} flex gap-1.5 bg-jacaranda sm:gap-2.5`} style={{ transitionDuration: `${FADE_S}s` }} aria-hidden>
+                    {[sl.src, sl.src2].map((src, j) => (
+                      <div key={j} className="relative h-full flex-1 overflow-hidden">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          key={`a${act.current[i]}`}
+                          src={src}
+                          alt=""
+                          loading={near ? "eager" : "lazy"}
+                          decoding="async"
+                          className={`h-full w-full object-cover ${j === 0 ? "kb-soft-a" : "kb-soft-b"}`}
+                          style={anim}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                );
               return (
                 <div key={i} className={common} style={{ transitionDuration: `${FADE_S}s` }} aria-hidden>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -156,7 +180,7 @@ export function Hero() {
                     loading={near ? "eager" : "lazy"}
                     decoding="async"
                     className={`h-full w-full object-cover ${MOVES[i % MOVES.length]}`}
-                    style={{ animationDuration: `${IMAGE_S + FADE_S}s`, animationPlayState: playing || !on ? "running" : "paused" }}
+                    style={anim}
                   />
                 </div>
               );
