@@ -21,14 +21,11 @@ const p = (path: string, alt: string): Slide => ({ kind: "image", src: img(`/pro
 
 const SLIDES: Slide[] = [
   v("hero"),
-  p("loft-instinto/01", "Loft Instinto, Fontinha, Porto"),
   p("projeto-oliva/01", "Projeto Oliva, bistrot"),
-  p("escritorio-adv/20", "Projeto Advogados"),
-  v("fontinha-cozinha"), // Loft Instinto — cozinha (vídeo enviado pela cliente)
-  v("sala-fontinha"), // Loft Instinto — sala (renders em movimento)
+  v("fontinha-cozinha"), // Loft Instinto — cozinha ("video fontinha 2")
+  v("fontinha-3"), // Loft Instinto — sala ("video fontinha 3")
   p("casa-entre-serras/05", "Casa Entre Serras"),
-  p("doce-partilha/05", "Doce Partilha, quarto de avó e neta"),
-  p("projeto-trindade/07", "Projeto Trindade, Ramalde"),
+  v("quarto"), // Projeto Trindade — quarto de hóspedes ("bedroom_cinematic_pushin_5s")
   v("sala-fabi"), // Casa dos Arcos — sala (renders em movimento)
 ];
 const FADE_S = 1.6; // esmaecer entre slides (segundos)
