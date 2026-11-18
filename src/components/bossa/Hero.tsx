@@ -26,10 +26,10 @@ const SLIDES: Slide[] = [
   p("projeto-oliva/01", "Projeto Oliva, bistrot"),
   v("fontinha-cozinha"), // Loft Instinto — cozinha ("video fontinha 2")
   v("fontinha-3"), // Loft Instinto — sala ("video fontinha 3")
-  pp("loft-instinto/01", "loft-instinto/05", "Loft Instinto, Fontinha, Porto"), // galeria 1 + 5
+  pp("casa-dos-arcos/01", "casa-dos-arcos/05", "Casa dos Arcos, Paranhos"), // galeria 1 + 5
   p("casa-entre-serras/05", "Casa Entre Serras"),
   v("quarto"), // Projeto Trindade — quarto de hóspedes ("bedroom_cinematic_pushin_5s")
-  pp("loft-instinto/08", "loft-instinto/09", "Loft Instinto, Fontinha, Porto"), // galeria 8 + 9
+  pp("casa-dos-arcos/08", "casa-dos-arcos/09", "Casa dos Arcos, Paranhos"), // galeria 8 + 9
   pp("projeto-trindade/01", "projeto-trindade/02", "Projeto Trindade, Ramalde"), // galeria 1 + 2
 ];
 const FADE_S = 1.6; // esmaecer entre slides (segundos)
